@@ -13,11 +13,4 @@ class ArticlesController < ApplicationController
 
   def index
   end
-
-  def create
-    params[:article][:category] = Category.find_by_full_name(params[:article][:category])
-    @article = Article.new(params[:article])
-    @article.user_id = current_user.id
-    @article.save
-  end
 end

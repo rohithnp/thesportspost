@@ -19,7 +19,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     params[:article][:category] = Category.find_by_full_name(params[:article][:category])
     if @article.update_attributes(params[:article])
-      redirect_to :action => 'show', :id => @article
+      redirect_to :action => :index
     end
   end
 
@@ -29,5 +29,13 @@ class Admin::ArticlesController < ApplicationController
     elsif current_user.role?(:writer)
       @articles = Article.where(:user_id => current_user.id) || []
     end
+  end
+
+  def create
+    params[:article][:category] = Category.find_by_full_name(params[:article][:category])
+    @article = Article.new(params[:article])
+    @article.user_id = current_user.id
+    @article.save
+    redirect_to :action => :index
   end
 end
