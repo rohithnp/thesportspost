@@ -19,7 +19,7 @@ ActiveAdmin.register Article do
       f.input :category
       f.input :title
       f.input :text
-      f.input :image, :as => :file
+      f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url(:thumb))
     end
     f.buttons
   end
