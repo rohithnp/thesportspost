@@ -1,6 +1,6 @@
 <p>This is the homepage</p>
 <ul>
   <% Article.limit(10).each do |article| %>
-    <li><%= article.title %></li>
+    <li><%= link_to article.title, article_path(article) %></li>
   <% end %>
 </ul>
