@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Thesportspost</title>
+  <title>The Sports Post</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="container">
+    <header>
+      <% if user_signed_in? %>
+        <%= current_user.email %> - <a href="/users/sign_out">Sign Out</a>
+      <% else %>
+        <a href="/users/sign_in">Sign In</a>
+      <% end %>
+    </header>
+    <%= yield %>
+  </div>
 </body>
 </html>
