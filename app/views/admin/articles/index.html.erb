@@ -1,16 +1,31 @@
 <h2>Your Articles</h2>
 <ul>
   <table>
-    <tr>
-      <th>Title</th>
-      <th>Category</th>
-      <th>Date</th>
-    </tr>
-    <% @articles.each do |article| %>
-      <% if current_user.role?(:writer) %>
+    <% if current_user.role?(:writer) %>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Date</th>
+      </tr>
+      <% @articles.each do |article| %>
         <tr>
           <td><%= link_to article.title, edit_admin_article_path(article) %></td>
           <td><%= article.category %></td>
+          <td><%= article.created_at %></td>
+        </tr>
+      <% end %>
+    <% elsif current_user.role?(:admin) || current_user.role?(:editor) %>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Author</th>
+        <th>Date</th>
+      </tr>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= link_to article.title, edit_admin_article_path(article) %></td>
+          <td><%= article.category %></td>
+          <td><%= article.user %></td>
           <td><%= article.created_at %></td>
         </tr>
       <% end %>
