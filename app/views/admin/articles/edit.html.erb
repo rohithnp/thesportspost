@@ -1,0 +1,12 @@
+<h2>Edit Article</h2>
+<%= form_for @article, :url => {:action => 'update' }, :html => {:multipart => true} do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br/>
+  <%= f.label :category %><br/>
+  <%= f.select :category, @categories %><br/>
+  <%= f.label :text %>
+  <%= f.text_area :text %><br/>
+  <%= f.label :image %>
+  <%= f.file_field :image %><br/>
+  <%= f.submit :submit %>
+<% end %>

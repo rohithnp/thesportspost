@@ -1,0 +1,11 @@
+<h2>Admin Panel</h2>
+
+<% if current_user.role?(:admin) %>
+  <p>Your are an ADMIN</p>
+<% elsif current_user.role?(:editor) %>
+  <p>Your are an editor</p>
+<% elsif current_user.role?(:writer) %>
+  <p>Your are a writer</p>
+  <%= link_to 'Your Articles', admin_articles_path %><br/>
+  <%= link_to 'New Article', new_admin_article_path %>
+<% end %>

@@ -1,11 +1,12 @@
 Thesportspost::Application.routes.draw do
-  ActiveAdmin.routes(self)
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-
   devise_for :users
 
+  namespace :admin do
+    resources :articles
+  end
   resources :articles
+  match 'admin' => 'admin#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

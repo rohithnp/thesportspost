@@ -1,0 +1,17 @@
+<h2>Your Articles</h2>
+<ul>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Date</th>
+    </tr>
+    <% @articles.each do |article| %>
+      <% if current_user.role?(:writer) %>
+        <tr>
+          <td><%= link_to article.title, edit_admin_article_path(article) %></td>
+          <td><%= article.created_at %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+</ul>

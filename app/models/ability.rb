@@ -8,11 +8,13 @@ class Ability
     if user.role? :admin
       can :manage, :all
     elsif user.role? :editor
+      can :read, User, :id => user.id
+      can :read, Category
       can :manage, Article
     elsif user.role? :writer
-      can :manage, Article do |article|
-        article.try(:user) == user
-      end
+      can :read, User, :id => user.id
+      can :read, Category
+      can :manage, Article, :user_id => user.id
     else
       can :read, Article
     end
