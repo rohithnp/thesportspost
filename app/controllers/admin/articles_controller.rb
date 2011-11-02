@@ -1,12 +1,24 @@
 class Admin::ArticlesController < ApplicationController
+  def show
+    @article = Article.find(params[:id])
+  end
+
   def new
     @article = Article.new
   end
-
+  
   def edit
     if can? :manage, Article
       @categories = Category.all.map {|c| [c.name,c.full_name] }
       @article = Article.find(params[:id])
+    end
+  end
+  
+  def update
+    @article = Article.find(params[:id])
+    params[:article][:category] = Category.find_by_full_name(params[:article][:category])
+    if @article.update_attributes(params[:article])
+      redirect_to :action => 'show', :id => @article
     end
   end
 

@@ -1,5 +1,5 @@
 <h2>Edit Article</h2>
-<%= form_for @article, :url => {:action => 'update' }, :html => {:multipart => true} do |f| %>
+<%= form_for @article, :url => admin_article_path(@article), :method => 'PUT', :html => {:multipart => true} do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %><br/>
   <%= f.label :category %><br/>
@@ -7,6 +7,11 @@
   <%= f.label :text %>
   <%= f.text_area :text %><br/>
   <%= f.label :image %>
+  <% if @article.image? %>
+    <img src="<%= @article.image.url(:thumb) %>"/>
+  <% end %>
   <%= f.file_field :image %><br/>
-  <%= f.submit :submit %>
+  <%= f.label :image_position %>
+  <%= f.select :image_position, Article::IMAGE_POSITIONS %>
+  <%= f.submit 'Update Article' %>
 <% end %>

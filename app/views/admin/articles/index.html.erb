@@ -3,15 +3,18 @@
   <table>
     <tr>
       <th>Title</th>
+      <th>Category</th>
       <th>Date</th>
     </tr>
     <% @articles.each do |article| %>
       <% if current_user.role?(:writer) %>
         <tr>
           <td><%= link_to article.title, edit_admin_article_path(article) %></td>
+          <td><%= article.category %></td>
           <td><%= article.created_at %></td>
         </tr>
       <% end %>
     <% end %>
   </table>
 </ul>
+<%= link_to 'New Article', new_admin_article_path %>

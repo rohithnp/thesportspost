@@ -3,6 +3,7 @@ Thesportspost::Application.routes.draw do
 
   namespace :admin do
     resources :articles
+    resources :users
   end
   resources :articles
   match 'admin' => 'admin#index'

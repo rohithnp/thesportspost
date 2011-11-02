@@ -13,6 +13,10 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
+    params[:article][:category] = Category.find_by_full_name(params[:article][:category])
+    if @article.update_attributes(params[:article])
+      redirect_to :action => 'show', :id => @article
+    end
   end
 
   def index
