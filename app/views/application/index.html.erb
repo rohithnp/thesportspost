@@ -1,1 +1,6 @@
-This is the homepage
+<p>This is the homepage</p>
+<ul>
+  <% Article.limit(10).each do |article| %>
+    <li><%= article.title %></li>
+  <% end %>
+</ul>

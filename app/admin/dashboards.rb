@@ -24,9 +24,6 @@ ActiveAdmin::Dashboards.build do
   #       render 'recent_posts' # => this will render /app/views/admin/dashboard/_recent_posts.html.erb
   #     end
   #   end
-  section "Articles" do
-    
-  end
 
   # == Section Ordering
   # The dashboard sections are ordered by a given priority from top left to
