@@ -11,18 +11,11 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  def update
-    @article = Article.find(params[:id])
-    params[:article][:category] = Category.find_by_full_name(params[:article][:category])
-    if @article.update_attributes(params[:article])
-      redirect_to :action => 'show', :id => @article
-    end
-  end
-
   def index
   end
 
   def create
+    params[:article][:category] = Category.find_by_full_name(params[:article][:category])
     @article = Article.new(params[:article])
     @article.user_id = current_user.id
     @article.save

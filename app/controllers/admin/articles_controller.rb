@@ -5,6 +5,7 @@ class Admin::ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @categories = Category.all.map {|c| [c.name,c.full_name] }
   end
   
   def edit
