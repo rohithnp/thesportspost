@@ -8,48 +8,53 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="container" class="container_16">
-    <header>
-      <div style="border-top: 3px solid black; padding-bottom: 5px"></div>
-      <div id="logo" class="grid_4">
-        <b><a href="/">THE SPORTS POST</a></b>
-      </div>
-      <div id="userbox" style="float:right">
-        <% if user_signed_in? %>
-          <%= current_user.email %>
-          &nbsp;-&nbsp;
-          <% if current_user.role?(:writer) %>
-            <%= link_to 'Admin', admin_articles_path %>
-          <% elsif can? :manage, Article %>
-            <%= link_to 'Admin', admin_path %>
+  <header>
+    <div id="header">
+      <div class="container_16">
+        <div id="logo" class="grid_4">
+          <b><a href="/">THE SPORTS POST</a></b>
+        </div>
+        <div id="userbox" class="suffix_4" style="float:right">
+          <% if user_signed_in? %>
+            <%= current_user.email %>
+            &nbsp;-&nbsp;
+            <% if current_user.role?(:writer) %>
+              <%= link_to 'Admin', admin_articles_path %>
+            <% elsif can? :manage, Article %>
+              <%= link_to 'Admin', admin_path %>
+            <% end %>
+            &nbsp;-&nbsp;
+            <%= link_to 'Sign Out', destroy_user_session_path, :method => 'DELETE' %>
+          <% else %>
+            <a href="/users/sign_in">Sign In</a>
           <% end %>
-          &nbsp;-&nbsp;
-          <%= link_to 'Sign Out', destroy_user_session_path, :method => 'DELETE' %>
-        <% else %>
-          <a href="/users/sign_in">Sign In</a>
-        <% end %>
-      </div>
-      <div class="clear"></div>
-      <% if false %>
-        <div id="header-categories" class="grid_12">
-          <ul class="categories">
-            <li class="categories">Football</li>
-            <li class="categories">Baseball</li>
-            <li class="categories">MMA</li>
-            <li class="categories">Basketball</li>
-          </ul>
         </div>
         <div class="clear"></div>
-      <% end %>
-    </header>
+        <% if false %>
+          <div id="header-categories" class="grid_12">
+            <ul class="categories">
+              <li class="categories">Football</li>
+              <li class="categories">Baseball</li>
+              <li class="categories">MMA</li>
+              <li class="categories">Basketball</li>
+            </ul>
+          </div>
+          <div class="clear"></div>
+        <% end %>
+      </div>
+    </div>
+  </header>
+  <div id="container">
     <section id="main">
       <%= yield %>
     </section>
     <footer>
-      <div class="grid_12" style="padding-top: 30px">
-        <div>&copy; 2011 http://thesportspost.com</div>
+      <div class="container_16">
+        <div class="grid_12" style="padding-top: 30px">
+          <div>&copy; 2011 http://thesportspost.com</div>
+        </div>
+        <div class="clear"></div>
       </div>
-      <div class="clear"></div>
     </footer>
   </div>
 </body>
