@@ -14,8 +14,7 @@
 <div class="clear"></div>
 <div id="popular-posts">
   <h3>Popular Posts</h3>
-  <div class="pic1">Post1</div>
-  <div class="pic2">Post2</div>
-  <div class="pic3">Post3</div>
-  <div class="pic4">Post4</div>
+  <% @posts.each do |article| %>
+    <div><%= link_to article.title, "/articles/#{article.slug}" %></div>
+  <% end %>
 </div>

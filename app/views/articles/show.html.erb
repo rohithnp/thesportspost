@@ -1,5 +1,5 @@
 <h2><%= @article.title %></h2>
-<p><%= @article.text %></p>
+<p><%= (sanitize markdown @article.text).html_safe %></p>
 <% if @article.image? %>
   <img src="<%= @article.image.url(:thumb) %>"/>
 <% end %>
