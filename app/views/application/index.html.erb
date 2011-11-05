@@ -1,32 +1,39 @@
-<div id="slideshow" class="grid_6">
-  <div id="slideshow-container" style="border: 1px solid black; height: 100px">
-    <div></div>
-  </div>
-</div>
-<div id="headlines" class="grid_4" style="border: 1px solid black;">
-  <h3>Headlines</h3>
-  <ul class="headlines">
-    <% @headlines.each do |article| %>
-      <li class="headlines"><%= link_to article.title, "/articles/#{article.slug}" %></li>
-    <% end %>
-  </ul>
-</div>
-<div class="clear"></div>
-<div id="popular-posts">
-  <h3>Popular Posts</h3>
-  <% @posts.each do |article| %>
-    <div>
-      <div class="article-image-thumbnail">
-        <% if article.image? %>
-          <img src="<%= article.image.url(:thumb) %>" width="80" height="80"/>
-        <% else %>
-          <div style="width: 78px; height: 78px; border: 1px solid black"></div>
-        <% end %>
-      </div>
+<section id="slideshow-headlines-section" style="height: 200px">
+  <div id="slideshow" class="grid_8">
+    <div id="slideshow-container" style="border: 1px solid black; height: 200px">
       <div>
-        <%= link_to article.title, "/articles/#{article.slug}" %>
+        <img src="<%= Article.first.image.url(:thumb) %>"/>
       </div>
-      <div class="clear"></div>
     </div>
-  <% end %>
-</div>
+  </div>
+  <div id="headlines" class="grid_4" style="border: 1px solid black; height: 200px">
+    <h3>Headlines</h3>
+    <ul class="headlines">
+      <% @headlines.each do |article| %>
+        <li class="headlines"><%= link_to article.title, "/articles/#{article.slug}" %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="clear"></div>
+</section>
+<section id="popular-posts-section">
+  <div id="popular-posts" class="grid_12">
+    <h3>Popular Posts</h3>
+    <% @posts.each do |article| %>
+      <div class="popular-post">
+        <div class="article-image-thumbnail">
+          <% if article.image? %>
+            <img src="<%= article.image.url(:thumb) %>" width="80" height="80"/>
+          <% else %>
+            <div style="width: 78px; height: 78px; border: 1px solid black"></div>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to article.title, "/articles/#{article.slug}" %>
+        </div>
+        <div class="clear"></div>
+      </div>
+    <% end %>
+  </div>
+  <div class="clear"></div>
+</section>

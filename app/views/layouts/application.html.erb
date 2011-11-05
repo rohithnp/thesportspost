@@ -3,8 +3,8 @@
 <head>
   <title>The Sports Post</title>
   <%= stylesheet_link_tag    "application" %>
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,7 +13,7 @@
       <div id="logo" class="grid_4">
         <b><a href="/">The Sports Post</a></b>
       </div>
-      <div id="userbox" class="prefix_4 grid_8">
+      <div id="userbox" class="suffix_4" style="float:right">
         <% if user_signed_in? %>
           <%= current_user.email %>
           &nbsp;-&nbsp;
@@ -29,7 +29,7 @@
         <% end %>
       </div>
       <div class="clear"></div>
-      <div id="header-categories">
+      <div id="header-categories" class="grid_12">
         <ul class="categories">
           <li class="categories">Football</li>
           <li class="categories">Baseball</li>
@@ -42,7 +42,10 @@
       <%= yield %>
     </section>
     <footer>
-      &copy; 2011 http://thesportspost.com
+      <div class="grid_12" style="padding-top: 30px">
+        <div>&copy; 2011 http://thesportspost.com</div>
+      </div>
+      <div class="clear"></div>
     </footer>
   </div>
 </body>
