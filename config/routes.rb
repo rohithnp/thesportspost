@@ -5,7 +5,7 @@ Thesportspost::Application.routes.draw do
     resources :articles
     resources :users
   end
-  resources :articles
+  resources :articles, :only => [:show]
   match 'admin' => 'admin#index'
 
   # The priority is based upon order of creation:

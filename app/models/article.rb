@@ -5,6 +5,7 @@ class Article < ActiveRecord::Base
     :thumb => 'x100',
     :big => '500x500>'
   }
+  before_save :generate_slug
 
   IMAGE_POSITIONS = [
     ['top-left', 0],
@@ -14,4 +15,8 @@ class Article < ActiveRecord::Base
     ['bottom-left', 4],
     ['bottom-right', 5]
   ]
+
+  def generate_slug
+    self.slug = title.downcase.gsub(/[^a-z ]/,'').gsub(/ +/,'-') + "-#{id}"
+  end
 end
