@@ -16,4 +16,7 @@
     <%= f.select :image_position, Article::IMAGE_POSITIONS %>
     <%= f.submit 'Update Article' %>
   <% end %>
+  <div class="article-edit-commands" style="padding-top: 30px">
+    <%= link_to "View Article", "/articles/#{@article.slug}" %>
+  </div>
 </div>
