@@ -2,14 +2,38 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require normalize
+ *= require 960
  *= require_self
 */
-@import "normalize";
-@import "960";
 
-#container {
-  background-color: lightgray;
+body {
+  font-family: "PT Sans Narrow", Helvetica, Arial, sans-serif;
 }
+#container {
+  border: 1px dotted black;
+}
+
+ul.categories {
+  list-style-type: none;
+}
+li.categories {
+  display: inline;
+  padding-right: 20px;
+}
+
+ul.headlines {
+  list-style-type: none;
+  padding: 0;
+}
+li.headlines:before {
+  content: "\00BB \0020";
+}
+
+.article-image-thumbnail {
+  float: left;
+}
+
 .image-position-0 {
   position: relative;
   top: 0;
@@ -29,3 +53,4 @@
 }
 .image-position-5 {
 }
+
