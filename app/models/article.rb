@@ -10,10 +10,10 @@ class Article < ActiveRecord::Base
   IMAGE_POSITIONS = [
     ['top-left', 0],
     ['top-right', 1],
-    ['mid-left', 2],
-    ['mid-right', 3],
-    ['bottom-left', 4],
-    ['bottom-right', 5]
+    # ['mid-left', 2],
+    # ['mid-right', 3],
+    # ['bottom-left', 4],
+    # ['bottom-right', 5]
   ]
 
   def generate_slug

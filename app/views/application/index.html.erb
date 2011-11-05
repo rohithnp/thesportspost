@@ -1,23 +1,25 @@
-<section id="slideshow-headlines-section" style="height: 200px">
-  <div class="container_16">
-    <div id="slideshow-container" class="grid_8">
-      <div id="slideshow" style="height: 200px">
-        <div>
-          <img src="<%= Article.first.image.url(:thumb) %>"/>
+<% if false %>
+  <section id="slideshow-headlines-section" style="height: 200px">
+    <div class="container_16">
+      <div id="slideshow-container" class="grid_8">
+        <div id="slideshow" style="height: 200px">
+          <div>
+            <img src="<%= Article.first.image.url(:thumb) %>"/>
+          </div>
         </div>
       </div>
+      <div id="headlines-container" class="grid_4" style="height: 200px">
+        <h3>Headlines</h3>
+        <ul class="headlines">
+          <% @headlines.each do |article| %>
+            <li class="headlines"><%= link_to article.title, "/articles/#{article.slug}" %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="clear"></div>
     </div>
-    <div id="headlines-container" class="grid_4" style="height: 200px">
-      <h3>Headlines</h3>
-      <ul class="headlines">
-        <% @headlines.each do |article| %>
-          <li class="headlines"><%= link_to article.title, "/articles/#{article.slug}" %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="clear"></div>
-  </div>
-</section>
+  </section>
+<% end %>
 <section id="popular-posts-section">
   <div class="container_16" style="padding-bottom: 20px">
     <div id="popular-posts" class="grid_14">

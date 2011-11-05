@@ -102,17 +102,21 @@ section#popular-posts-section {
   width: 270px;
 }
 
+.article-title {
+  padding-bottom: 20px;
+}
+.article-title h2 {
+  margin-bottom: 0;
+}
 .image-position-0 {
-  position: relative;
-  top: 0;
-  left: 0;
-  padding: 10px;
+  float: left;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 .image-position-1 {
-  position: relative;
-  top: 0;
-  left: 0;
-  padding: 10px;
+  float: right;
+  padding-left: 10px;
+  padding-bottom: 10px;
 }
 .image-position-2 {
   float: left;
