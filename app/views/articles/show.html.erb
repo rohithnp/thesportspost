@@ -1,5 +1,11 @@
-<h2><%= @article.title %></h2>
-<p><%= (sanitize markdown @article.text).html_safe %></p>
-<% if @article.image? %>
-  <img src="<%= @article.image.url(:thumb) %>"/>
-<% end %>
+<div class="article-container">
+  <div class="article-title">
+    <h2><%= @article.title %></h2>
+  </div>
+  <% if @article.image? %>
+    <div class="image-position-<%= @article.image_position %>"><img src="<%= @article.image.url(:big) %>"/></div>
+  <% end %>
+  <div class="article-body">
+    <p><%= (sanitize markdown @article.text).html_safe %></p>
+  </div>
+</div>

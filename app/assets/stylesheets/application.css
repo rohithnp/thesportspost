@@ -10,3 +10,22 @@
 #container {
   background-color: lightgray;
 }
+.image-position-0 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.image-position-1 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.image-position-2 {
+  float: left;
+}
+.image-position-3 {
+}
+.image-position-4 {
+}
+.image-position-5 {
+}
