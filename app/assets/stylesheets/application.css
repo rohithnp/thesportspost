@@ -8,10 +8,20 @@
 */
 
 body {
-  font-family: "PT Sans Narrow", Helvetica, Arial, sans-serif;
+  font-family: "Droid Sans", Helvetica, Arial, sans-serif;
 }
 #container {
-  border: 1px dotted black;
+  // border: 1px dotted black;
+}
+
+header {
+  padding-bottom: 30px;
+}
+header a {
+  text-decoration: none;
+}
+header a:visited {
+  color: blue;
 }
 
 ul.categories {
@@ -31,22 +41,55 @@ li.headlines:before {
   content: "\00BB \0020";
 }
 
-.article-image-thumbnail {
+#headlines-container {
+  font-size: 0.8em;
+}
+#headlines-container h3 {
+  margin: 0;
+}
+
+section#popular-posts-section {
+  background-color: #f9f9f9;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 15px;
+  font-size: 0.8em;
+}
+.popular-post {
+  width: 440px;
+}
+.popular-post-image-thumbnail {
   float: left;
+  width: 90px;
+}
+.popular-post-title {
+  float: left;
+  width: 340px;
+}
+.popular-post-title a {
+  color: gray;
+  text-decoration: none;
+}
+.popular-post-title a:visited {
+  color: gray;
 }
 
 .image-position-0 {
   position: relative;
   top: 0;
   left: 0;
+  padding: 10px;
 }
 .image-position-1 {
   position: relative;
   top: 0;
   left: 0;
+  padding: 10px;
 }
 .image-position-2 {
   float: left;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 .image-position-3 {
 }
@@ -55,3 +98,7 @@ li.headlines:before {
 .image-position-5 {
 }
 
+footer {
+  font-size: 0.6em;
+  color: gray;
+}

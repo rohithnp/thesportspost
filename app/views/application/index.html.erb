@@ -1,12 +1,12 @@
 <section id="slideshow-headlines-section" style="height: 200px">
-  <div id="slideshow" class="grid_8">
-    <div id="slideshow-container" style="border: 1px solid black; height: 200px">
+  <div id="slideshow-container" class="grid_8">
+    <div id="slideshow" style="height: 200px">
       <div>
         <img src="<%= Article.first.image.url(:thumb) %>"/>
       </div>
     </div>
   </div>
-  <div id="headlines" class="grid_4" style="border: 1px solid black; height: 200px">
+  <div id="headlines-container" class="grid_4" style="height: 200px">
     <h3>Headlines</h3>
     <ul class="headlines">
       <% @headlines.each do |article| %>
@@ -17,23 +17,24 @@
   <div class="clear"></div>
 </section>
 <section id="popular-posts-section">
-  <div id="popular-posts" class="grid_12">
+  <div id="popular-posts" class="grid_14">
     <h3>Popular Posts</h3>
     <% @posts.each do |article| %>
       <div class="popular-post">
-        <div class="article-image-thumbnail">
+        <div class="popular-post-image-thumbnail">
           <% if article.image? %>
-            <img src="<%= article.image.url(:thumb) %>" width="80" height="80"/>
+            <img src="<%= article.image.url(:thumb) %>" width="80" height="40"/>
           <% else %>
-            <div style="width: 78px; height: 78px; border: 1px solid black"></div>
+            <div style="width: 78px; height: 38px; border: 1px solid lightgray"></div>
           <% end %>
         </div>
-        <div>
+        <div class="popular-post-title">
           <%= link_to article.title, "/articles/#{article.slug}" %>
         </div>
         <div class="clear"></div>
       </div>
     <% end %>
+    <div class="clear"></div>
   </div>
   <div class="clear"></div>
 </section>

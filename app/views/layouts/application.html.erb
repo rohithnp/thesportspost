@@ -4,16 +4,17 @@
   <title>The Sports Post</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div id="container" class="container_16">
     <header>
+      <div style="border-top: 3px solid black; padding-bottom: 5px"></div>
       <div id="logo" class="grid_4">
-        <b><a href="/">The Sports Post</a></b>
+        <b><a href="/">THE SPORTS POST</a></b>
       </div>
-      <div id="userbox" class="suffix_4" style="float:right">
+      <div id="userbox" style="float:right">
         <% if user_signed_in? %>
           <%= current_user.email %>
           &nbsp;-&nbsp;
@@ -29,14 +30,17 @@
         <% end %>
       </div>
       <div class="clear"></div>
-      <div id="header-categories" class="grid_12">
-        <ul class="categories">
-          <li class="categories">Football</li>
-          <li class="categories">Baseball</li>
-          <li class="categories">MMA</li>
-          <li class="categories">Basketball</li>
-        </ul>
-      </div>
+      <% if false %>
+        <div id="header-categories" class="grid_12">
+          <ul class="categories">
+            <li class="categories">Football</li>
+            <li class="categories">Baseball</li>
+            <li class="categories">MMA</li>
+            <li class="categories">Basketball</li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+      <% end %>
     </header>
     <section id="main">
       <%= yield %>

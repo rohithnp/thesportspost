@@ -1,7 +1,7 @@
-<div class="article-container">
+<div class="article-container grid_12">
   <div class="article-title">
     <h2><%= @article.title %></h2>
-    <p>by <%= @article.user %></p>
+    <p>By <%= @article.user %></p>
   </div>
   <% if @article.image? %>
     <div class="image-position-<%= @article.image_position %>"><img src="<%= @article.image.url(:big) %>"/></div>
