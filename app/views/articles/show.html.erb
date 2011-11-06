@@ -4,6 +4,7 @@
       <div class="article-title">
         <h2><%= @article.title %></h2>
         <div>By <%= @article.user %></div>
+        <div>On <%= @article.date_published %></div>
       </div>
       <% if @article.image? %>
         <div class="image-position-<%= @article.image_position %>"><img src="<%= @article.image.url(:big) %>"/></div>

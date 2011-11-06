@@ -15,7 +15,11 @@ class Article < ActiveRecord::Base
     # ['bottom-left', 4],
     # ['bottom-right', 5]
   ]
+  def date_published
+    created_at.strftime("%B %d, %Y")
+  end
 
+  protected
   def generate_slug
     self.slug = title.downcase.gsub(/[^a-z ]/,'').gsub(/ +/,'-') + "-#{id}"
   end
