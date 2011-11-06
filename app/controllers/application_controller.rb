@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :get_categories
 
   def index
     @headlines = Article.limit(7)
@@ -11,5 +12,10 @@ class ApplicationController < ActionController::Base
       }
     }.to_json
     @posts = Article.limit(5)
+  end
+
+  protected
+  def get_categories
+    @categories = Category.limit(4)
   end
 end

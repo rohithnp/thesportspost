@@ -5,6 +5,7 @@ Thesportspost::Application.routes.draw do
     resources :articles
     resources :users
   end
+  resources :categories, :only => [:show]
   resources :articles, :only => [:show]
   match 'admin' => 'admin#index'
 
