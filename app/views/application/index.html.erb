@@ -1,25 +1,35 @@
-<% if false %>
-  <section id="slideshow-headlines-section" style="height: 200px">
-    <div class="container_16">
-      <div id="slideshow-container" class="grid_8">
-        <div id="slideshow" style="height: 200px">
-          <div>
-            <img src="<%= Article.first.image.url(:thumb) %>"/>
-          </div>
-        </div>
+<section id="slideshow-headlines-section" style="height: 250px">
+  <div class="container_16">
+    <div id="slideshow-container" class="grid_8">
+      <div id="slideshow" style="height: 250px">
+        <% if false %>
+          <div><img src="<%= Article.first.image.url(:thumb) %>"/></div>
+        <% end %>
       </div>
-      <div id="headlines-container" class="grid_4" style="height: 200px">
-        <h3>Headlines</h3>
-        <ul class="headlines">
-          <% @headlines.each do |article| %>
-            <li class="headlines"><%= link_to article.title, "/articles/#{article.slug}" %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="clear"></div>
+      <script>
+        var slider = new Slider($("#slideshow"));
+        slider.setPhotos([
+          { 'src': 'http://localhost:3000/system/images/3/thumb/BusterHoodedZipUpCharcoalA.jpg?1320236869', 'name': 'Picture 1' },
+          { 'src': 'http://localhost:3000/system/images/2/thumb/PiecesFullZipHoodedFleeceJacketOxBloodRedA.jpg?1320236746', 'name': 'Picture 2' }
+        ]);
+        slider.setPhotos(<%= @slideshow.html_safe %>);
+        slider.setSize(440,200);
+        slider.setTheme("theme-dark");
+        slider.setTransition("transition-squares");
+        slider.start();
+      </script>
     </div>
-  </section>
-<% end %>
+    <div id="headlines-container" class="grid_4" style="height: 250px">
+      <h3>Headlines</h3>
+      <ul class="headlines">
+        <% @headlines.each do |article| %>
+          <li class="headlines"><%= link_to article.title, "/articles/#{article.slug}" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+</section>
 <section id="popular-posts-section">
   <div class="container_16" style="padding-bottom: 20px">
     <div id="popular-posts" class="grid_14">
