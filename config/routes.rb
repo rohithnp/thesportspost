@@ -1,13 +1,14 @@
 Thesportspost::Application.routes.draw do
   devise_for :users
 
+  match 'admin' => 'admin#index', :as => 'user_root'
+  # match 'admin' => 'admin#index'
   namespace :admin do
     resources :articles
     resources :users
   end
   resources :categories, :only => [:show]
   resources :articles, :only => [:show]
-  match 'admin' => 'admin#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

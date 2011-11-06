@@ -1,23 +1,24 @@
 class Admin::ArticlesController < ApplicationController
-  load_and_authorize_resource
 
   def show
+    authorize! :manage, Article
     @article = Article.find(params[:id])
   end
 
   def new
+    authorize! :manage, Article
     @article = Article.new
     @categories = Category.all.map {|c| [c.name,c.full_name] }
   end
   
   def edit
-    if can? :manage, Article
-      @categories = Category.all.map {|c| [c.name,c.full_name] }
-      @article = Article.find(params[:id])
-    end
+    authorize! :manage, Article
+    @categories = Category.all.map {|c| [c.name,c.full_name] }
+    @article = Article.find(params[:id])
   end
   
   def update
+    authorize! :manage, Article
     @article = Article.find(params[:id])
     params[:article][:category] = Category.find_by_full_name(params[:article][:category])
     if @article.update_attributes(params[:article])
@@ -26,6 +27,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def index
+    authorize! :manage, Article
     if current_user.role?(:admin) || current_user.role?(:editor)
       @articles = Article.all
     elsif current_user.role?(:writer)
@@ -34,6 +36,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def create
+    authorize! :manage, Article
     params[:article][:category] = Category.find_by_full_name(params[:article][:category])
     @article = Article.new(params[:article])
     @article.user_id = current_user.id

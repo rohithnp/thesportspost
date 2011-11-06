@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+  before_filter :authorize_user_admin
+
   def new
     @user = User.new
   end
@@ -18,5 +20,9 @@ class Admin::UsersController < ApplicationController
     if @user.save
       redirect_to :action => 'index'
     end
+  end
+
+  def authorize_user_admin
+    authorize! :manage, User
   end
 end

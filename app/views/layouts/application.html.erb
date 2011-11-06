@@ -21,7 +21,7 @@
             <% if current_user.role?(:writer) %>
               <%= link_to 'Admin', admin_articles_path %>
             <% elsif can? :manage, Article %>
-              <%= link_to 'Admin', admin_path %>
+              <%= link_to 'Admin', user_root_path %>
             <% end %>
             &nbsp;-&nbsp;
             <%= link_to 'Sign Out', destroy_user_session_path, :method => 'DELETE' %>
