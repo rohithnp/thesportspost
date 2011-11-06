@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
 
   protected
   def get_categories
-    @categories = Category.limit(4)
+    @navbar_categories = Category.limit(4)
   end
 end

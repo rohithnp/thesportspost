@@ -36,7 +36,7 @@
       <div class="container_16">
         <div id="header-categories" class="grid_12">
           <ul class="categories">
-            <% @categories.each do |category| %>
+            <% @navbar_categories.each do |category| %>
               <li class="categories"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
             <% end %>
           </ul>

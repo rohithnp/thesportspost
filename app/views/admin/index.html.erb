@@ -1,14 +1,16 @@
-<h2>Admin Panel</h2>
+<div class="container_16">
+  <h2>Admin Panel</h2>
 
-<% if current_user.role?(:admin) %>
-  <p>You are an <b>admin</b></p>
-  <%= link_to 'Manage Articles', admin_articles_path %><br/>
-  <%= link_to 'Manage Users', admin_users_path %><br/>
-<% elsif current_user.role?(:editor) %>
-  <p>You are an editor</p>
-  <%= link_to 'Manage Articles', admin_articles_path %><br/>
-<% elsif current_user.role?(:writer) %>
-  <p>You are a writer</p>
-  <%= link_to 'Your Articles', admin_articles_path %><br/>
-  <%= link_to 'New Article', new_admin_article_path %>
-<% end %>
+  <% if current_user.role?(:admin) %>
+    <p>You are an <b>admin</b></p>
+    <%= link_to 'Manage Articles', admin_articles_path %><br/>
+    <%= link_to 'Manage Users', admin_users_path %><br/>
+  <% elsif current_user.role?(:editor) %>
+    <p>You are an editor</p>
+    <%= link_to 'Manage Articles', admin_articles_path %><br/>
+  <% elsif current_user.role?(:writer) %>
+    <p>You are a writer</p>
+    <%= link_to 'Your Articles', admin_articles_path %><br/>
+    <%= link_to 'New Article', new_admin_article_path %>
+  <% end %>
+</div>
