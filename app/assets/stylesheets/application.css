@@ -68,6 +68,10 @@ li.categories {
 
 ul.headlines {
   padding: 0;
+  margin-left: 15px;
+}
+li.headlines {
+  padding-bottom: 10px;
 }
 li.headlines a {
   color: #222;

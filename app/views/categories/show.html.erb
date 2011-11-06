@@ -2,7 +2,7 @@
   <h2><%= @category.full_name %></h2>
   <ul>
     <% @articles.each do |article| %>
-      <li><%= link_to article.title, "/articles/<%= article.slug" %></li>
+      <li><%= link_to article.title, "/articles/#{article.slug}" %></li>
     <% end %>
   </ul>
 </div>
