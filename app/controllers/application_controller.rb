@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     @headlines = Article.limit(7)
     @slideshow = Article.where('image_file_name IS NOT NULL').limit(3).map {|a|
       {
-        :src => "http://localhost:3000#{a.image.url(:big)}",
+        :src => a.image.url(:big),
         :link => "/articles/#{a.slug}",
         :name => a.title
       }
