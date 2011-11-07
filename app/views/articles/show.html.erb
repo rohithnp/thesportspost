@@ -10,7 +10,7 @@
         <div class="image-position-<%= @article.image_position %>"><img src="<%= @article.image.url(:big) %>"/></div>
       <% end %>
       <div class="article-body">
-        <p><%= (sanitize markdown @article.text).html_safe %></p>
+        <p><%= markdown(@article.text).html_safe %></p>
       </div>
     </div>
   </div>

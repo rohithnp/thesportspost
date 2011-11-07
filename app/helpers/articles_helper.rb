@@ -1,5 +1,5 @@
 module ArticlesHelper
   def markdown(text)
-    RDiscount.new(text, :smart, :filter_html).to_html
+    sanitize Redcarpet.new(text.strip, :smart, :filter_html).to_html
   end
 end
