@@ -6,11 +6,8 @@
         <div>By <%= @article.user %></div>
         <div>On <%= @article.date_published %></div>
       </div>
-      <% if @article.image? %>
-        <div class="image-position-<%= @article.image_position %>"><img src="<%= @article.image.url(:big) %>"/></div>
-      <% end %>
       <div class="article-body">
-        <p><%= markdown(@article.text).html_safe %></p>
+        <p><%= format_article(@article.text).html_safe %></p>
       </div>
     </div>
   </div>

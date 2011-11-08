@@ -22,7 +22,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     params[:article][:category] = Category.find_by_full_name(params[:article][:category])
     if @article.update_attributes(params[:article])
-      redirect_to :action => :index
+      redirect_to :action => :edit, :id => params[:id]
     end
   end
 

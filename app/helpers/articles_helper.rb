@@ -1,5 +1,5 @@
 module ArticlesHelper
-  def markdown(text)
-    sanitize Redcarpet.new(text.strip, :smart, :filter_html).to_html
+  def format_article(text)
+    sanitize(text, :tags => %w(p img iframe strong span h1 h2 h3 h4 h5 h6 ol ul li), :attributes => %w(id class style src width height))
   end
 end
