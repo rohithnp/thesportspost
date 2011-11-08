@@ -15,17 +15,13 @@
         <td><%= f.text_area :text, :size => '120x30' %></td>
       </tr>
       <tr>
-        <td><%= f.label :image %></td>
+        <td><%= f.label 'Thumbnail Image' %></td>
         <td>
           <% if @article.image? %>
             <img src="<%= @article.image.url :thumb %>"/>
           <% end %>
           <%= f.file_field :image %>
         </td>
-      </tr>
-      <tr>
-        <td><%= f.label :image_position %></td>
-        <td><%= f.select :image_position, Article::IMAGE_POSITIONS %></td>
       </tr>
     </table>
     <script>
