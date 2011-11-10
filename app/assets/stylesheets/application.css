@@ -4,7 +4,7 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require normalize
  *= require 960
- *= require slider.min
+ *= require slides.jquery
  *= require_self
 */
 
@@ -92,6 +92,13 @@ section#slideshow-headlines-section {
   padding-top: 30px;
   padding-bottom: 30px;
 }
+#slideshow {
+  float: left;
+}
+#slideshow-container {
+  height: 270px;
+}
+
 section#popular-posts-section {
   background-color: #f9f9f9;
   border-top: 1px solid #e5e5e5;

@@ -5,14 +5,43 @@
         <% if false %>
           <div><img src="<%= Article.first.image.url(:thumb) %>"/></div>
         <% end %>
+        <div id="slides">
+          <div class="slides_container">
+            <% @slideshow.each do |slide| %>
+              <div class="slide">
+                <a href="<%= "/articles/#{slide.slug}" %>">
+                  <img src="<%= slide.image.url(:big) %>" width="440"/>
+                  <div class="caption"><%= slide.title %></div>
+                </a>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
       <script>
-        var slider = new Slider($("#slideshow"));
-        slider.setPhotos(<%= @slideshow.html_safe %>);
-        slider.setSize(440,200);
-        slider.setTheme("theme-dark");
-        slider.setTransitionFunction(SliderTransitionFunctions['squares']);
-        slider.start();
+        (function() {
+          $("#slideshow").slides({
+            preload: true,
+            play: 5000,
+            pause: 2500,
+            hoverPause: true,
+            animationStart: function(current) {
+              $(".caption").animate({
+                bottom: -35
+              },100);
+            },
+            animationComplete: function(current) {
+              $(".caption").animate({
+                bottom: 0
+              },200);
+            },
+            slidesLoaded: function() {
+              $(".caption").animate({
+                bottom: 0
+              },200);
+            }
+          });
+        })();
       </script>
     </div>
     <div id="headlines-container" class="grid_4">
