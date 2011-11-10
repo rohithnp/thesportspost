@@ -15,14 +15,11 @@
         <td><%= f.text_area :text %></td>
       </tr>
       <tr>
-        <td><%= f.label :image %></td>
+        <td><%= f.label 'Thumbnail Image' %></td>
         <td><%= f.file_field :image %></td>
       </tr>
-      <tr>
-        <td><%= f.label :image_position %></td>
-        <td><%= f.select :image_position, Article::IMAGE_POSITIONS %></td>
-      </tr>
     </table>
+    <%= render :partial => 'tinymce' %>
     <br/>
     <%= f.submit 'Create Article' %>
   <% end %>

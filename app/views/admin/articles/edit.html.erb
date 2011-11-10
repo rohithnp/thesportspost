@@ -24,18 +24,7 @@
         </td>
       </tr>
     </table>
-    <script>
-      (function() {
-        $("textarea").tinymce({
-          theme: 'advanced',
-          theme_advanced_toolbar_location: "top",
-          theme_advanced_toolbar_align: "left",
-          theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,fontselect,formatselect,|,image,link,unlink,|,bullist,numlist,indent,outdent,|,charmap,|,undo,redo,|,cleanup,removeformat,code",
-          theme_advanced_buttons2 : "",
-          theme_advanced_buttons3 : ""
-        });
-      })();
-    </script>
+    <%= render :partial => 'tinymce' %>
     <br/>
     <%= f.submit 'Update Article' %>
   <% end %>
