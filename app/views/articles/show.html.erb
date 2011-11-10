@@ -1,14 +1,15 @@
 <section id="article-section">
   <div class="container_16">
     <div class="article-container grid_12">
-      <div class="article-title">
-        <h2><%= @article.title %></h2>
-        <div>By <%= @article.user %></div>
-        <div>On <%= @article.date_published %></div>
+      <div class="article-header">
+        <h2 id="article-title"><%= @article.title %></h2>
+        <div class="article-author"><%= @article.user %></div>
+        <div class="article-date"><%= @article.date_published %></div>
       </div>
       <div class="article-body">
         <p><%= format_article(@article.text).html_safe %></p>
       </div>
     </div>
   </div>
+  <div class="clear"></div>
 </section>

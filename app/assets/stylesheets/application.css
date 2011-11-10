@@ -66,28 +66,30 @@ li.categories {
   padding-right: 20px;
 }
 
-ul.headlines {
-  padding: 0;
-  margin-left: 15px;
-}
-li.headlines {
-  padding-bottom: 10px;
-}
-li.headlines a {
-  color: #222;
-  text-decoration: none;
-}
-
 #headlines-container {
   font-size: 0.8em;
 }
 #headlines-container h3 {
   margin: 0;
 }
+ul.headlines {
+  padding: 0;
+  margin-bottom: 0;
+  margin-left: 15px;
+}
+li.headlines {
+  padding-bottom: 5px;
+}
+li.headlines a {
+  color: #222;
+  text-decoration: none;
+}
+
 
 section#slideshow-headlines-section {
   background-color: #efefef;
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 section#popular-posts-section {
   background-color: #f9f9f9;
@@ -114,15 +116,31 @@ section#popular-posts-section {
   width: 90px;
 }
 .popular-post-title {
+  color: #222222;
   float: left;
   width: 270px;
 }
 
-.article-title {
+section#article-section {
+  font-family: Helvetica, Arial, Sans-Serif;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 15px;
+  font-size: 0.8em;
+}
+.article-header {
   padding-bottom: 20px;
 }
-.article-title h2 {
-  margin-bottom: 0;
+h2#article-title {
+  padding-top: 10px;
+}
+.article-author {
+  color: #5f5f5f;
+  font-size: 0.9em;
+}
+.article-date {
+  color: #5f5f5f;
+  font-size: 0.8em;
 }
 .image-position-0 {
   float: left;
@@ -149,4 +167,5 @@ section#popular-posts-section {
 footer {
   font-size: 0.6em;
   color: gray;
+  padding: 20px;
 }
