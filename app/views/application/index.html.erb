@@ -72,7 +72,7 @@
               <% if article.image? %><img src="<%= article.image.url(:big) %>" width="200"/><% end %>
             </div>
             <div class="popular-post-title"><%= article.title %></div>
-            <div class="popular-post-description"><%= strip_tags(article.text)[0..100].strip %>...</div>
+            <div class="popular-post-description"><%= strip_tags(article.text)[0..100].strip.html_safe %>...</div>
           </a>
           <div class="clear"></div>
         </div>
