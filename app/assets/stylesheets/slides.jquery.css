@@ -17,11 +17,14 @@
   left: 0;
   height: 1.8em;
   padding: 5px 20px 0 20px;
-  background: rgba(0,0,0,0.5);
-  width: 440px;
+  background: rgba(0,0,0,0.6);
+  width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 0.8em;
   color: white;
-  border-top: 1px solid black;
+  border-top: 1px solid #222222;
 }
 .pagination {
   margin: 13px auto 0;
