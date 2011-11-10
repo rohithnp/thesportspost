@@ -28,19 +28,22 @@
 </section>
 <section id="popular-posts-section">
   <div class="container_16" style="padding-bottom: 20px">
-    <div id="popular-posts" class="grid_14">
-      <h3>Popular Posts</h3>
-      <% @posts.each do |article| %>
-        <div class="popular-post">
+    <div id="popular-posts">
+      <div class="grid_12">
+        <h3>Popular Posts</h3>
+      </div>
+      <div class="clear"></div>
+      <% @posts.each_with_index do |article,i| %>
+        <% if i>0 and i%3 == 0 %>
+          <div class="clear"></div>
+        <% end %>
+        <div class="popular-post grid_4">
           <a href="/articles/<%= article.slug %>">
             <div class="popular-post-image-thumbnail">
-              <% if article.image? %>
-                <div style="background: url('<%= article.image.url(:thumb) %>'); width:80px; height:40px;"></div>
-              <% else %>
-                <div style="width: 78px; height: 38px; border: 1px solid lightgray; background-color: #fefefe"></div>
-              <% end %>
+              <% if article.image? %><img src="<%= article.image.url(:big) %>" width="225"/><% end %>
             </div>
             <div class="popular-post-title"><%= article.title %></div>
+            <div class="popular-post-description"><%= strip_tags(article.text)[0..100].strip %>...</div>
           </a>
           <div class="clear"></div>
         </div>

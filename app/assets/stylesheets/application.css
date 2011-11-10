@@ -95,14 +95,12 @@ section#popular-posts-section {
   background-color: #f9f9f9;
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
+  padding-top: 5px;
   padding-bottom: 15px;
   font-size: 0.8em;
 }
 .popular-post {
-  float: left;
-  width: 360px;
-  margin-bottom: 3px;
-  margin-right: 10px;
+  margin-bottom: 30px;
 }
 .popular-post a {
   color: gray;
@@ -113,12 +111,24 @@ section#popular-posts-section {
 }
 .popular-post-image-thumbnail {
   float: left;
-  width: 90px;
+  width: 225px;
+  height: 120px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  background-color: #fefefe;
 }
 .popular-post-title {
   color: #222222;
   float: left;
-  width: 270px;
+  width: 200px;
+}
+.popular-post-description {
+  padding-top: 5px;
+  color: #888888;
+  float: left;
+  width: 200px;
+  font-size: 0.9em;
 }
 
 section#article-section {
