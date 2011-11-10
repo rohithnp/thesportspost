@@ -42,6 +42,7 @@ header a:visited {
   text-decoration: none;
 }
 #userbox {
+  float: right;
   font-size: 0.8em;
   line-height: 1.8em;
 }
@@ -111,7 +112,7 @@ section#popular-posts-section {
 }
 .popular-post-image-thumbnail {
   float: left;
-  width: 225px;
+  width: 200px;
   height: 120px;
   overflow: hidden;
   border: 1px solid lightgray;
