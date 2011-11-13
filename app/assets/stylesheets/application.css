@@ -53,6 +53,17 @@ header a:visited {
 #header-categories a:hover {
   color: #222;
 }
+#headlines-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+.headlines-thumbnail {
+  float: left;
+}
+.headlines-title {
+  float: left;
+}
 ul.categories {
   list-style-type: none;
   padding: 0;
@@ -64,5 +75,6 @@ li.categories {
 footer {
   font-size: 0.6em;
   color: gray;
+  background-color: #eee;
   padding: 20px;
 }

@@ -44,13 +44,21 @@
         })();
       </script>
     </div>
-    <div id="headlines-container" class="grid_4">
-      <h3>Headlines</h3>
-      <ul class="headlines">
+    <div id="headlines-container" class="grid_5">
+      <div id="headlines-header">
+        <h3>Headlines</h3>
+      </div>
+      <div id="headlines-list">
         <% @headlines.each do |article| %>
-          <li class="headlines"><%= link_to article.title, "/articles/#{article.slug}" %></li>
+          <a href="/articles/<%= article.slug %>">
+            <div class="headlines-thumbnail">
+              <img src="<%= article.image.url(:thumb) %>" width="80" height="60"/>
+            </div>
+            <div class="headlines-title"><%= article.title%> </div>
+            <div class="clear"></div>
+          </a>
         <% end %>
-      </ul>
+      </div>
     </div>
     <div class="clear"></div>
   </div>
