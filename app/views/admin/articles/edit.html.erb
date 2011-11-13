@@ -10,6 +10,12 @@
         <td><%= f.label :category %></td>
         <td><%= f.select :category, @categories %></td>
       </tr>
+      <% if @subcategories and @subcategories.length > 0 %>
+        <tr>
+          <td><%= f.label :subcategory %></td>
+          <td><%= f.select :subcategory, @subcategories %></td>
+        </tr>
+      <% end %>
       <tr>
         <td><%= f.label :text %></td>
         <td><%= f.text_area :text, :size => '120x30' %></td>

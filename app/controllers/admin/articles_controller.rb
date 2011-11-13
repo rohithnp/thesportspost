@@ -15,12 +15,23 @@ class Admin::ArticlesController < ApplicationController
     authorize! :manage, Article
     @categories = Category.all.map {|c| [c.name,c.full_name] }
     @article = Article.find(params[:id])
+    if !@article.category.nil?
+      @subcategories = [[nil,nil]]
+      Subcategory.where(:category_id => @article.category.id).each do |sc|
+        @subcategories << [sc.name, sc.name]
+      end
+    end
   end
   
   def update
     authorize! :manage, Article
     @article = Article.find(params[:id])
     params[:article][:category] = Category.find_by_full_name(params[:article][:category])
+    if params[:article][:subcategory]
+      params[:article][:subcategory] = Subcategory.find_by_name(params[:article][:subcategory])
+    else
+      params[:article].delete :subcategory
+    end
     if @article.update_attributes(params[:article])
       redirect_to :action => :edit, :id => params[:id]
     end

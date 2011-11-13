@@ -6,6 +6,7 @@ Thesportspost::Application.routes.draw do
   namespace :admin do
     resources :articles
     resources :users
+    resources :categories
   end
   resources :categories do
     resources :subcategories

@@ -1,6 +1,8 @@
 class Article < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
+  belongs_to :subcategory
+
   has_attached_file :image, :styles => {
     :thumb => 'x100',
     :big => '500x500>'
