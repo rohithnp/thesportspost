@@ -7,7 +7,9 @@ Thesportspost::Application.routes.draw do
     resources :articles
     resources :users
   end
-  resources :categories
+  resources :categories do
+    resources :subcategories
+  end
   resources :articles, :only => [:show]
 
   # The priority is based upon order of creation:
