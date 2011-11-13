@@ -9,7 +9,6 @@ gem 'pg'
 gem 'cancan'
 gem 'devise'
 gem 'paperclip'
-gem 'redcarpet'
 
 # Gems used only for assets and not required
 # in production environments by default.
