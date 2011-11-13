@@ -44,11 +44,12 @@ header a:visited {
 
 /* Header With Categories and Dropdown Menu */
 #header-categories-container {
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 0.9em;
   font-weight: bold;
   background-color: #600000;
-  border-top: 2px solid #e0e0e0;
-  border-bottom: 2px solid #e0e0e0;
+  border-top: 2px solid #222;
+  border-bottom: 2px solid #222;
 }
 #header-categories-container a {
   color: #eee;
@@ -59,17 +60,31 @@ header a:visited {
 ul.categories-list {
   list-style-type: none;
   padding: 0;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 li.categories {
   display: inline;
   padding-right: 30px;
+}
+.subcategories-list {
+  position: absolute;
+  z-index: 1000;
+  display: none;
+  padding-top: 15px;
+  padding-left: 25px;
+  padding-right: 20px;
+  padding-bottom: 15px;
+  background-color: #600000;
+}
+.subcategory {
 }
 
 /* Headlines */
 #headlines-header {
   padding-bottom: 10px;
   border-bottom: 2px solid #ddd;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 #headlines-list a {
   text-decoration: none;

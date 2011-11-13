@@ -36,8 +36,35 @@
       <div class="container_16">
         <div id="header-categories" class="grid_12">
           <ul class="categories-list">
-            <% @navbar_categories.each do |category| %>
-              <li class="categories"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
+            <% @navbar_categories.each_with_index do |category,i| %>
+              <span id="category-with-sub-<%= i %>" class="category-with-subcategory">
+                <li id="category-<%= i %>" class="categories"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
+                <% if category.subcategories.length > 0 %>
+                  <ul id="category-<%= i%>-subcategories" class="subcategories-list">
+                    <% category.subcategories.each do |sc| %>
+                      <li class="subcategory">
+                        <%= link_to sc.name, '/' %>
+                      </li>
+                    <% end %>
+                  </ul>
+                  <script>
+                    (function() {
+                      var $c = $("#category-<%= i %>");
+                      var $cws = $("#category-with-sub-<%= i %>");
+                      var $sc = $("#category-<%= i %>-subcategories");
+                      $sc.css({ left: $c[0].offsetLeft-20 });
+                      $cws.hover(
+                        function() {
+                          $sc.css({ display: 'block' });
+                        },
+                        function() {
+                          $sc.css({ display: 'none' });
+                        }
+                      );
+                    })();
+                  </script>
+                <% end %>
+              </span>
             <% end %>
           </ul>
         </div>

@@ -2,6 +2,7 @@ class AdminController < ApplicationController
 
   def index
     if current_user
+      @categories = Category.all
       if params[:next]
         return redirect_to params[:next]
       end
