@@ -14,7 +14,7 @@
         <div id="logo" class="grid_4">
           <a href="/"><img src="/logo.png" alt="The Sports Post"/></a>
         </div>
-        <div id="userbox" class="suffix_4">
+        <div id="userbox" class="suffix_2">
           <% if user_signed_in? %>
             <%= current_user.email %>
             &nbsp;-&nbsp;
@@ -32,10 +32,10 @@
         <div class="clear"></div>
       </div>
     </div>
-    <div id="header-categories">
+    <div id="header-categories-container">
       <div class="container_16">
         <div id="header-categories" class="grid_12">
-          <ul class="categories">
+          <ul class="categories-list">
             <% @navbar_categories.each do |category| %>
               <li class="categories"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
             <% end %>

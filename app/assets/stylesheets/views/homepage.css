@@ -19,7 +19,7 @@ li.headlines a {
 }
 
 section#slideshow-headlines-section {
-  background-color: #efefef;
+  background-color: white;
   padding-top: 30px;
   padding-bottom: 30px;
 }
@@ -31,7 +31,7 @@ section#slideshow-headlines-section {
 }
 
 section#popular-posts-section {
-  background-color: #f9f9f9;
+  background-color: #f0f0f0;
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
   padding-top: 5px;

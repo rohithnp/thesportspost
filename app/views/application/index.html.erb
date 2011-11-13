@@ -1,7 +1,7 @@
 <section id="slideshow-headlines-section">
-  <div class="container_16">
-    <div id="slideshow-container" class="grid_8">
-      <div id="slideshow" style="height: 250px">
+  <div id="slideshow-and-headlines-container" class="container_16">
+    <div id="slideshow-container" class="grid_9">
+      <div id="slideshow">
         <% if false %>
           <div><img src="<%= Article.first.image.url(:thumb) %>"/></div>
         <% end %>
@@ -10,7 +10,7 @@
             <% @slideshow.each do |slide| %>
               <div class="slide">
                 <a href="<%= "/articles/#{slide.slug}" %>">
-                  <img src="<%= slide.image.url(:big) %>" width="440"/>
+                  <img src="<%= slide.image.url(:big) %>" width="500"/>
                   <div class="caption"><%= slide.title %></div>
                 </a>
               </div>
@@ -50,13 +50,15 @@
       </div>
       <div id="headlines-list">
         <% @headlines.each do |article| %>
-          <a href="/articles/<%= article.slug %>">
-            <div class="headlines-thumbnail">
-              <img src="<%= article.image.url(:thumb) %>" width="80" height="60"/>
-            </div>
-            <div class="headlines-title"><%= article.title%> </div>
-            <div class="clear"></div>
-          </a>
+          <div class="headlines-entry">
+            <a href="/articles/<%= article.slug %>">
+              <div class="headlines-thumbnail">
+                <img src="<%= article.image.url(:thumb) %>" width="80" height="60"/>
+              </div>
+              <div class="headlines-title"><%= article.title%> </div>
+              <div class="clear"></div>
+            </a>
+          </div>
         <% end %>
       </div>
     </div>
