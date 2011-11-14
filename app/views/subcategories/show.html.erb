@@ -1,1 +1,22 @@
-dude
+<section id="category-section">
+  <div class="container_16 white-background">
+    <div class="grid_16">
+      <h2 class="category-full-name"><%= @category.full_name %> - <%= @subcategory.name %></h2>
+    </div>
+    <% if @slideshow.length > 1 %>
+      <%= render :partial => 'partials/slideshow', :locals => { :slideshow => @slideshow, :headlines => @headlines } %>
+    <% end %>
+    <% if @articles.length > 0 %>
+      <div class="grid_16">
+        <h3>More Articles</h3>
+        <ul>
+          <% @articles.each do |article| %>
+            <li><%= article.title %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</section>

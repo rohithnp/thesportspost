@@ -2,8 +2,14 @@ class SubcategoriesController < ApplicationController
   load_and_authorize_resource
 
   def show
-    category = Category.find_by_name(params[:category])
-    @subcategory = Subcategory.where(:category_id => category.id, :slug => params[:subcategory])
+    @category = Category.find_by_name(params[:category])
+    @subcategory = Subcategory.where(:category_id => @category.id, :slug => params[:subcategory]).first
+    unless @subcategory
+      raise ActionController::RoutingError.new('Not Found')
+    end
+    @articles = Article.where(:subcategory_id => @subcategory.id).limit(10)
+    @slideshow = Article.where(['subcategory_id = ? AND image_file_name IS NOT NULL', @subcategory.id]).limit(5)
+    @headlines = @articles[0..5]
   end
 
   def create

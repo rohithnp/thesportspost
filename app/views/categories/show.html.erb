@@ -1,8 +1,22 @@
-<div class="container_16">
-  <h2><%= @category.full_name %></h2>
-  <ul>
-    <% @articles.each do |article| %>
-      <li><%= link_to article.title, "/articles/#{article.slug}" %></li>
+<section id="category-section">
+  <div class="container_16 white-background">
+    <div class="grid_16">
+      <h2 class="category-full-name"><%= @category.full_name %></h2>
+    </div>
+    <% if @slideshow.length > 1 %>
+      <%= render :partial => 'partials/slideshow', :locals => { :slideshow => @slideshow, :headlines => @headlines } %>
     <% end %>
-  </ul>
-</div>
+    <% if @articles.length > 0 %>
+      <div class="grid_16">
+        <h3>More Articles</h3>
+        <ul>
+          <% @articles.each do |article| %>
+            <li><%= link_to article.title, "/articles/#{article.slug}" %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</section>

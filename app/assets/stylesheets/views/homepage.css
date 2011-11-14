@@ -11,15 +11,6 @@ li.headlines a {
   text-decoration: none;
 }
 
-section#slideshow-headlines-section {
-}
-#slideshow-and-headlines-container {
-  padding-top: 10px;
-}
-#slideshow {
-  float: left;
-}
-
 section#custom-page-section-section {
 }
 
@@ -76,45 +67,4 @@ h3.section-title {
   background-color: #d9d9d9;
   margin: 0px;
   height: 30px;
-}
-
-/* Post List Types */
-.post-list-type-1-header h3 {
-  margin: 0;
-  background-color: #d9d9d9;
-  height: 30px;
-}
-.post-list-type-1-header {
-  padding-bottom: 2px;
-}
-.post-list-type-1-posts {
-  font-size: 0.8em;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: #eee;
-}
-.post-list-type-1 a {
-  text-decoration: none;
-  color: #303030;
-}
-.post-list-type-1 a:visited {
-  text-decoration: none;
-  color: #505050;
-}
-.post-list-type-1 a:hover {
-  text-decoration: none;
-  color: #909090;
-}
-.post-list-type-1-entry {
-  padding-bottom: 5px;
-}
-.post-list-type-1-thumbnail {
-  float: left;
-}
-.post-list-type-1-title {
-  float: left;
-  padding-left: 10px;
-  width: 180px;
-  font-size: 1.08em;
 }

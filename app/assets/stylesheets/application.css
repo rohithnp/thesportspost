@@ -23,6 +23,10 @@
   padding-bottom: 3px;
   height: 24px;
 }
+h2.category-full-name {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 /* Elements */
 
@@ -55,7 +59,8 @@ header {
   color: #888;
 }
 
-/* Header With Categories and Dropdown Menu */
+/* Header With Categories and Dropdown Menu 
+*/
 #header-categories-container {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 0.9em;
