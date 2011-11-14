@@ -10,9 +10,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
+  <header class="container_16">
     <div id="header">
-      <div id="header-container" class="container_16 white-background">
+      <div id="header-container" class="white-background">
         <div id="logo" class="grid_4">
           <a href="/"><img src="/logo.png" alt="The Sports Post"/></a>
         </div>
@@ -33,44 +33,41 @@
         </div>
         <div class="clear"></div>
       </div>
-      </div>
     </div>
     <div id="header-categories-container">
-      <div class="container_16">
-        <div id="header-categories" class="grid_12">
-          <ul class="categories-list">
-            <% @navbar_categories.each_with_index do |category,i| %>
-              <span id="category-with-sub-<%= i %>" class="category-with-subcategory">
-                <li id="category-<%= i %>" class="categories"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
-                <% if category.subcategories.length > 0 %>
-                  <ul id="category-<%= i%>-subcategories" class="subcategories-list">
-                    <% category.subcategories.each do |sc| %>
-                      <li class="subcategory">
-                        <%= link_to sc.name, '/' %>
-                      </li>
-                    <% end %>
-                  </ul>
-                  <script>
-                    (function() {
-                      var $c = $("#category-<%= i %>");
-                      var $cws = $("#category-with-sub-<%= i %>");
-                      var $sc = $("#category-<%= i %>-subcategories");
-                      $sc.css({ left: $c[0].offsetLeft-20 });
-                      $cws.hover(
-                        function() {
-                          $sc.css({ display: 'block' });
-                        },
-                        function() {
-                          $sc.css({ display: 'none' });
-                        }
-                      );
-                    })();
-                  </script>
-                <% end %>
-              </span>
-            <% end %>
-          </ul>
-        </div>
+      <div id="header-categories" class="grid_12">
+        <ul class="categories-list">
+          <% @navbar_categories.each_with_index do |category,i| %>
+            <span id="category-with-sub-<%= i %>" class="category-with-subcategory">
+              <li id="category-<%= i %>" class="categories"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
+              <% if category.subcategories.length > 0 %>
+                <ul id="category-<%= i%>-subcategories" class="subcategories-list">
+                  <% category.subcategories.each do |sc| %>
+                    <li class="subcategory">
+                      <%= link_to sc.name, '/' %>
+                    </li>
+                  <% end %>
+                </ul>
+                <script>
+                  (function() {
+                    var $c = $("#category-<%= i %>");
+                    var $cws = $("#category-with-sub-<%= i %>");
+                    var $sc = $("#category-<%= i %>-subcategories");
+                    $sc.css({ left: $c[0].offsetLeft-20 });
+                    $cws.hover(
+                      function() {
+                        $sc.css({ display: 'block' });
+                      },
+                      function() {
+                        $sc.css({ display: 'none' });
+                      }
+                    );
+                  })();
+                </script>
+              <% end %>
+            </span>
+          <% end %>
+        </ul>
       </div>
       <div class="clear"></div>
     </div>

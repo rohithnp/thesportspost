@@ -10,7 +10,7 @@
             <% @slideshow.each do |slide| %>
               <div class="slide">
                 <a href="<%= "/articles/#{slide.slug}" %>">
-                  <img src="<%= slide.image.url(:big) %>" width="620"/>
+                  <img src="<%= slide.image.url(:big) %>" width="645"/>
                   <div class="caption"><%= slide.title %></div>
                 </a>
               </div>
@@ -47,19 +47,21 @@
     <div id="headlines-container">
       <%= render :partial => 'partials/post_type_1', :locals => { :title => 'Headlines', :articles => @headlines } %>
     </div>
+    <div class="clear"></div>
   </div>
-  <div class="clear"></div>
 </section>
-<section id="custom-page-section-section">
-  <div class="container_16 white-background">
-    <div id="custom-page-section-1">
-      <% @page_sections.each do |section| %>
-        <%= render :partial => 'partials/post_type_1', :locals => { :title => section.name, :articles => section.articles } %>
-      <% end %>
+<% if false %>
+  <section id="custom-page-section-section">
+    <div class="container_16 white-background">
+      <div id="custom-page-section-1">
+        <% @page_sections.each do |section| %>
+          <%= render :partial => 'partials/post_type_1', :locals => { :title => section.name, :articles => section.articles } %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="clear"></div>
-</section>
+    <div class="clear"></div>
+  </section>
+<% end %>
 <section id="popular-posts-section">
   <div id="popular-posts-container" class="container_16 white-background">
     <div id="popular-posts">
@@ -86,7 +88,6 @@
     </div>
     <div class="clear"></div>
   </div>
-  <div class="clear"></div>
 </section>
 <section id="discussion-board-section">
   <div id="discussion-board-container" class="container_16 white-background">
@@ -95,5 +96,4 @@
     </div>
     <div class="clear"></div>
   </div>
-  <div class="clear"></div>
 </section>

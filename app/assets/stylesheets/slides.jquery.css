@@ -1,12 +1,12 @@
 #slides {
 }
 .slides_container {
-  width: 620px;
-  height: 316px;
+  width: 645px;
+  height: 343px;
 }
 .slide {
-  width: 620px;
-  height: 316px;
+  width: 645px;
+  height: 343px;
 }
 .slide a {
   text-decoration: none;
@@ -18,11 +18,12 @@
   height: 1.8em;
   padding: 5px 20px 0 20px;
   background: rgba(0,0,0,0.6);
-  width: 580px;
+  width: 615px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 0.8em;
+  font-size: 1em;
+  font-weight: bold;
   color: white;
   border-top: 1px solid #222222;
 }

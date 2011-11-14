@@ -9,17 +9,34 @@
  *= require_tree .
 */
 
+/* Globals */
+.white-background {
+  background-color: white;
+}
+.dark-title-background {
+  float: left;
+  color: white;
+  background-color: #373737;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  height: 24px;
+}
+
+/* Elements */
+
 body {
   font-family: "Droid Sans", Helvetica, Arial, sans-serif;
-  background-color: #eee;
+  background-color: #ccc;
 }
 h3 {
   font-size: 1.6em;
 }
-.white-background {
-  background-color: white;
-}
 
+header {
+  background-color: gray;
+}
 header a {
   text-decoration: none;
 }
@@ -32,8 +49,6 @@ header a:visited {
 }
 #header {
   background-color: white;
-  background: url(/background.png);
-  background: gray;
   color: black;
 }
 #header a {
@@ -65,6 +80,7 @@ header a:visited {
 #header-categories-container a:hover {
   color: #ddd;
 }
+
 ul.categories-list {
   list-style-type: none;
   padding: 0;
@@ -73,7 +89,8 @@ ul.categories-list {
 }
 li.categories {
   display: inline;
-  padding-right: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .subcategories-list {
   list-style-type: none;

@@ -1,17 +1,19 @@
 <div class="post-list-type-1 grid_5">
   <div class="post-list-type-1-header">
-    <h3><%= title %></h3>
+    <h3><div class="dark-title-background"><%= title %></div></h3>
   </div>
-  <div>
-  <% articles.each do |article| %>
-    <div class="post-list-type-1-entry">
-      <a href="/articles/<%= article.slug %>">
-        <div class="post-list-type-1-thumbnail">
-          <img src="<%= article.image.url(:thumb) %>" width="80" height="60"/>
-        </div>
-        <div class="post-list-type-1-title"><%= article.title %> </div>
-        <div class="clear"></div>
-      </a>
-    </div>
-  <% end %>
+  <div class="post-list-type-1-posts">
+    <% articles.each do |article| %>
+      <div class="post-list-type-1-entry">
+        <a href="/articles/<%= article.slug %>">
+          <div class="post-list-type-1-thumbnail">
+            <img src="<%= article.image.url(:thumb) %>" width="70" height="50"/>
+          </div>
+          <div class="post-list-type-1-title"><%= article.title %> </div>
+          <div class="clear"></div>
+        </a>
+      </div>
+    <% end %>
+  </div>
 </div>
+
