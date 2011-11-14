@@ -7,7 +7,11 @@
       <div class="post-list-type-1-entry">
         <a href="/articles/<%= article.slug %>">
           <div class="post-list-type-1-thumbnail">
-            <img src="<%= article.image.url(:thumb) %>" width="70" height="50"/>
+            <% if article.image? %>
+              <img src="<%= article.image.url(:thumb) %>" width="70" height="50"/>
+            <% else %>
+              <div style="width: 68px; height: 48px; border: 1px solid gray; background-color: lightgray"></div>
+            <% end %>
           </div>
           <div class="post-list-type-1-title"><%= article.title %> </div>
           <div class="clear"></div>

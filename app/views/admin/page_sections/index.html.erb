@@ -4,14 +4,24 @@
       <h2>Page Section</h2>
       <p>NOTE: As of NOW, there's only one editable section at the bottom right of the front page. This can be easily extended, so just ASK if you want more.</p>
       <table>
-        <%= form_for @page_section, :url => edit_admin_page_section_path(@page_section), :method => 'PUT' do |f| %>
+        <%= form_for @page_section, :url => admin_page_section_path(@page_section), :method => 'PUT' do |f| %>
           <tr>
             <td><b><%= f.label :name %></b></td>
             <td><%= f.text_field :name %></td>
           </tr>
           <tr>
             <td><b>Articles</b></td>
+            <td>
+              <select id="page_section_article_ids" multiple="multiple" name="page_section[article_ids][]">
+                <% @articles.each do |article| %>
+                  <option value="<%= article.id %>" <% if @page_section.article_ids.include?(article.id.to_s) %>selected="selected"<% end %>><%= article.category %> - <%= article.title %></option>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+          <tr>
             <td></td>
+            <td><%= f.submit 'Update Page Section' %></td>
           </tr>
         <% end %>
       </table>
