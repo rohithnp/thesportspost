@@ -15,7 +15,6 @@ section#slideshow-headlines-section {
 }
 #slideshow-and-headlines-container {
   padding-top: 10px;
-  padding-bottom: 20px;
 }
 #slideshow {
   float: left;
@@ -32,9 +31,16 @@ section#popular-posts-section {
 }
 section#discussion-board-section {
 }
+.real-popular-posts-container {
+  padding-top: 10px;
+}
 .popular-post {
   font-size: 0.8em;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  padding-left: 7px;
+  padding-right: 7px;
+  float: left;
+  width: 200px;
 }
 .popular-post a {
   color: gray;
@@ -67,14 +73,12 @@ section#discussion-board-section {
 
 /* Sections */
 h3.section-title {
+  background-color: #d9d9d9;
   margin: 0px;
-  padding-bottom: 10px;
+  height: 30px;
 }
 
 /* Post List Types */
-.post-list-type-1 {
-  font-size: 0.8em;
-}
 .post-list-type-1-header h3 {
   margin: 0;
   background-color: #d9d9d9;
@@ -84,6 +88,7 @@ h3.section-title {
   padding-bottom: 2px;
 }
 .post-list-type-1-posts {
+  font-size: 0.8em;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;

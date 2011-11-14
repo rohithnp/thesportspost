@@ -1,5 +1,3 @@
-#slides {
-}
 .slides_container {
   width: 645px;
   height: 343px;
@@ -15,7 +13,7 @@
   z-index: 101;
   position: absolute;
   left: 0;
-  height: 1.8em;
+  height: 1.7em;
   padding: 5px 20px 0 20px;
   background: rgba(0,0,0,0.6);
   width: 615px;

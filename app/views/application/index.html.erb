@@ -64,27 +64,31 @@
 <% end %>
 <section id="popular-posts-section">
   <div id="popular-posts-container" class="container_16 white-background">
-    <div id="popular-posts">
-      <div class="grid_16">
-        <h3 class="section-title">Popular Posts</h3>
+    <div id="popular-posts" style="float: left">
+      <div class="grid_11 section-title">
+        <h3 class="section-title"><span class="dark-title-background">Popular Posts</span></h3>
       </div>
       <div class="clear"></div>
-      <% @posts.each_with_index do |article,i| %>
-        <% if i>0 and i%4 == 0 %>
-          <div class="clear"></div>
+      <div class="grid_11 real-popular-posts-container">
+        <% @posts.each_with_index do |article,i| %>
+          <% if i>0 and i%3 == 0 %>
+            <div class="clear"></div>
+          <% end %>
+          <div class="popular-post">
+            <a href="/articles/<%= article.slug %>">
+              <div class="popular-post-image-thumbnail">
+                <% if article.image? %><img src="<%= article.image.url(:big) %>" width="200"/><% end %>
+              </div>
+              <div class="popular-post-title"><%= article.title %></div>
+              <div class="popular-post-description"><%= strip_tags(article.text)[0..100].strip.html_safe %>...</div>
+            </a>
+            <div class="clear"></div>
+          </div>
         <% end %>
-        <div class="popular-post grid_4">
-          <a href="/articles/<%= article.slug %>">
-            <div class="popular-post-image-thumbnail">
-              <% if article.image? %><img src="<%= article.image.url(:big) %>" width="200"/><% end %>
-            </div>
-            <div class="popular-post-title"><%= article.title %></div>
-            <div class="popular-post-description"><%= strip_tags(article.text)[0..100].strip.html_safe %>...</div>
-          </a>
-          <div class="clear"></div>
-        </div>
-      <% end %>
-      <div class="clear"></div>
+      </div>
+    </div>
+    <div id="custom-page-sections-container">
+      <%= render :partial => 'partials/post_type_1', :locals => { :title => @page_section.name, :articles => @page_section.articles } %>
     </div>
     <div class="clear"></div>
   </div>
