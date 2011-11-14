@@ -1,6 +1,11 @@
 class SubcategoriesController < ApplicationController
   load_and_authorize_resource
 
+  def show
+    category = Category.find_by_name(params[:category])
+    @subcategory = Subcategory.where(:category_id => category.id, :slug => params[:subcategory])
+  end
+
   def create
     @subcategory = Subcategory.new(params[:subcategory])
     @subcategory.category_id = params[:category_id]

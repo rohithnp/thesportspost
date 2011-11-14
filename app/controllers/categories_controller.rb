@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   load_and_authorize_resource
 
   def show
-    @category = Category.find_by_name(params[:id].to_s.downcase)
+    @category = Category.find_by_name(params[:category].to_s.downcase)
     unless @category
       raise ActionController::RoutingError.new('Not Found')
     end

@@ -44,7 +44,7 @@
                 <ul id="category-<%= i%>-subcategories" class="subcategories-list">
                   <% category.subcategories.each do |sc| %>
                     <li class="subcategory">
-                      <%= link_to sc.name, '/' %>
+                      <%= link_to sc.name, "/categories/#{category.name}/subcategories/#{sc.slug}" %>
                     </li>
                   <% end %>
                 </ul>
@@ -76,14 +76,15 @@
     <section id="main">
       <%= yield %>
     </section>
-    <footer>
-      <div class="container_16">
+    <div class="container_16">
+      <footer>
         <div class="grid_12">
           <div>Copyright &copy; 2011 http://thesportspost.com</div>
         </div>
         <div class="clear"></div>
       </div>
-    </footer>
+      </footer>
+    </div>
   </div>
 </body>
 </html>

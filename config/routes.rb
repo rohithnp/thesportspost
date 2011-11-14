@@ -7,9 +7,12 @@ Thesportspost::Application.routes.draw do
     resources :articles
     resources :users
     resources :categories
+    resources :page_sections
   end
-  resources :categories do
-    resources :subcategories
+  match '/categories/:category' => 'categories#show'
+  match '/categories/:category/subcategories/:subcategory' => 'subcategories#show'
+  resources :categories, :except => :show do
+    resources :subcategories, :except => :show
   end
   resources :articles, :only => [:show]
 

@@ -1,9 +1,9 @@
 section#article-section {
   font-family: Helvetica, Arial, Sans-Serif;
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 15px;
   font-size: 0.8em;
+}
+.article-container {
+  padding: 10px;
 }
 .article-header {
   padding-bottom: 20px;
