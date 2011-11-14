@@ -1,26 +1,32 @@
-<div class="container_16">
-  <h2>New Article</h2>
-  <%= form_for @article, :url => admin_articles_path, :method => 'POST', :html => {:multipart => true} do |f| %>
-    <table>
-      <tr>
-        <td width="150"><%= f.label :title %></td>
-        <td><%= f.text_field :title %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :category %></td>
-        <td><%= f.select :category, @categories %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :text %></td>
-        <td><%= f.text_area :text %></td>
-      </tr>
-      <tr>
-        <td><%= f.label 'Thumbnail Image' %></td>
-        <td><%= f.file_field :image %></td>
-      </tr>
-    </table>
-    <%= render :partial => 'tinymce' %>
-    <br/>
-    <%= f.submit 'Create Article' %>
-  <% end %>
-</div>
+<section id="admin-section">
+  <div class="container_16 white-background">
+    <div class="grid_16 admin-main">
+      <h2>New Article</h2>
+      <%= form_for @article, :url => admin_articles_path, :method => 'POST', :html => {:multipart => true} do |f| %>
+        <table>
+          <tr>
+            <td width="150"><%= f.label :title %></td>
+            <td><%= f.text_field :title %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :category %></td>
+            <td><%= f.select :category, @categories %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :text %></td>
+            <td><%= f.text_area :text %></td>
+          </tr>
+          <tr>
+            <td><%= f.label 'Thumbnail Image' %></td>
+            <td><%= f.file_field :image %></td>
+          </tr>
+        </table>
+        <%= render :partial => 'tinymce' %>
+        <br/>
+        <%= f.submit 'Create Article' %>
+      <% end %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</section>

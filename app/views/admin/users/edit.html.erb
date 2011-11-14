@@ -1,9 +1,14 @@
-<div class="container_16">
-  <h2>Admin Panel - Users</h2>
-  <p><b>Email:</b> <%= @user.email %></p>
-  <%= form_for @user, :url => { :action => :update } do |f| %>
-    <%= f.label :role %>
-    <%= f.select :roles_mask, [['admin',1],['editor',4],['writer',2],['none',nil]] %><br/>
-    <%= f.submit "Update User" %>
-  <% end %>
-</div>
+<section id="admin-section">
+  <div class="container_16 white-background">
+    <div class="grid_16 admin-main">
+      <h2>Admin Panel - Users</h2>
+      <p><b>Email:</b> <%= @user.email %></p>
+      <%= form_for @user, :url => { :action => :update } do |f| %>
+        <%= f.label :role %>
+        <%= f.select :roles_mask, [['admin',1],['editor',4],['writer',2],['none',nil]] %><br/>
+        <%= f.submit "Update User" %>
+      <% end %>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</section>

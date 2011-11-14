@@ -4,15 +4,13 @@ class SubcategoriesController < ApplicationController
   def create
     @subcategory = Subcategory.new(params[:subcategory])
     @subcategory.category_id = params[:category_id]
-    if @subcategory.save
-      redirect_to 'admin#index'
-    end
+    @subcategory.save
+    redirect_to :controller => 'admin/categories', :action => 'index'
   end
 
   def destroy
     @subcategory = Subcategory.find(params[:id])
-    if @subcategory.destroy
-      redirect_to 'admin#index'
-    end
+    @subcategory.destroy
+    redirect_to :controller => 'admin/categories', :action => 'index'
   end
 end

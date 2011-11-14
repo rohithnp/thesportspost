@@ -12,6 +12,6 @@ class CategoriesController < ApplicationController
   def update
     category = Category.find(params[:id])
     category.update_attributes(params[:category])
-    redirect_to 'admin#index'
+    redirect_to :controller => 'admin/categories', :action => 'index'
   end
 end

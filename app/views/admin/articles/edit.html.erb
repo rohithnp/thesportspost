@@ -1,40 +1,46 @@
-<div class="container_16">
-  <h2>Edit Article</h2>
-  <%= form_for @article, :url => admin_article_path(@article), :method => 'PUT', :html => {:multipart => true} do |f| %>
-    <table>
-      <tr>
-        <td width="150"><%= f.label :title %></td>
-        <td><%= f.text_field :title %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :category %></td>
-        <td><%= f.select :category, @categories %></td>
-      </tr>
-      <% if @subcategories and @subcategories.length > 0 %>
-        <tr>
-          <td><%= f.label :subcategory %></td>
-          <td><%= f.select :subcategory, @subcategories %></td>
-        </tr>
-      <% end %>
-      <tr>
-        <td><%= f.label :text %></td>
-        <td><%= f.text_area :text, :size => '120x30' %></td>
-      </tr>
-      <tr>
-        <td><%= f.label 'Thumbnail Image' %></td>
-        <td>
-          <% if @article.image? %>
-            <img src="<%= @article.image.url :thumb %>"/>
+<section id="admin-section">
+  <div class="container_16 white-background">
+    <div class="grid_16 admin-main">
+      <h2>Edit Article</h2>
+      <%= form_for @article, :url => admin_article_path(@article), :method => 'PUT', :html => {:multipart => true} do |f| %>
+        <table>
+          <tr>
+            <td width="150"><%= f.label :title %></td>
+            <td><%= f.text_field :title %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :category %></td>
+            <td><%= f.select :category, @categories %></td>
+          </tr>
+          <% if @subcategories and @subcategories.length > 0 %>
+            <tr>
+              <td><%= f.label :subcategory %></td>
+              <td><%= f.select :subcategory, @subcategories %></td>
+            </tr>
           <% end %>
-          <%= f.file_field :image %>
-        </td>
-      </tr>
-    </table>
-    <%= render :partial => 'tinymce' %>
-    <br/>
-    <%= f.submit 'Update Article' %>
-  <% end %>
-  <div class="article-edit-commands" style="padding-top: 30px">
-    <%= link_to "View Article", "/articles/#{@article.slug}" %>
+          <tr>
+            <td><%= f.label :text %></td>
+            <td><%= f.text_area :text, :size => '110x30' %></td>
+          </tr>
+          <tr>
+            <td><%= f.label 'Thumbnail Image' %></td>
+            <td>
+              <% if @article.image? %>
+                <img src="<%= @article.image.url :thumb %>"/>
+              <% end %>
+              <%= f.file_field :image %>
+            </td>
+          </tr>
+        </table>
+        <%= render :partial => 'tinymce' %>
+        <br/>
+        <%= f.submit 'Update Article' %>
+      <% end %>
+      <div class="article-edit-commands" style="padding-top: 30px">
+        <%= link_to "View Article", "/articles/#{@article.slug}" %>
+      </div>
+    </div>
+    <div class="clear"></div>
   </div>
-</div>
+  <div class="clear"></div>
+</section>

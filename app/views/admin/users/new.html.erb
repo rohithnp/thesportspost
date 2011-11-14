@@ -1,5 +1,13 @@
-<%= form_for @user do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.submit 'Create User' %>
-<% end %>
+<section id="admin-section">
+  <div class="container_16 white-background">
+    <div class="grid_16 admin-main">
+      <%= form_for @user do |f| %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <%= f.submit 'Create User' %>
+      <% end %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</section>

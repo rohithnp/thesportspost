@@ -1,47 +1,54 @@
-<h4>Category Management</h4>
-<div>
-  <table>
-    <tr>
-      <th>Short Name</th>
-      <th>Full Name</th>
-      <th></th>
-      <th>Sub-Categories</th>
-    </tr>
-    <% @categories.each do |category| %>
-      <tr>
-        <%= form_for category, :url => category_path(category), :method => 'PUT' do |f| %>
-          <td><%= f.text_field :name %></td>
-          <td><%= f.text_field :full_name %></td>
-          <td><%= f.submit 'Update Category' %></td>
-        <% end %>
-        <td>
-          <table>
-            <% category.subcategories.each do |cs| %>
-              <tr>
-                <%= form_for cs, :url => category_subcategory_path(:category_id => category.id, :id => cs.id), :method => 'PUT' do |f2| %>
-                  <td><%= f2.text_field :name %></td>
-                  <td><%= f2.submit 'Update Subcategory' %></td>
-                  <td><%= link_to 'Delete Subcategory', category_subcategory_path(:category_id => category.id, :id => cs.id), :method => 'DELETE' %></td>
-                <% end %>
-              </tr>
-            <% end %>
+<section id="admin-section">
+  <div class="container_16 white-background">
+    <div class="grid_16 admin-main">
+      <h4>Category Management</h4>
+      <div>
+        <table>
+          <tr>
+            <th>Short Name</th>
+            <th>Full Name</th>
+            <th></th>
+            <th>Sub-Categories</th>
+          </tr>
+          <% @categories.each do |category| %>
             <tr>
-              <%= form_for :subcategory, :url => category_subcategories_path(:category_id => category.id), :method => 'POST' do |f2| %>
-                <td><%= f2.text_field :name %></td>
-                <td><%= f2.submit 'Create Subcategory' %></td>
+              <%= form_for category, :url => category_path(category), :method => 'PUT' do |f| %>
+                <td><%= f.text_field :name, :size => 10 %></td>
+                <td><%= f.text_field :full_name, :size => 10 %></td>
+                <td><%= f.submit 'Update Category' %></td>
               <% end %>
+              <td>
+                <table>
+                  <% category.subcategories.each do |cs| %>
+                    <tr>
+                      <%= form_for cs, :url => category_subcategory_path(:category_id => category.id, :id => cs.id), :method => 'PUT' do |f2| %>
+                        <td><%= f2.text_field :name %></td>
+                        <td><%= f2.submit 'Update Subcategory' %></td>
+                        <td><%= link_to 'Delete Subcategory', category_subcategory_path(:category_id => category.id, :id => cs.id), :method => 'DELETE' %></td>
+                      <% end %>
+                    </tr>
+                  <% end %>
+                  <tr>
+                    <%= form_for :subcategory, :url => category_subcategories_path(:category_id => category.id), :method => 'POST' do |f2| %>
+                      <td><%= f2.text_field :name %></td>
+                      <td><%= f2.submit 'Create Subcategory' %></td>
+                    <% end %>
+                  </tr>
+                </table>
+              </td>
             </tr>
-          </table>
-        </td>
-      </tr>
-    <% end %>
-    <tr><td>.</td><td></td><td></td></tr>
-    <tr>
-      <%= form_for Category.new, :url => categories_path, :method => 'POST' do |f| %>
-        <td><%= f.text_field :name %></td>
-        <td><%= f.text_field :full_name %></td>
-        <td><%= f.submit 'Create Category' %></td>
-      <% end %>
-    </tr>
-  </table>
-</div>
+          <% end %>
+          <tr><td>.</td><td></td><td></td></tr>
+          <tr>
+            <%= form_for Category.new, :url => categories_path, :method => 'POST' do |f| %>
+              <td><%= f.text_field :name, :size => 10 %></td>
+              <td><%= f.text_field :full_name, :size => 10 %></td>
+              <td><%= f.submit 'Create Category' %></td>
+            <% end %>
+          </tr>
+        </table>
+      </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</section>
