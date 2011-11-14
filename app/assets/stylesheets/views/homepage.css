@@ -14,6 +14,7 @@ li.headlines a {
 section#slideshow-headlines-section {
   background-color: white;
   background: url(/background.png);
+  background: gray;
 }
 #slideshow-and-headlines-container {
   padding-top: 20px;
@@ -29,14 +30,14 @@ section#slideshow-headlines-section {
 section#custom-page-section-section {
   background-color: white;
   background: url(/background.png);
+  background: gray;
 }
 
 section#popular-posts-section {
   background-color: #f0f0f0;
   background-color: white;
   background: url(/background.png);
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
+  background: gray;
 }
 #popular-posts-container {
   padding-top: 20px;
@@ -45,6 +46,7 @@ section#popular-posts-section {
 section#discussion-board-section {
   background-color: white;
   background: url(/background.png);
+  background: gray;
 }
 .popular-post {
   font-size: 0.8em;

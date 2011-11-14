@@ -32,13 +32,17 @@ header a:visited {
 }
 #header {
   background-color: white;
+  background: url(/background.png);
+  background: gray;
   color: black;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 #header a {
   color: lightgray;
   text-decoration: none;
+}
+#header-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 #userbox {
   float: right;
@@ -92,6 +96,7 @@ li.subcategory {
 footer {
   font-size: 0.6em;
   background-color: #eee;
+  border-top: 3px solid #ccc;
   color: gray;
   padding: 20px;
 }
