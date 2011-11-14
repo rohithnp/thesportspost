@@ -43,18 +43,6 @@ header a {
 header a:visited {
   color: blue;
 }
-#logo {
-  font-size: 1.2em;
-  line-height: 1.2em;
-}
-#header {
-  background-color: white;
-  color: black;
-}
-#header a {
-  color: lightgray;
-  text-decoration: none;
-}
 #header-container {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -63,6 +51,17 @@ header a:visited {
   float: right;
   font-size: 0.8em;
   line-height: 1.8em;
+  padding-right: 10px;
+}
+#userbox {
+  color: gray;
+}
+#userbox a {
+  text-decoration: none;
+  color: #aaa;
+}
+#userbox a:hover {
+  color: #888;
 }
 
 /* Header With Categories and Dropdown Menu */
@@ -75,10 +74,10 @@ header a:visited {
   border-bottom: 2px solid #222;
 }
 #header-categories-container a {
-  color: #eee;
+  color: #ccc;
 }
 #header-categories-container a:hover {
-  color: #ddd;
+  color: #aaa;
 }
 
 ul.categories-list {
