@@ -8,6 +8,7 @@ class Article < ActiveRecord::Base
     :big => '500x500>'
   }
   before_save :generate_slug
+  before_save :auto_generate_youtube_links
 
   IMAGE_POSITIONS = [
     ['top-left', 0],
@@ -19,6 +20,15 @@ class Article < ActiveRecord::Base
   ]
   def date_published
     created_at.strftime("%B %d, %Y")
+  end
+
+  def auto_generate_youtube_links
+    self.text = text
+    text.scan(/<p>http:\/\/youtu\.be\/[^<]+<\/p>/).each do |link|
+      video_id = link.match('youtu.be\/([^<]+)')[1]
+      self.text.gsub!(link, "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/#{video_id}\" frameborder=\"0\" allowfullscreen></iframe>")
+    end
+    self.text
   end
 
   protected
