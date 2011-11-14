@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     @slideshow = Article.where('image_file_name IS NOT NULL').limit(5)
     @page_sections = PageSection.all[0..1]
     @page_section = PageSection.first
-    @posts = Article.limit(8)
+    @posts = Article.limit(9)
   end
 
   protected
