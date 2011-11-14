@@ -37,12 +37,6 @@ h3 {
 header {
   background-color: gray;
 }
-header a {
-  text-decoration: none;
-}
-header a:visited {
-  color: blue;
-}
 #header-container {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -74,10 +68,11 @@ header a:visited {
   border-bottom: 2px solid #222;
 }
 #header-categories-container a {
-  color: #ccc;
+  color: #eee;
+  text-decoration: none;
 }
 #header-categories-container a:hover {
-  color: #aaa;
+  color: #ccc;
 }
 
 ul.categories-list {
@@ -98,7 +93,7 @@ li.categories {
   z-index: 1000;
   display: none;
   padding-top: 15px;
-  padding-left: 20px;
+  padding-left: 23px;
   padding-right: 20px;
   padding-bottom: 10px;
   background-color: #600000;
