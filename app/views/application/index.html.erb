@@ -49,20 +49,20 @@
         <h3>Headlines</h3>
       </div>
       <div id="headlines-list">
-        <% @headlines.each do |article| %>
-          <div class="headlines-entry">
-            <a href="/articles/<%= article.slug %>">
-              <div class="headlines-thumbnail">
-                <img src="<%= article.image.url(:thumb) %>" width="80" height="60"/>
-              </div>
-              <div class="headlines-title"><%= article.title%> </div>
-              <div class="clear"></div>
-            </a>
-          </div>
-        <% end %>
+        <%= render :partial => 'partials/post_type_1', :locals => { :articles => @headlines } %>
       </div>
     </div>
     <div class="clear"></div>
+  </div>
+</section>
+<section id="custom-page-section-section">
+  <div class="container_16" style="padding-bottom: 20px">
+    <div id="custom-page-section">
+      <% @page_sections.each do |section| %>
+        <h3><%= section.name %></h3>
+        <%= render :partial => 'partials/post_type_1', :locals => { :articles => section.articles } %>
+      <% end %>
+    </div>
   </div>
 </section>
 <section id="popular-posts-section">

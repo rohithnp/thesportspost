@@ -1,16 +1,14 @@
 class PageSection < ActiveRecord::Base
-  before_save :serialize_article_ids
 
   def article_ids
     ActiveSupport::JSON.decode(serialized_article_ids)
   end
 
-  def articles
-    article_ids
+  def article_ids=(article_ids)
+    self.serialized_article_ids = ActiveSupport::JSON.encode(article_ids)
   end
 
-  private
-  def serialize_article_ids
-    seralized_article_ids = ActiveSupport::JSON.encode(article_ids)
+  def articles
+    Article.where(:id => article_ids)
   end
 end

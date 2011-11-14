@@ -1,0 +1,11 @@
+<% articles.each do |article| %>
+  <div class="headlines-entry">
+    <a href="/articles/<%= article.slug %>">
+      <div class="headlines-thumbnail">
+        <img src="<%= article.image.url(:thumb) %>" width="80" height="60"/>
+      </div>
+      <div class="headlines-title"><%= article.title %> </div>
+      <div class="clear"></div>
+    </a>
+  </div>
+<% end %>

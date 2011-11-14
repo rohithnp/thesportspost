@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   def index
     @headlines = Article.limit(7)
     @slideshow = Article.where('image_file_name IS NOT NULL').limit(5)
+    @page_sections = [PageSection.all[0]]
     @posts = Article.limit(5)
   end
 
