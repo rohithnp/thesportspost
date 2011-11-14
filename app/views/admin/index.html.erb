@@ -1,11 +1,12 @@
-<div class="container_16">
+<div class="container_16" style="padding-bottom: 30px">
   <h2>Admin Panel</h2>
 
   <% if current_user.role?(:admin) %>
     <p>You are an <b>admin</b></p>
-    <%= link_to 'Manage Articles', admin_articles_path %><br/>
-    <%= link_to 'Manage Users', admin_users_path %><br/>
-    <%= link_to 'Manage Categories', admin_categories_path %><br/>
+    <%= link_to 'Manage Articles', admin_articles_path %> - create new articles or change existing ones<br/>
+    <%= link_to 'Manage Users', admin_users_path %> - change user permissions<br/>
+    <%= link_to 'Manage Categories', admin_categories_path %> - <b>subcategories</b> show up as drop-down options under the <b>categories</b> on the nav bar<br/>
+    <%= link_to 'Manage Page Sections', '' %> - change custom sections on the front page and their associated articles.<br/>
   <% elsif current_user.role?(:editor) %>
     <p>You are an editor</p>
     <%= link_to 'Manage Articles', admin_articles_path %><br/>
