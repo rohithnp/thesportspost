@@ -50,6 +50,7 @@ section#discussion-board-section {
 }
 .popular-post-title {
   color: #222222;
+  font-weight: bold;
   float: left;
   width: 200px;
 }

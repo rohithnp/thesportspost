@@ -27,11 +27,22 @@ h2.category-full-name {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+a.more-articles-link {
+  color: #777;
+  text-decoration: none;
+  font-weight: bold;
+}
+a.more-articles-link:visited {
+  color: #999;
+}
+a.more-articles-link:hover {
+  color: #bbb;
+}
 
-/* Elements */
-
+/* Elements
+*/
 body {
-  font-family: "Droid Sans", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   background-color: #ccc;
 }
 

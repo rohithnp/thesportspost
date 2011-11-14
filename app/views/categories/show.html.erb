@@ -11,7 +11,7 @@
         <h3>More Articles</h3>
         <ul>
           <% @articles.each do |article| %>
-            <li><%= link_to article.title, "/articles/#{article.slug}" %></li>
+            <li><%= link_to article.title, "/articles/#{article.slug}", :class => 'more-articles-link' %></li>
           <% end %>
         </ul>
       </div>

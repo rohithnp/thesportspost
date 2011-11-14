@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :articles
-  after_create :set_writer_role
+  # after_create :set_writer_role
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
