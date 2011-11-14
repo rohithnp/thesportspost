@@ -11,9 +11,13 @@
 
 body {
   font-family: "Droid Sans", Helvetica, Arial, sans-serif;
+  background-color: #eee;
 }
 h3 {
   font-size: 1.6em;
+}
+.white-background {
+  background-color: white;
 }
 
 header a {
@@ -84,42 +88,10 @@ li.subcategory {
   padding-bottom: 5px;
 }
 
-/* Headlines */
-#headlines-header {
-  padding-bottom: 10px;
-  border-bottom: 2px solid #ddd;
-  margin-bottom: 15px;
-}
-#headlines-list a {
-  text-decoration: none;
-  color: #303030;
-}
-#headlines-list a:visited {
-  text-decoration: none;
-  color: #404040;
-}
-#headlines-list a:hover {
-  text-decoration: none;
-  color: #505050;
-}
-#slideshow-and-headlines-container {
-  padding-bottom: 40px;
-}
-.headlines-entry {
-  padding-bottom: 5px;
-}
-.headlines-thumbnail {
-  float: left;
-}
-.headlines-title {
-  float: left;
-  padding-left: 10px;
-  width: 190px;
-  font-size: 1.08em;
-}
+/* Footer */
 footer {
   font-size: 0.6em;
-  color: gray;
   background-color: #eee;
+  color: gray;
   padding: 20px;
 }

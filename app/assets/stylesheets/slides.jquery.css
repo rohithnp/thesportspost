@@ -1,12 +1,12 @@
 #slides {
 }
 .slides_container {
-  width: 500px;
-  height: 300px;
+  width: 620px;
+  height: 316px;
 }
 .slide {
-  width: 500px;
-  height: 300px;
+  width: 620px;
+  height: 316px;
 }
 .slide a {
   text-decoration: none;
@@ -18,7 +18,7 @@
   height: 1.8em;
   padding: 5px 20px 0 20px;
   background: rgba(0,0,0,0.6);
-  width: 460px;
+  width: 580px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

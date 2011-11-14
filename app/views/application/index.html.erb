@@ -1,6 +1,6 @@
 <section id="slideshow-headlines-section">
-  <div id="slideshow-and-headlines-container" class="container_16">
-    <div id="slideshow-container" class="grid_9">
+  <div id="slideshow-and-headlines-container" class="container_16 white-background">
+    <div id="slideshow-container" class="grid_11">
       <div id="slideshow">
         <% if false %>
           <div><img src="<%= Article.first.image.url(:thumb) %>"/></div>
@@ -10,7 +10,7 @@
             <% @slideshow.each do |slide| %>
               <div class="slide">
                 <a href="<%= "/articles/#{slide.slug}" %>">
-                  <img src="<%= slide.image.url(:big) %>" width="500"/>
+                  <img src="<%= slide.image.url(:big) %>" width="620"/>
                   <div class="caption"><%= slide.title %></div>
                 </a>
               </div>
@@ -44,36 +44,31 @@
         })();
       </script>
     </div>
-    <div id="headlines-container" class="grid_5">
-      <div id="headlines-header">
-        <h3>Headlines</h3>
-      </div>
-      <div id="headlines-list">
-        <%= render :partial => 'partials/post_type_1', :locals => { :articles => @headlines } %>
-      </div>
+    <div id="headlines-container">
+      <%= render :partial => 'partials/post_type_1', :locals => { :title => 'Headlines', :articles => @headlines } %>
     </div>
-    <div class="clear"></div>
   </div>
+  <div class="clear"></div>
 </section>
 <section id="custom-page-section-section">
-  <div class="container_16" style="padding-bottom: 20px">
-    <div id="custom-page-section">
+  <div class="container_16 white-background">
+    <div id="custom-page-section-1">
       <% @page_sections.each do |section| %>
-        <h3><%= section.name %></h3>
-        <%= render :partial => 'partials/post_type_1', :locals => { :articles => section.articles } %>
+        <%= render :partial => 'partials/post_type_1', :locals => { :title => section.name, :articles => section.articles } %>
       <% end %>
     </div>
   </div>
+  <div class="clear"></div>
 </section>
 <section id="popular-posts-section">
-  <div class="container_16" style="padding-bottom: 20px">
+  <div id="popular-posts-container" class="container_16 white-background">
     <div id="popular-posts">
-      <div class="grid_12">
-        <h3>Popular Posts</h3>
+      <div class="grid_16">
+        <h3 class="section-title">Popular Posts</h3>
       </div>
       <div class="clear"></div>
       <% @posts.each_with_index do |article,i| %>
-        <% if i>0 and i%3 == 0 %>
+        <% if i>0 and i%4 == 0 %>
           <div class="clear"></div>
         <% end %>
         <div class="popular-post grid_4">
@@ -91,9 +86,14 @@
     </div>
     <div class="clear"></div>
   </div>
+  <div class="clear"></div>
 </section>
 <section id="discussion-board-section">
-  <div class="container_16">
-    <h3>Discussion Board</h3>
+  <div id="discussion-board-container" class="container_16 white-background">
+    <div class="grid_16">
+      <h3 class="section-title">Discussion Board</h3>
+    </div>
+    <div class="clear"></div>
   </div>
+  <div class="clear"></div>
 </section>

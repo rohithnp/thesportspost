@@ -1,10 +1,3 @@
-
-#headlines-container {
-  font-size: 0.8em;
-}
-#headlines-container h3 {
-  margin: 0;
-}
 ul.headlines {
   padding: 0;
   margin-bottom: 0;
@@ -20,8 +13,11 @@ li.headlines a {
 
 section#slideshow-headlines-section {
   background-color: white;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  background: url(/background.png);
+}
+#slideshow-and-headlines-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 #slideshow {
   float: left;
@@ -30,15 +26,28 @@ section#slideshow-headlines-section {
   height: 270px;
 }
 
+section#custom-page-section-section {
+  background-color: white;
+  background: url(/background.png);
+}
+
 section#popular-posts-section {
   background-color: #f0f0f0;
+  background-color: white;
+  background: url(/background.png);
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
-  padding-top: 5px;
-  padding-bottom: 15px;
-  font-size: 0.8em;
+}
+#popular-posts-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+section#discussion-board-section {
+  background-color: white;
+  background: url(/background.png);
 }
 .popular-post {
+  font-size: 0.8em;
   margin-bottom: 30px;
 }
 .popular-post a {
@@ -70,3 +79,45 @@ section#popular-posts-section {
   font-size: 0.9em;
 }
 
+/* Sections */
+h3.section-title {
+  margin-top: 0px;
+  padding-top: 15px;
+}
+
+/* Post List Types */
+.post-list-type-1 {
+  font-size: 0.8em;
+}
+.post-list-type-1-header h3 {
+  margin: 0;
+}
+.post-list-type-1-header {
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 15px;
+}
+.post-list-type-1 a {
+  text-decoration: none;
+  color: #303030;
+}
+.post-list-type-1 a:visited {
+  text-decoration: none;
+  color: #404040;
+}
+.post-list-type-1 a:hover {
+  text-decoration: none;
+  color: #505050;
+}
+.post-list-type-1-entry {
+  padding-bottom: 5px;
+}
+.post-list-type-1-thumbnail {
+  float: left;
+}
+.post-list-type-1-title {
+  float: left;
+  padding-left: 10px;
+  width: 190px;
+  font-size: 1.08em;
+}
