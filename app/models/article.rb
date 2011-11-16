@@ -33,6 +33,6 @@ class Article < ActiveRecord::Base
 
   protected
   def generate_slug
-    self.slug = title.downcase.gsub(/[^a-z ]/,'').gsub(/ +/,'-') + "-#{id}"
+    self.slug = title.downcase.gsub(/[^\w ]/,'').gsub(/ +/,'-') + "-#{id}"
   end
 end
