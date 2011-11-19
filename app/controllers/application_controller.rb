@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
 
   protected
   def get_categories
-    @navbar_categories = Category.limit(4)
+    @navbar_categories = Category.limit(4).order('id DESC')
   end
 end
