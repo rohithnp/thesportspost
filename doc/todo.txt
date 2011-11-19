@@ -1,0 +1,42 @@
+Headlines
+=========
+* Headlines should NOT have pictures next to them (additionally, the text should be smaller like ESPN has it)
+* Headlines (OTHER THAN THE HOME PAGE) should be sport specific for each individual page ie Football page shouldn’t only have football headlines.
+* Headlines should be most recent articles (Headlines = Today’s Headlines) (ALSO: Should we make it so that we can decide what is put in Headlines much like we want the ability to decide what is put in Recent Articles?)
+
+Top Articles (Change to “Recent Articles”)
+We should have the ability to decide which articles are placed in the Recent Articles section using an option at the bottom of our article (before we post it) that says “Add to Recent Articles Section”
+
+Popular Posts
+
+	a. This section needs to be re-structured, much in the same way that NFL.com has theirs (long, rectangular stories below their slideshow, especially noting the fact that they have the ability to place 1-2 sentences of description next to the image icon) mixed with the way ESPN.com has theirs (look at attached image to see the rectangular shaped breakdown of their section; they have a rectangular frame, but within the frame they have multiple smaller, different shaped boxes to keep it fresh)
+Popular Posts needs to be automatically decided by and refreshed by clicks per article; In other words, the analytics that the site will incorporate will determine which articles are “Popular,” based on which ones receive the most views (DO WE NEED THIS NOTE? NOTE: have a monthly refresh so that newer articles aren’t disadvantaged in getting placement there)
+
+Analytics
+
+a. We need a way to track the success of our site. I have used Google Analytics in the past, and I think it works well, but if you have any alternatives that you find superior, feel free to use it. Can you please incorporate an analytics tracker into the site that will not only organize the Popular Posts section automatically, but will allow Admins (Spencer, Evan, Matt) access to see the success of individual articles and the site overall.
+Individual Pages
+Each individual page (anything that we have created a tab for) needs to be separate and distinct; with that said, given the constraints of time and money, simply using the home page structure (Slideshow, Headlines, Recent Articles, Popular Posts) for each individual page (only allowing articles posted in that section to appear on that page) and changing the color scheme slightly should do the trick.
+
+Slideshow
+There should be a Play/Pause button on the bottom right of the slideshow so that the user can control it.
+Instead of the small dots used to designate which slide is up, put a smaller version of the picture as an icon (like ESPN does on their slideshow)
+In the slideshow, the title should be at the bottom left of the picture (as it is now) and should be in a large font; Below that, it should display a sub-title that we have access to creating (very similar/almost exactly the same as what ESPN uses for their slideshow)
+
+Google Adsense
+Please place Google Adsense on the lower-right side of each page
+
+Articles (in general)
+Articles need to have timestamps that show both Date and Time
+Articles should generate a “related articles” section on that article page (that can be adjusted by Admins)
+Articles should generate a “more articles by this writer” section on that article page (that can be adjusted by Admins)
+
+Sign-In/Member Login
+
+a. The current “Sign-In” link needs to be changed to a “Member Login” (and should show right there two boxes to log-in directly instead of having to go to a separate page to sign-in) and also needs to have a “Create Account” link for those who don’t have an account yet (that should lead them to a page where they enter information which should include: Name, E-mail, Password for site, Favorite Sports - use check boxes for this)
+
+10. Searching
+There should be a small search engine at the top right of each page (below the “Member Login”) to search internally on the site
+
+
+11. Change order of tabs - Football, Basketball, Baseball, MMA

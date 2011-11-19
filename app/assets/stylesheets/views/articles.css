@@ -19,3 +19,6 @@ h2#article-title {
   color: #5f5f5f;
   font-size: 0.8em;
 }
+.article-body {
+  margin-bottom: 30px;
+}

@@ -31,6 +31,22 @@
               <%= f.file_field :image %>
             </td>
           </tr>
+          <tr>
+            <td>Related Articles</td>
+            <td>
+              <select multiple="multiple" name="article[related_article_ids][]">
+                <% @related_articles.each do |related| %>
+                  <option value="<%= related.id %>"><%= "#{article.created_at} - #{article.category} - #{article.title} %></option>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>More Articles By Writer</td>
+            <td>
+              
+            </td>
+          </tr>
         </table>
         <%= render :partial => 'tinymce' %>
         <br/>

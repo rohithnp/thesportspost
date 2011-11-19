@@ -1,18 +1,32 @@
-<h2>Sign up</h2>
+<section id="log-in-section">
+  <div class="container_16 white-background" style="padding-bottom: 20px">
+    <div class="grid_16">
+      <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+        <div><%= f.label :email %><br />
+        <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+        <div><%= f.label :password %><br />
+        <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+        <div><%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+        <div style="padding-bottom: 20px">Favorite Sports<br/>
+          <% @navbar_categories.each do |c| %>
+            <input type="checkbox" name="<%= c.name %>" value="<%= c.id %>"/><span style="padding-left: 10px"><%= c.full_name %></span><br/>
+          <% end %>
+        </div>
 
-<%= render :partial => "devise/shared/links" %>
+        <div><%= f.submit "Sign up" %></div>
+      <% end %>
+
+      <%= render :partial => "devise/shared/links" %>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</section>

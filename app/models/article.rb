@@ -19,7 +19,7 @@ class Article < ActiveRecord::Base
     # ['bottom-right', 5]
   ]
   def date_published
-    created_at.strftime("%B %d, %Y")
+    created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%l:%M %p %Z, %B %d, %Y")
   end
 
   def auto_generate_youtube_links

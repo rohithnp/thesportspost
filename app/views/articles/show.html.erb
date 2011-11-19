@@ -11,6 +11,19 @@
         <div class="article-body">
           <p><%= format_article(@article.text).html_safe %></p>
         </div>
+        <div class="article-related-articles">
+          <h3>Related Articles</h3>
+          <ul>
+            <li>Awesome article 1</li>
+          </ul>
+          <ul>
+        </div>
+        <div class="article-more-by-writer">
+          <h3>More Articles By This Writer</h3>
+          <ul>
+            <li>More articles by this writer</li>
+          </ul>
+        </div>
         <div style="padding-bottom: 10px">
           <div id="disqus_thread"></div>
           <% if Rails.env.production? %>

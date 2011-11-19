@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
     self.save
   end
 
-  def roles=(roles)  
+  def roles=(roles)
     self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.sum  
   end  
   
