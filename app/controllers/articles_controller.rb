@@ -5,5 +5,8 @@ class ArticlesController < ApplicationController
       # raise ActionController::RoutingError.new('Not Found')
       redirect_to '/'
     end
+    @article.pageviews ||= 0
+    @article.pageviews += 1
+    @article.save
   end
 end

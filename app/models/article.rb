@@ -7,6 +7,7 @@ class Article < ActiveRecord::Base
     :thumb => 'x100',
     :big => '500x500>'
   }
+  before_save :strip_title
   before_save :generate_slug
   before_save :auto_generate_youtube_links
 
@@ -32,6 +33,10 @@ class Article < ActiveRecord::Base
   end
 
   protected
+  def strip_title
+    self.title = title.strip
+  end
+
   def generate_slug
     self.slug = title.downcase.gsub(/[^\w ]/,'').gsub(/ +/,'-') + "-#{id}"
   end
