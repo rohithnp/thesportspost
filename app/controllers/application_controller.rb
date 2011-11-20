@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_filter :get_categories
 
   def index
-    @headlines = Article.order('created_at DESC').limit(5)
+    @headlines = Article.order('created_at DESC').limit(10)
     @slideshow = Article.where('image_file_name IS NOT NULL').order('created_at DESC').limit(5)
     @page_sections = PageSection.all[0..1]
     @page_section = PageSection.first
