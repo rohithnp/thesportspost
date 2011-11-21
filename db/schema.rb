@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111121050330) do
+ActiveRecord::Schema.define(:version => 20111121063848) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20111121050330) do
     t.integer  "pageviews"
     t.integer  "current_month_pageviews"
     t.string   "serialized_same_writer_article_ids"
+    t.string   "subtitle"
   end
 
   create_table "categories", :force => true do |t|

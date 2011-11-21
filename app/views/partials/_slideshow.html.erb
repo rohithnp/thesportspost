@@ -13,7 +13,7 @@
                   <img src="<%= slide.image.url(:big) %>" width="645"/>
                   <div class="caption">
                     <div class="slideshow-title"><%= slide.title %></div>
-                    <div class="slideshow-subtitle">The subtitle!!!</div>
+                    <div class="slideshow-subtitle"><%= slide.subtitle %></div>
                   </div>
                 </a>
               </div>
@@ -35,13 +35,14 @@
         (function() {
           $("#slideshow").slides({
             preload: true,
+            preloadImage: "/assets/loading.gif",
             play: 5000,
             pause: 2500,
             hoverPause: true,
             generatePagination: false,
             animationStart: function(current) {
               $(".caption").animate({
-                bottom: -35
+                bottom: -60
               },100);
             },
             animationComplete: function(current) {
