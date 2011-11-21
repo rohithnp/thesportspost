@@ -12,6 +12,15 @@ class User < ActiveRecord::Base
   
   ROLES = %w[admin writer editor]
 
+  def other_articles
+    if serialized_featured_article_ids
+      article_ids = ActiveSupport::JSON.decode(serialized_featured_article_ids)
+      Article.where(:user_id => id, :id => article_ids)
+    else
+      []
+    end
+  end
+
   def set_writer_role
     self.roles_mask = 2
     self.save

@@ -35,8 +35,8 @@
             <td>Related Articles</td>
             <td>
               <select multiple="multiple" name="article[related_article_ids][]">
-                <% @related_articles.each do |related| %>
-                  <option value="<%= related.id %>"><%= "#{article.created_at} - #{article.category} - #{article.title} %></option>
+                <% @article.related_articles.each do |a| %>
+                  <option value="<%= a.id %>"><%= "#{a.created_at} - #{a.category} - #{a.title}" %></option>
                 <% end %>
               </select>
             </td>
@@ -44,7 +44,11 @@
           <tr>
             <td>More Articles By Writer</td>
             <td>
-              
+              <select multiple="multiple" name="article[author_other_article_ids]">
+                <% @article.author_other_articles.each do |a| %>
+                  <option value="<%= a.id %>"><%= "#{a.created_at} - #{a.category} - #{a.title}" %></option>
+                <% end %>
+              </select>
             </td>
           </tr>
         </table>

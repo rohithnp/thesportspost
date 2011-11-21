@@ -22,6 +22,10 @@ class Article < ActiveRecord::Base
   def date_published
     created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%l:%M %p %Z, %B %d, %Y")
   end
+  
+  def date_published_short
+    created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%Y - %l:%M %p %Z")
+  end
 
   def auto_generate_youtube_links
     self.text = text
@@ -30,6 +34,19 @@ class Article < ActiveRecord::Base
       self.text.gsub!(link, "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/#{video_id}\" frameborder=\"0\" allowfullscreen></iframe>")
     end
     self.text
+  end
+
+  def related_articles
+    if serialized_related_article_ids
+      ids = ActiveSupport::JSON.decode(serialized_related_article_ids)
+      Article.where(:id => ids)
+    else
+      []
+    end
+  end
+
+  def author_other_articles
+    user.other_articles
   end
 
   protected

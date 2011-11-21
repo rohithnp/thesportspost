@@ -40,9 +40,9 @@ class Admin::ArticlesController < ApplicationController
   def index
     authorize! :manage, Article
     if current_user.role?(:admin) || current_user.role?(:editor)
-      @articles = Article.all
+      @articles = Article.order('created_at DESC')
     elsif current_user.role?(:writer)
-      @articles = Article.where(:user_id => current_user.id) || []
+      @articles = Article.where(:user_id => current_user.id).order('created_at DESC') || []
     end
   end
 
@@ -52,6 +52,9 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.new(params[:article])
     @article.user_id = current_user.id
     @article.save
+    if params[:add_to_recent]
+
+    end
     redirect_to :action => :index
   end
 end

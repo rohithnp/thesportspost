@@ -20,6 +20,23 @@
             <td><%= f.label 'Thumbnail Image' %></td>
             <td><%= f.file_field :image %></td>
           </tr>
+          <tr>
+            <td>Related Articles</td>
+            <td>
+              <select multiple="multiple" name="article[related_article_ids][]">
+                <% @article.related_articles.each do |a| %>
+                  <option value="<%= a.id %>"><%= "#{a.created_at} - #{a.category} - #{a.title}" %></option>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="checkbox" name="add_to_recent"/>
+              <label>Add to Recent Articles Section</label>
+            </td>
+          </tr>
         </table>
         <%= render :partial => 'tinymce' %>
         <br/>
