@@ -1,0 +1,35 @@
+<div class="grid_5">
+  <a href="/articles/<%= article1.slug %>">
+    <div class="popular-post-big">
+      <div class="popular-post-big-image-thumbnail">
+        <% if article1.image? %><img src="<%= article1.image.url(:big) %>" width="290"/><% end %>
+      </div>
+      <div class="popular-post-big-description">
+        <%= article1.title %>
+      </div>
+    </div>
+  </a>
+</div>
+<div class="grid_6">
+  <a href="/articles/<%= article2.slug %>">
+    <div class="popular-post-medium">
+      <div class="popular-post-medium-image-thumbnail">
+        <% if article2.image? %><img src="<%= article2.image.url(:big) %>" width="165"/><% end %>
+      </div>
+      <div class="popular-post-medium-description">
+        <%= article2.title %>
+      </div>
+    </div>
+  </a>
+  <a href="/articles/<%= article3.slug %>">
+    <div class="popular-post-medium">
+      <div class="popular-post-medium-image-thumbnail">
+        <% if article3.image? %><img src="<%= article3.image.url(:big) %>"/><% end %>
+      </div>
+      <div class="popular-post-medium-description">
+        <%= article3.title %>
+      </div>
+    </div>
+  </a>
+</div>
+<div class="clear"></div>

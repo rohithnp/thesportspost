@@ -18,23 +18,18 @@
         <h3 class="section-title"><span class="dark-title-background">Popular Posts</span></h3>
       </div>
       <div class="clear"></div>
-      <div class="grid_11 real-popular-posts-container">
-        <% @posts.each_with_index do |article,i| %>
-          <% if i>0 and i%3 == 0 %>
-            <div class="clear"></div>
-          <% end %>
-          <div class="popular-post">
-            <a href="/articles/<%= article.slug %>">
-              <div class="popular-post-image-thumbnail">
-                <% if article.image? %><img src="<%= article.image.url(:big) %>" width="200"/><% end %>
-              </div>
-              <div class="popular-post-title"><%= article.title %></div>
-              <div class="popular-post-description"><%= strip_tags(article.text)[0..100].strip.html_safe %>...</div>
-            </a>
-            <div class="clear"></div>
-          </div>
-        <% end %>
+      <div class="popular-posts-subcontainer">
+        <%= render :partial => 'partials/popular_posts_slice', :locals => {
+          :article1 => @posts[0], :article2 => @posts[1], :article3 => @posts[2]
+        } %>
+        <%= render :partial => 'partials/popular_posts_slice', :locals => {
+          :article1 => @posts[3], :article2 => @posts[4], :article3 => @posts[5]
+        } %>
+        <%= render :partial => 'partials/popular_posts_slice', :locals => {
+          :article1 => @posts[6], :article2 => @posts[7], :article3 => @posts[8]
+        } %>
       </div>
+      <div class="clear"></div>
     </div>
     <% if @page_section %>
       <div id="custom-page-sections-container">

@@ -68,3 +68,51 @@ h3.section-title {
   margin: 0px;
   height: 30px;
 }
+
+/* Popular Posts 2 */
+.popular-posts-subcontainer {
+  padding-top: 10px;
+}
+.popular-posts-subcontainer a {
+  text-decoration: none;
+  color: #303030;
+}
+.popular-posts-subcontainer a:hover {
+  text-decoration: none;
+  color: #707070;
+}
+.popular-post-big-image-thumbnail {
+  float: left;
+  width: 290px;
+  height: 210px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  background-color: black;
+}
+.popular-post-big-description {
+  color: white;
+  text-shadow: 1px 1px black;
+  font-weight: bold;
+  position: relative;
+  bottom: 48px;
+  height: 0px;
+  padding-left: 10px;
+}
+.popular-post-medium-image-thumbnail {
+  float: left;
+  width: 165px;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  background-color: #fefefe;
+}
+.popular-post-medium-description {
+  float: left;
+  padding-left: 10px;
+  height: 95px;
+  width: 165px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
