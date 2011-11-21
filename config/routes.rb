@@ -9,6 +9,7 @@ Thesportspost::Application.routes.draw do
     resources :categories
     resources :page_sections
   end
+  match '/search' => 'search#index'
   match '/categories/:category' => 'categories#show'
   match '/categories/:category/subcategories/:subcategory' => 'subcategories#show'
   resources :categories, :except => :show do

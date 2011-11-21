@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
   end
 
   def dont_accept_crap_query_params
-    return redirect_to(root_url) if params[:q]
+    if params[:controller] == 'application' and params[:action] == 'index'
+      return redirect_to(root_url) if params[:q]
+    end
   end
 end
