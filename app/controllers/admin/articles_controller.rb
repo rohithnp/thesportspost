@@ -53,7 +53,9 @@ class Admin::ArticlesController < ApplicationController
     @article.user_id = current_user.id
     @article.save
     if params[:add_to_recent]
-
+      recent_articles = PageSection.find_by_id(1)
+      recent_articles.article_ids = recent_articles.article_ids.unshift(@article.id)
+      recent_articles.save
     end
     redirect_to :action => :index
   end
