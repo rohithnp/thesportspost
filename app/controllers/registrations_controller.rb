@@ -5,10 +5,16 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-    if params[:favorites] and current_user.email == params[:user][:email]
-      current_user.favorite_sports = (Set.new(Category.all.map {|c| c.name }) & params[:favorites].keys).to_a
+    if current_user.email == params[:user][:email]
+      if params[:user][:name]
+        current_user.name = params[:user][:name]
+      end
+      if params[:favorites] and current_user.email == params[:user][:email]
+        current_user.favorite_sports = (Set.new(Category.all.map {|c| c.name }) & params[:favorites].keys).to_a
+      end
       current_user.save
     end
+    binding.pry
   end
 
   def update

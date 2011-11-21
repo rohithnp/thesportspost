@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111121034611) do
+ActiveRecord::Schema.define(:version => 20111121050330) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20111121034611) do
     t.integer  "roles_mask"
     t.string   "serialized_featured_article_ids"
     t.string   "serialized_favorite_sports"
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
