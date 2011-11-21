@@ -104,6 +104,7 @@ h3.section-title {
   border-right: 1px solid lightgray;
   padding: 5px 10px;
   overflow: hidden;
+  opacity: 0.8;
 }
 .popular-post-big-description-background {
   float: left;
