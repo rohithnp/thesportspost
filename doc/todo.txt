@@ -10,12 +10,12 @@ We should have the ability to decide which articles are placed in the Recent Art
 
 3. Popular Posts
 ================
-a. This section needs to be re-structured, much in the same way that NFL.com has theirs (long, rectangular stories below their slideshow, especially noting the fact that they have the ability to place 1-2 sentences of description next to the image icon) mixed with the way ESPN.com has theirs (look at attached image to see the rectangular shaped breakdown of their section; they have a rectangular frame, but within the frame they have multiple smaller, different shaped boxes to keep it fresh)
-Popular Posts needs to be automatically decided by and refreshed by clicks per article; In other words, the analytics that the site will incorporate will determine which articles are “Popular,” based on which ones receive the most views (DO WE NEED THIS NOTE? NOTE: have a monthly refresh so that newer articles aren’t disadvantaged in getting placement there)
+* This section needs to be re-structured, much in the same way that NFL.com has theirs (long, rectangular stories below their slideshow, especially noting the fact that they have the ability to place 1-2 sentences of description next to the image icon) mixed with the way ESPN.com has theirs (look at attached image to see the rectangular shaped breakdown of their section; they have a rectangular frame, but within the frame they have multiple smaller, different shaped boxes to keep it fresh)
+* Popular Posts needs to be automatically decided by and refreshed by clicks per article; In other words, the analytics that the site will incorporate will determine which articles are “Popular,” based on which ones receive the most views (DO WE NEED THIS NOTE? NOTE: have a monthly refresh so that newer articles aren’t disadvantaged in getting placement there)
 
 4. Analytics
 ============
-a. We need a way to track the success of our site. I have used Google Analytics in the past, and I think it works well, but if you have any alternatives that you find superior, feel free to use it. Can you please incorporate an analytics tracker into the site that will not only organize the Popular Posts section automatically, but will allow Admins (Spencer, Evan, Matt) access to see the success of individual articles and the site overall.
+We need a way to track the success of our site. I have used Google Analytics in the past, and I think it works well, but if you have any alternatives that you find superior, feel free to use it. Can you please incorporate an analytics tracker into the site that will not only organize the Popular Posts section automatically, but will allow Admins (Spencer, Evan, Matt) access to see the success of individual articles and the site overall.
 
 5. Individual Pages
 ===================
