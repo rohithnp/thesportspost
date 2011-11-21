@@ -14,7 +14,6 @@ class RegistrationsController < Devise::RegistrationsController
       end
       current_user.save
     end
-    binding.pry
   end
 
   def update
