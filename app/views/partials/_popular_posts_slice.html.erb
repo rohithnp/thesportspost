@@ -24,7 +24,7 @@
   <a href="/articles/<%= article3.slug %>">
     <div class="popular-post-medium">
       <div class="popular-post-medium-image-thumbnail">
-        <% if article3.image? %><img src="<%= article3.image.url(:big) %>"/><% end %>
+        <% if article3.image? %><img src="<%= article3.image.url(:big) %>" width="165"/><% end %>
       </div>
       <div class="popular-post-medium-description">
         <%= article3.title %>
