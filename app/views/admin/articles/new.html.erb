@@ -31,6 +31,16 @@
             </td>
           </tr>
           <tr>
+            <td>More Articles By Writer</td>
+            <td>
+              <select multiple="multiple" name="article[author_other_article_ids]">
+                <% @writer_articles.each do |a| %>
+                  <option value="<%= a.id %>"><%= "#{a.created_at} - #{a.category} - #{a.title}" %></option>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+          <tr>
             <td></td>
             <td>
               <input type="checkbox" name="add_to_recent"/>

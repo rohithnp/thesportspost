@@ -12,17 +12,24 @@
           <p><%= format_article(@article.text).html_safe %></p>
         </div>
         <div class="article-related-articles">
-          <h3>Related Articles</h3>
-          <ul>
-            <li>Awesome article 1</li>
-          </ul>
-          <ul>
+          <% if @article.related_articles %>
+            <h3>Related Articles</h3>
+            <ul>
+              <% @article.related_articles.each do |article| %>
+                <li><%= link_to article.title, "/articles/#{article.slug}" %></li>
+              <% end %>
+            </ul>
+          <% end %>
         </div>
         <div class="article-more-by-writer">
-          <h3>More Articles By This Writer</h3>
-          <ul>
-            <li>More articles by this writer</li>
-          </ul>
+          <% if @article.related_articles %>
+            <h3>More Articles By This Writer</h3>
+            <ul>
+              <% @article.same_writer_articles.each do |article| %>
+                <li><%= link_to article.title, "/articles/#{article.slug}" %></li>
+              <% end %>
+            </ul>
+          <% end %>
         </div>
         <div style="padding-bottom: 10px">
           <div id="disqus_thread"></div>

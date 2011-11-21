@@ -1,20 +1,21 @@
 class Admin::ArticlesController < ApplicationController
+  before_filter :authorize_user
 
   def show
-    authorize! :manage, Article
     @article = Article.find(params[:id])
   end
 
   def new
-    authorize! :manage, Article
     @article = Article.new
     @categories = Category.all.map {|c| [c.name,c.full_name] }
+    @writer_articles = Article.where(:user_id => current_user.id)
   end
   
   def edit
-    authorize! :manage, Article
-    @categories = Category.all.map {|c| [c.name,c.full_name] }
     @article = Article.find(params[:id])
+    @categories = Category.all.map {|c| [c.name,c.full_name] }
+    @writer_articles = Article.where(:user_id => current_user.id)
+    @same_category_articles = Article.where(:category_id => @article.category_id)
     if !@article.category.nil?
       @subcategories = [[nil,nil]]
       Subcategory.where(:category_id => @article.category.id).each do |sc|
@@ -24,7 +25,6 @@ class Admin::ArticlesController < ApplicationController
   end
   
   def update
-    authorize! :manage, Article
     @article = Article.find(params[:id])
     params[:article][:category] = Category.find_by_full_name(params[:article][:category])
     if params[:article][:subcategory]
@@ -38,7 +38,6 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def index
-    authorize! :manage, Article
     if current_user.role?(:admin) || current_user.role?(:editor)
       @articles = Article.order('created_at DESC')
     elsif current_user.role?(:writer)
@@ -47,7 +46,6 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def create
-    authorize! :manage, Article
     params[:article][:category] = Category.find_by_full_name(params[:article][:category])
     @article = Article.new(params[:article])
     @article.user_id = current_user.id
@@ -58,5 +56,10 @@ class Admin::ArticlesController < ApplicationController
       recent_articles.save
     end
     redirect_to :action => :index
+  end
+
+  protected
+  def authorize_user
+    authorize! :manage, Article
   end
 end

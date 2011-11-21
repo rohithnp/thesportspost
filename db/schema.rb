@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111120023031) do
+ActiveRecord::Schema.define(:version => 20111121034611) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",                        :null => false
+    t.integer  "user_id",                            :null => false
     t.integer  "category_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20111120023031) do
     t.string   "serialized_related_article_ids"
     t.integer  "pageviews"
     t.integer  "current_month_pageviews"
+    t.string   "serialized_same_writer_article_ids"
   end
 
   create_table "categories", :force => true do |t|

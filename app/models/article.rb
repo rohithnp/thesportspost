@@ -3,13 +3,14 @@ class Article < ActiveRecord::Base
   belongs_to :category
   belongs_to :subcategory
 
+  before_save :strip_title
+  before_save :generate_slug
+  before_save :auto_generate_youtube_links
+  
   has_attached_file :image, :styles => {
     :thumb => 'x100',
     :big => '500x500>'
   }
-  before_save :strip_title
-  before_save :generate_slug
-  before_save :auto_generate_youtube_links
 
   IMAGE_POSITIONS = [
     ['top-left', 0],
@@ -38,15 +39,36 @@ class Article < ActiveRecord::Base
 
   def related_articles
     if serialized_related_article_ids
-      ids = ActiveSupport::JSON.decode(serialized_related_article_ids)
+      ids = ActiveSupport::JSON.decode(serialized_related_article_ids).map {|id| id.to_i }
       Article.where(:id => ids)
     else
       []
     end
   end
 
-  def author_other_articles
-    user.other_articles
+  def related_article_ids
+    related_articles.map {|a| a.id }
+  end
+
+  def related_article_ids=(article_ids)
+    self.serialized_related_article_ids = ActiveSupport::JSON.encode(article_ids)
+  end
+
+  def same_writer_articles
+    if serialized_same_writer_article_ids
+      ids = ActiveSupport::JSON.decode(serialized_same_writer_article_ids).map {|id| id.to_i }
+      Article.where(:id => ids)
+    else
+      []
+    end
+  end
+
+  def same_writer_article_ids
+    same_writer_articles.map {|a| a.id }
+  end
+  
+  def same_writer_article_ids=(article_ids)
+    self.serialized_same_writer_article_ids = ActiveSupport::JSON.encode(article_ids)
   end
 
   protected

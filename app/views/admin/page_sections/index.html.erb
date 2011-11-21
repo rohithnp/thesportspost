@@ -14,7 +14,7 @@
             <td>
               <select id="page_section_article_ids" multiple="multiple" name="page_section[article_ids][]">
                 <% @articles.each do |article| %>
-                  <option value="<%= article.id %>" <% if @page_section.article_ids.include?(article.id.to_s) %>selected="selected"<% end %>><%= article.category %> - <%= article.title %></option>
+                  <option value="<%= article.id %>" <% if @page_section.article_ids.include?(article.id) %>selected="selected"<% end %>><%= article.category %> - <%= article.title %></option>
                 <% end %>
               </select>
             </td>
