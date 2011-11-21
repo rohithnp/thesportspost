@@ -58,7 +58,7 @@
         <ul class="categories-list">
           <% @navbar_categories.each_with_index do |category,i| %>
             <span id="category-with-sub-<%= i %>" class="category-with-subcategory">
-              <li id="category-<%= i %>" class="categories"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
+              <li id="category-<%= i %>" class="categories <% if @category and @category.name == category.name %>current-category<% end %>"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
               <% if category.subcategories.length > 0 %>
                 <ul id="category-<%= i%>-subcategories" class="subcategories-list">
                   <% category.subcategories.each do |sc| %>

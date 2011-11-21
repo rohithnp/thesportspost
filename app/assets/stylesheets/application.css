@@ -84,10 +84,12 @@ header {
   color: #eee;
   text-decoration: none;
 }
+#header-categories-container li.current-category a {
+  color: yellow;
+}
 #header-categories-container a:hover {
   color: #ccc;
 }
-
 ul.categories-list {
   list-style-type: none;
   padding: 0;
