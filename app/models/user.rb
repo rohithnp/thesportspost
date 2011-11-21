@@ -21,6 +21,18 @@ class User < ActiveRecord::Base
     end
   end
 
+  def favorite_sports
+    if serialized_favorite_sports
+      ActiveSupport::JSON.decode(serialized_favorite_sports)
+    else
+      []
+    end
+  end
+
+  def favorite_sports=(category_names)
+    self.serialized_favorite_sports = ActiveSupport::JSON.encode(category_names)
+  end
+
   def set_writer_role
     self.roles_mask = 2
     self.save

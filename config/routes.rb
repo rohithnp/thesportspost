@@ -1,8 +1,8 @@
 Thesportspost::Application.routes.draw do
-  devise_for :users
-
-  match 'admin' => 'admin#index', :as => 'user_root'
-  # match 'admin' => 'admin#index'
+  devise_for :users, :controllers => { :registrations => "registrations" } do
+    get "/users/sign_up", :to => "devise/registrations#new"
+  end
+  match 'admin' => 'admin#index'
   namespace :admin do
     resources :articles
     resources :users
@@ -65,6 +65,7 @@ Thesportspost::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+  match '/' => 'application#index', :as => 'user_root'
   root :to => 'application#index'
 
   # See how all your routes lay out with "rake routes"

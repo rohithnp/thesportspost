@@ -17,7 +17,7 @@
 
         <div style="padding-bottom: 20px">Favorite Sports<br/>
           <% @navbar_categories.each do |c| %>
-            <input type="checkbox" name="<%= c.name %>" value="<%= c.id %>"/><span style="padding-left: 10px"><%= c.full_name %></span><br/>
+            <input type="checkbox" name="favorites[<%= c.name %>]" value="<%= c.id %>"/><span style="padding-left: 10px"><%= c.full_name %></span><br/>
           <% end %>
         </div>
 

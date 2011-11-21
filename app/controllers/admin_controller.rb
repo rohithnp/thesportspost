@@ -2,6 +2,9 @@ class AdminController < ApplicationController
 
   def index
     if current_user
+      unless current_user.roles_mask
+        return redirect_to '/'
+      end
       @categories = Category.all
       if params[:next]
         return redirect_to params[:next]
