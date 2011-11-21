@@ -14,7 +14,7 @@ class Admin::ArticlesController < ApplicationController
   def edit
     @article = Article.find(params[:id])
     @categories = Category.all.map {|c| [c.name,c.full_name] }
-    @writer_articles = Article.where(:user_id => current_user.id)
+    @writer_articles = Article.where(:user_id => @article.user_id)
     @same_category_articles = Article.where(:category_id => @article.category_id)
     if !@article.category.nil?
       @subcategories = [[nil,nil]]
