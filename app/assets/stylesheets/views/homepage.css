@@ -88,16 +88,30 @@ h3.section-title {
   overflow: hidden;
   border: 1px solid lightgray;
   margin-bottom: 5px;
-  background-color: black;
+  background-color: #fefefe;
 }
 .popular-post-big-description {
+  float: left;
   color: white;
+  background-color: black;
   text-shadow: 1px 1px black;
   font-weight: bold;
-  position: relative;
-  bottom: 48px;
-  height: 0px;
-  padding-left: 10px;
+  height: 38px;
+  width: 270px;
+  margin-top: -54px;
+  line-height: 1.25em;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  padding: 5px 10px;
+  overflow: hidden;
+}
+.popular-post-big-description-background {
+  float: left;
+  background-color: black;
+  color: gray;
+  height: 30px;
+  width: 290px;
+  margin-top: -30px;
 }
 .popular-post-medium-image-thumbnail {
   float: left;
@@ -111,6 +125,7 @@ h3.section-title {
 .popular-post-medium-description {
   float: left;
   padding-left: 10px;
+  line-height: 1.2em;
   height: 95px;
   width: 165px;
   margin-bottom: 15px;
