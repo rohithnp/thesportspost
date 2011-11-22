@@ -37,7 +37,7 @@
           <tr>
             <td>More Articles By Writer</td>
             <td>
-              <select multiple="multiple" name="article[author_other_article_ids]">
+              <select multiple="multiple" name="article[same_writer_article_ids][]">
                 <% @writer_articles.each do |a| %>
                   <option value="<%= a.id %>"><%= "#{a.created_at} - #{a.category} - #{a.title}" %></option>
                 <% end %>
