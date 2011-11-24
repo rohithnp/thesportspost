@@ -46,3 +46,16 @@ a. The current “Sign-In” link needs to be changed to a “Member Login” (a
 There should be a small search engine at the top right of each page (below the “Member Login”) to search internally on the site
 
 11. Change order of tabs - Football, Basketball, Baseball, MMA
+
+
+
+TODO
+====
+* Headlines - font a little bigger
+* Popular posts - too boxy - look at nfl.com/espn.com
+  * Needs to be more distinct
+* Every sport's section should look a little bit different
+* More colors on the site
+* Articles - side should have related articles and stuff
+  * Related articles should be auto generated
+* Admins should be able to edit sections and stuff
