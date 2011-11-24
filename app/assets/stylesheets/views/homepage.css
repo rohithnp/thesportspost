@@ -64,7 +64,7 @@ section#discussion-board-section {
 
 /* Sections */
 h3.section-title {
-  background-color: #d9d9d9;
+  background-color: #600000;
   margin: 0px;
   height: 30px;
 }
@@ -75,11 +75,11 @@ h3.section-title {
 }
 .popular-posts-subcontainer a {
   text-decoration: none;
-  color: #303030;
+  color: #600000;
 }
 .popular-posts-subcontainer a:hover {
   text-decoration: none;
-  color: #707070;
+  color: #900000;
 }
 .popular-post-big-image-thumbnail {
   float: left;
