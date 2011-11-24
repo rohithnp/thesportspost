@@ -9,7 +9,7 @@
   <% end %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body <% if params[:controller] == "categories" %>class="body-<%= @category.name.downcase %>"<% end %>>
   <header class="container_16">
     <div id="header">
       <div id="header-container" class="white-background">

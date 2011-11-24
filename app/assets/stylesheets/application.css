@@ -45,6 +45,18 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   background-color: #ccc;
 }
+body.body-football {
+  background-color: #000020;
+}
+body.body-basketball {
+  background-color: #200000;
+}
+body.body-baseball {
+  background-color: #000040;
+}
+body.body-mma {
+  background-color: #000000;
+}
 
 header {
   background-color: gray;
