@@ -132,3 +132,24 @@ h3.section-title {
   margin-bottom: 15px;
   overflow: hidden;
 }
+.popular-post-triplet-1-image-thumbnail {
+  float: left;
+  width: 225px;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  background-color: #fefefe;
+}
+.popular-post-triplet-2-image-thumbnail {
+  float: left;
+  width: 165px;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  background-color: #fefefe;
+}
+.popular-post-triplet-description {
+  margin-bottom: 15px;
+}
