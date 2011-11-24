@@ -29,9 +29,6 @@ ul.headlines-ul {
   color: #909090;
   text-decoration: underline;
 }
-li.headlines-entry {
-  line-height: 0.9em;
-}
 .headlines-title {
-  font-size: 0.7em;
+  font-size: 0.8em;
 }

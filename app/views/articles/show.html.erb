@@ -11,27 +11,30 @@
         <div class="article-body">
           <p><%= format_article(@article.text).html_safe %></p>
         </div>
-        <div class="article-related-articles">
-          <% if @article.related_articles.length > 0 %>
-            <h3>Related Articles</h3>
-            <ul>
-              <% @article.related_articles.each do |article| %>
-                <li><%= link_to article.title, "/articles/#{article.slug}" %></li>
-              <% end %>
-            </ul>
-          <% end %>
+        <div class="article-more-articles">
+          <div class="article-related-articles">
+            <% if @article.related_articles.length > 0 %>
+              <h3>Related Articles</h3>
+              <ul>
+                <% @article.related_articles.each do |article| %>
+                  <li><%= link_to article.title, "/articles/#{article.slug}" %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
+          <div class="article-more-by-writer">
+            <% if @article.same_writer_articles.length > 0 %>
+              <h3>More Articles By This Writer</h3>
+              <ul>
+                <% @article.same_writer_articles.each do |article| %>
+                  <li><%= link_to article.title, "/articles/#{article.slug}" %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </div>
         </div>
-        <div class="article-more-by-writer">
-          <% if @article.same_writer_articles.length > 0 %>
-            <h3>More Articles By This Writer</h3>
-            <ul>
-              <% @article.same_writer_articles.each do |article| %>
-                <li><%= link_to article.title, "/articles/#{article.slug}" %></li>
-              <% end %>
-            </ul>
-          <% end %>
-        </div>
-        <div style="padding-bottom: 10px">
+        <div class="clear"></div>
+        <div style="padding-top: 10px; padding-bottom: 10px">
           <div id="disqus_thread"></div>
           <% if Rails.env.production? %>
             <script type="text/javascript">

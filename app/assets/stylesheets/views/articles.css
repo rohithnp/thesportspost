@@ -20,5 +20,19 @@ h2#article-title {
   font-size: 0.8em;
 }
 .article-body {
+  float: left;
   margin-bottom: 30px;
+  width: 700px;
+}
+.article-more-articles {
+  float: left;
+  padding-left: 10px;
+  width: 210px;
+  font-size: 0.9em;
+}
+.article-more-articles a {
+  color: #600000;
+}
+.article-more-articles a:hover {
+  color: #a00000;
 }
