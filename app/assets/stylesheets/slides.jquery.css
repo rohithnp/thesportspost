@@ -18,7 +18,7 @@
   background: rgba(0,0,0,0.6);
   width: 615px;
   color: white;
-  border-top: 1px solid #222222;
+  border-top: 1px solid #3f3f3f;
 }
 .caption .slideshow-title {
   font-size: 1.5em;
@@ -26,6 +26,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  color: #ffffaa;
 }
 .caption .slideshow-subtitle {
   font-size: 0.8em;
