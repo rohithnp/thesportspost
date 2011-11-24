@@ -20,13 +20,12 @@ ul.headlines-ul {
 }
 .headlines a {
   text-decoration: none;
-  color: #303030;
+  color: #000050;
 }
 .headlines a:visited {
-  color: #505050;
+  color: #0000a0;
 }
 .headlines a:hover {
-  color: #909090;
   text-decoration: underline;
 }
 .headlines-title {
