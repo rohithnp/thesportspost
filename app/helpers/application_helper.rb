@@ -37,7 +37,7 @@ module ApplicationHelper
     //-->
     </script>
     <script type="text/javascript"
-    src="">
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     </script>'
   end
 
@@ -51,7 +51,7 @@ module ApplicationHelper
     //-->
     </script>
     <script type="text/javascript"
-    src="">
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     </script>'
   end
 end
