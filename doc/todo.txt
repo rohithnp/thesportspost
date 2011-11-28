@@ -59,3 +59,14 @@ TODO
 * Articles - side should have related articles and stuff
   * Related articles should be auto generated
 * Admins should be able to edit sections and stuff
+
+
+TODO
+====
+No what I meant by staggering is to have it like the boxes on left and right... smaller photos with a longer sub description for users to enter the article and see what it's about.  the middle column ignore for now.  Undersath this section I'd have the long rectangles like you see in the middle/bottom of nfl.com.  Starts with picture on left and a paragraph(perhaps first 3-4 lines?) of article to the right of it.....
+
+Also we need that blog section on the right side of the site.  I'd say under recent articles?  That's called the Observation Deck for now...
+
+Is it possible to add lines between the sections to make them more defined?  Like on sheepdog or espn.
+
+
