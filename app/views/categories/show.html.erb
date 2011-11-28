@@ -20,19 +20,19 @@
       <div class="clear"></div>
       <div class="popular-posts-subcontainer">
         <% if @popular_articles.length >= 3 %>
-          <%= render :partial => 'partials/popular_posts_slice', :locals => {
+          <%= render :partial => 'partials/popular_posts_slice_3', :locals => {
             :article1 => @popular_articles[0], :article2 => @popular_articles[1], :article3 => @popular_articles[2]
           } %>
         <% end %>
         <% if @popular_articles.length >= 6 %>
-          <%= render :partial => 'partials/popular_posts_slice', :locals => {
+          <%= render :partial => 'partials/popular_posts_slice_3', :locals => {
             :article1 => @popular_articles[3], :article2 => @popular_articles[4], :article3 => @popular_articles[5]
           } %>
         <% end %>
         <% if @popular_articles.length >= 9 %>
-          <%= render :partial => 'partials/popular_posts_slice', :locals => {
-            :article1 => @popular_articles[6], :article2 => @popular_articles[7], :article3 => @popular_articles[8]
-          } %>
+          <% @popular_articles[6..@popular_articles.length].each do |article| %>
+            <%= render :partial => 'partials/popular_posts_slice_4', :locals => { :article => article } %>
+          <% end %>
         <% end %>
       </div>
       <div class="clear"></div>
