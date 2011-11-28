@@ -39,7 +39,7 @@
         } %>
         <div class="grid_5">
           <% if Rails.env.production? %>
-            <div style="margin-top: 15px"><%= adsense_under_headlines %></div>
+            <div style="margin-top: 15px"><%= adsense_under_headlines.html_safe %></div>
           <% else %>
             <div style="border: 1px solid black; width: 248px; height: 248px; margin-top: 15px"></div>
           <% end %>

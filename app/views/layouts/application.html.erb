@@ -18,7 +18,7 @@
         </div>
         <div class="grid_6">
           <% if Rails.env.production? %>
-            <%= adsense_top_right %>
+            <%= adsense_top_right.html_safe %>
           <% else %>
             <div style="height: 278px; width: 334px; border: 1px solid black;"></div>
           <% end %>
