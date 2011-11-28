@@ -1,0 +1,17 @@
+<div class="grid_11">
+  <a href="/articles/<%= article.slug %>">
+    <div class="popular-post-big">
+      <div class="popular-post-medium-image-thumbnail">
+        <% if article.image? %><img src="<%= article.image.url(:big) %>" width="165"/><% end %>
+      </div>
+      <div class="popular-post-medium-very-wide-description">
+        <div class="popular-post-medium-very-wide-title"><%= article.title %></div>
+        <div class="popular-post-medium-very-wide-subtitle"><%= article.subtitle %></div>
+        <div class="popular-post-larger-text-sample"><%= article_text_sample(article,200) %>...</div>
+      </div>
+    </div>
+  </a>
+</div>
+<div class="clear"></div>
+<div class="grid_11 divider"></div>
+<div class="clear"></div>

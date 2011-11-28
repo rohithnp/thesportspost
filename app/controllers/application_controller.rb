@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     @slideshow = Article.where('image_file_name IS NOT NULL').order('created_at DESC').limit(5)
     @page_sections = PageSection.all[0..1]
     @page_section = PageSection.first
-    @posts = Article.order('created_at DESC').limit(9)
+    @posts = Article.order('created_at DESC').limit(12)
   end
 
   protected

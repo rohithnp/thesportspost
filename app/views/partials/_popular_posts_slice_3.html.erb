@@ -1,11 +1,12 @@
 <div class="grid_5">
   <a href="/articles/<%= article1.slug %>">
     <div class="popular-post-big">
-      <div class="popular-post-big-image-thumbnail">
+      <div class="popular-post-medium-wide-image-thumbnail">
         <% if article1.image? %><img src="<%= article1.image.url(:big) %>" width="290"/><% end %>
       </div>
-      <div class="popular-post-big-description">
-        <%= article1.title %>
+      <div class="popular-post-medium-wide-description">
+        <div class="popular-post-title"><%= article1.title %></div>
+        <div class="popular-post-text-sample"><%= article_text_sample(article1,250) %></div>
       </div>
     </div>
   </a>
@@ -17,7 +18,8 @@
         <% if article2.image? %><img src="<%= article2.image.url(:big) %>" width="165"/><% end %>
       </div>
       <div class="popular-post-medium-description">
-        <%= article2.title %>
+        <div class="popular-post-title"><%= article2.title %></div>
+        <div class="popular-post-text-sample"><%= article_text_sample(article2) %></div>
       </div>
     </div>
   </a>
@@ -27,9 +29,12 @@
         <% if article3.image? %><img src="<%= article3.image.url(:big) %>" width="165"/><% end %>
       </div>
       <div class="popular-post-medium-description">
-        <%= article3.title %>
+        <div class="popular-post-title"><%= article3.title %></div>
+        <div class="popular-post-text-sample"><%= article_text_sample(article3) %></div>
       </div>
     </div>
   </a>
 </div>
+<div class="clear"></div>
+<div class="grid_11 divider"></div>
 <div class="clear"></div>

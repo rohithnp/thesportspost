@@ -19,21 +19,31 @@
       </div>
       <div class="clear"></div>
       <div class="popular-posts-subcontainer">
-        <%= render :partial => 'partials/popular_posts_slice', :locals => {
+        <%= render :partial => 'partials/popular_posts_slice_3', :locals => {
           :article1 => @posts[0], :article2 => @posts[1], :article3 => @posts[2]
         } %>
-        <%= render :partial => 'partials/popular_posts_slice_2', :locals => {
+        <%= render :partial => 'partials/popular_posts_slice_3', :locals => {
           :article1 => @posts[3], :article2 => @posts[4], :article3 => @posts[5]
         } %>
-        <%= render :partial => 'partials/popular_posts_slice', :locals => {
-          :article1 => @posts[6], :article2 => @posts[7], :article3 => @posts[8]
-        } %>
+        <% @posts[6..11].each do |post| %>
+          <%= render :partial => 'partials/popular_posts_slice_4', :locals => { :article => post } %>
+        <% end %>
       </div>
       <div class="clear"></div>
     </div>
     <% if @page_section %>
       <div id="custom-page-sections-container">
-        <%= render :partial => 'partials/post_type_1', :locals => { :title => @page_section.name, :articles => @page_section.articles } %>
+        <%= render :partial => 'partials/post_type_1', :locals => {
+          :title => @page_section.name,
+          :articles => @page_section.articles
+        } %>
+        <div class="grid_5">
+          <% if Rails.env.production? %>
+            <div style="margin-top: 15px"><%= adsense_under_headlines %></div>
+          <% else %>
+            <div style="border: 1px solid black; width: 248px; height: 248px; margin-top: 15px"></div>
+          <% end %>
+        </div>
       </div>
     <% end %>
     <div>

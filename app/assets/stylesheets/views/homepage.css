@@ -48,12 +48,6 @@ section#discussion-board-section {
   margin-bottom: 5px;
   background-color: #fefefe;
 }
-.popular-post-title {
-  color: #222222;
-  font-weight: bold;
-  float: left;
-  width: 200px;
-}
 .popular-post-description {
   padding-top: 5px;
   color: #888888;
@@ -132,6 +126,32 @@ h3.section-title {
   margin-bottom: 15px;
   overflow: hidden;
 }
+.popular-post-medium-wide-image-thumbnail {
+  float: left;
+  width: 290px;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  background-color: #fefefe;
+}
+.popular-post-medium-wide-description {
+  float: left;
+  line-height: 1.2em;
+  height: 95px;
+  width: 290px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.popular-post-medium-very-wide-description {
+  float: left;
+  padding-left: 15px;
+  line-height: 1.2em;
+  height: 100px;
+  width: 450px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
 .popular-post-triplet-1-image-thumbnail {
   float: left;
   width: 225px;
@@ -144,7 +164,7 @@ h3.section-title {
 .popular-post-triplet-2-image-thumbnail {
   float: left;
   width: 165px;
-  height: 100px;
+  height: 105px;
   overflow: hidden;
   border: 1px solid lightgray;
   margin-bottom: 5px;
@@ -152,4 +172,34 @@ h3.section-title {
 }
 .popular-post-triplet-description {
   margin-bottom: 15px;
+}
+.popular-post-medium-very-wide-title {
+  font-weight: bold;
+}
+.popular-post-medium-very-wide-subtitle {
+  font-size: 0.8em;
+}
+.popular-post-title {
+  font-weight: bold;
+  font-size: 0.9em;
+  line-height: 1em;
+}
+.popular-post-text-sample {
+  margin-top: 5px;
+  font-size: 0.7em;
+  line-height: 1.1em;
+  color: #555;
+}
+.popular-post-larger-text-sample {
+  margin-top: 5px;
+  font-size: 0.8em;
+  line-height: 1.2em;
+  color: #555;
+}
+.divider {
+  margin-top: 3px;
+  border-top: 2px solid #900;
+  padding-top: 3px;
+  height: 8px;
+  opacity: 0.6;
 }

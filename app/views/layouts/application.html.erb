@@ -16,6 +16,13 @@
         <div id="logo" class="grid_4">
           <a href="/"><img src="/logo.png" alt="The Sports Post"/></a>
         </div>
+        <div class="grid_6">
+          <% if Rails.env.production? %>
+            <%= adsense_top_right %>
+          <% else %>
+            <div style="height: 278px; width: 334px; border: 1px solid black;"></div>
+          <% end %>
+        </div>
         <div id="userbox">
           <% if user_signed_in? %>
             <%= current_user.email %>
