@@ -30,10 +30,10 @@ module ApplicationHelper
   def adsense_top_right
     '<script type="text/javascript"><!--
     google_ad_client = "ca-pub-1214541924352395";
-    /* Top Banner Ad */
-    google_ad_slot = "2983044274";
-    google_ad_width = 336;
-    google_ad_height = 280;
+    /* Top Banner */
+    google_ad_slot = "3558671930";
+    google_ad_width = 468;
+    google_ad_height = 60;
     //-->
     </script>
     <script type="text/javascript"
