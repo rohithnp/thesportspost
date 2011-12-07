@@ -6,20 +6,15 @@ class Article < ActiveRecord::Base
   before_save :strip_title
   before_save :generate_slug
   before_save :auto_generate_youtube_links
-  
+
+  validates_presence_of :title
+  validates_presence_of :text
+
   has_attached_file :image, :styles => {
     :thumb => 'x100',
     :big => '500x500>'
   }
 
-  IMAGE_POSITIONS = [
-    ['top-left', 0],
-    ['top-right', 1],
-    # ['mid-left', 2],
-    # ['mid-right', 3],
-    # ['bottom-left', 4],
-    # ['bottom-right', 5]
-  ]
   def date_published
     created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%l:%M %p %Z, %B %d, %Y")
   end

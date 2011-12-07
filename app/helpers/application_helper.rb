@@ -17,14 +17,18 @@ module ApplicationHelper
 
   def article_text_sample(article, limit=100)
     cleaned_text = strip_tags(article.text.strip).gsub(/\s+/,' ').gsub(/&nbsp;/,' ').strip.split
-    text = ""
-    i = 0
-    while text.length<limit
-      text += cleaned_text[i] + " "
-      i += 1
+    if cleaned_text
+      text = ""
+      i = 0
+      while text.length<[limit,cleaned_text.length].min
+        text += cleaned_text[i] + " "
+        i += 1
+      end
+      text += "..."
+      text.html_safe
+    else
+      ""
     end
-    text += "..."
-    text.html_safe
   end
 
   def adsense_top_right
