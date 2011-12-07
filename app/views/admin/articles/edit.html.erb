@@ -63,6 +63,11 @@
       <div class="article-edit-commands" style="padding-top: 30px">
         <%= link_to "View Article", "/articles/#{@article.slug}" %>
       </div>
+      <div style="float:right">
+        <%= form_for @article, :url => admin_article_path(@article), :method => 'DELETE' do |f| %>
+          <%= f.submit 'Delete Article' %>
+        <% end %>
+      </div>
       <h2>Instructions</h2>
       <ul>
         <li><b>Easy Youtube Videos</b> - Put the youtube video url on it's own line (no trailing whitespace) and save the article. Youtube link must be in the form of <b>http://youtu.be/xxxx</b>. It should be automatically converted into a video once you save.</li>

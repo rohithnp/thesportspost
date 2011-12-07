@@ -58,6 +58,12 @@ class Admin::ArticlesController < ApplicationController
     redirect_to :action => :index
   end
 
+  def destroy
+    @article = Article.find_by_id(params[:id])
+    @article.destroy
+    redirect_to :action => :index
+  end
+
   protected
   def authorize_user
     authorize! :manage, Article
