@@ -96,7 +96,9 @@
         </ul>
       </div>
       <div style="float: right; height: 20px; padding-top: 5px; padding-right: 3px">
-        <%= render :partial => 'partials/google_search' %>
+        <% if Rails.env.production? %>
+          <%= render :partial => 'partials/google_search' %>
+        <% end %>
       </div>
       <div class="clear"></div>
     </div>
