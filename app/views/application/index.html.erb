@@ -38,14 +38,10 @@
       <div id="custom-page-sections-container">
         <%= render :partial => 'partials/post_type_1', :locals => {
           :title => @page_section.name,
-          :articles => @page_section.articles
+          :articles => @page_section.articles.limit(12)
         } %>
         <div class="grid_5">
-          <% if Rails.env.production? %>
             <div style="margin-top: 15px"><%= render :partial => 'partials/adsense_under_headlines' %></div>
-          <% else %>
-            <div style="border: 1px solid black; width: 248px; height: 248px; margin-top: 15px"></div>
-          <% end %>
         </div>
       </div>
     <% end %>
