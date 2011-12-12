@@ -24,10 +24,15 @@ class Article < ActiveRecord::Base
   end
 
   def auto_generate_youtube_links
-    self.text = text
-    text.scan(/<p>http:\/\/youtu\.be\/[^<]+<\/p>/).each do |link|
-      video_id = link.match('youtu.be\/([^<]+)')[1]
-      self.text.gsub!(link, "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/#{video_id}\" frameborder=\"0\" allowfullscreen></iframe>")
+    regexes = [
+      [ %r{<p>http://youtube\.com/watch\?v=[^<]+</p>}, %r{watch\?v=([^&<]+)} ],
+      [ %r{<p>http://youtu\.be/[^<]+</p>}, %r{youtu\.be/([^<]+)} ]
+    ]
+    regexes.each do |r|
+      text.scan(r[0]).each do |link|
+        video_id = link.match(r[1])[1]
+        self.text.gsub!(link, "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/#{video_id}\" frameborder=\"0\" allowfullscreen></iframe>")
+      end
     end
     self.text
   end
