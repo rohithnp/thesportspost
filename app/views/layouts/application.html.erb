@@ -18,9 +18,9 @@
         </div>
         <div class="grid_6">
           <% if Rails.env.production? %>
-            <%= adsense_top_right.html_safe %>
+            <%= render :partial => 'partials/adsense_under_headlines' %>
           <% else %>
-            <div style="height: 278px; width: 334px; border: 1px solid black;"></div>
+            <div style="height: 60px; width: 468px; border: 1px solid black;"></div>
           <% end %>
         </div>
         <div id="userbox">

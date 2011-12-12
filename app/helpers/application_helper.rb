@@ -30,32 +30,4 @@ module ApplicationHelper
       ""
     end
   end
-
-  def adsense_top_right
-    '<script type="text/javascript"><!--
-    google_ad_client = "ca-pub-1214541924352395";
-    /* Top Banner */
-    google_ad_slot = "3558671930";
-    google_ad_width = 468;
-    google_ad_height = 60;
-    //-->
-    </script>
-    <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>'
-  end
-
-  def adsense_under_headlines
-    '<script type="text/javascript"><!--
-    google_ad_client = "ca-pub-1214541924352395";
-    /* Small Box Under Headlines */
-    google_ad_slot = "1686483643";
-    google_ad_width = 250;
-    google_ad_height = 250;
-    //-->
-    </script>
-    <script type="text/javascript"
-    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>'
-  end
 end
