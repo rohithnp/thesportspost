@@ -13,10 +13,10 @@
   <header class="container_16">
     <div id="header">
       <div id="header-container" class="white-background">
-        <div id="logo" class="grid_4">
+        <div id="logo" class="grid_3">
           <a href="/"><img src="/logo.png" alt="The Sports Post"/></a>
         </div>
-        <div class="grid_6">
+        <div class="grid_8 top-banner-ad">
           <% if Rails.env.production? %>
             <%= render :partial => 'partials/adsense_under_headlines' %>
           <% else %>

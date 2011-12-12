@@ -10,7 +10,9 @@ li.headlines a {
   color: #222;
   text-decoration: none;
 }
-
+.top-banner-ad {
+  padding-top: 47px;
+}
 section#custom-page-section-section {
 }
 
