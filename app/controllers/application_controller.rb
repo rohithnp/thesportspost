@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   before_filter :dont_accept_crap_query_params
 
   def index
-    @headlines = Article.order('created_at DESC').limit(10)
-    @slideshow = Article.where('image_file_name IS NOT NULL').order('created_at DESC').limit(5)
+    @headlines = Article.limit(10)
+    @slideshow = Slideshow.first
     @page_sections = PageSection.all[0..1]
     @page_section = PageSection.first
-    @posts = Article.order('created_at DESC').limit(12)
+    @posts = Article.limit(12)
   end
 
   protected

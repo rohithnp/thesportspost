@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111121063848) do
+ActiveRecord::Schema.define(:version => 20111212102038) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(:version => 20111121063848) do
     t.integer  "type"
     t.integer  "position"
     t.string   "serialized_article_ids"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "slideshows", :force => true do |t|
+    t.integer  "category_id"
+    t.text     "article_ids"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

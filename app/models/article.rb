@@ -10,6 +10,8 @@ class Article < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :text
 
+  default_scope :order => 'created_at DESC'
+
   has_attached_file :image, :styles => {
     :thumb => 'x100',
     :big => '500x500>'

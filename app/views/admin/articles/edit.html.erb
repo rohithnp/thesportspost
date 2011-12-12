@@ -55,6 +55,13 @@
               </select>
             </td>
           </tr>
+          <tr>
+            <td>Extras</td>
+            <td>
+              <input type="checkbox" name="add_to_slideshow" <% if @slideshow.article_ids.include? @article.id %>checked<% end %>/>
+              <label>Add to Slideshow</label>
+            </td>
+          </tr>
         </table>
         <%= render :partial => 'tinymce' %>
         <br/>
@@ -76,3 +83,4 @@
   </div>
   <div class="clear"></div>
 </section>
+

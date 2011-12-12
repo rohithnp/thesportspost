@@ -12,6 +12,7 @@ class Admin::ArticlesController < ApplicationController
   end
   
   def edit
+    @slideshow = Slideshow.first
     @article = Article.find(params[:id])
     @categories = Category.all.map {|c| [c.name,c.full_name] }
     @writer_articles = Article.where(:user_id => @article.user_id)
@@ -32,6 +33,12 @@ class Admin::ArticlesController < ApplicationController
     else
       params[:article].delete :subcategory
     end
+    if params[:add_to_slideshow] and @article.image?
+      s = Slideshow.first
+      s.add_article(@article.id)
+      s.save
+    end
+    params.delete :add_to_slideshow
     if @article.update_attributes(params[:article])
       redirect_to :action => :edit, :id => params[:id]
     end
