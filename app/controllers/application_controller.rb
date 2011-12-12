@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     @slideshow = Slideshow.first
     @page_sections = PageSection.all[0..1]
     @page_section = PageSection.first
-    @posts = Article.limit(12)
+    @popular_posts = Article.order('pageviews DESC').limit(12)
   end
 
   protected

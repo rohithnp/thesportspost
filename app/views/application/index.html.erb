@@ -23,12 +23,12 @@
       <div class="clear"></div>
       <div class="popular-posts-subcontainer">
         <%= render :partial => 'partials/popular_posts_slice_3', :locals => {
-          :article1 => @posts[0], :article2 => @posts[1], :article3 => @posts[2]
+          :article1 => @popular_posts[0], :article2 => @popular_posts[1], :article3 => @popular_posts[2]
         } %>
         <%= render :partial => 'partials/popular_posts_slice_3', :locals => {
-          :article1 => @posts[3], :article2 => @posts[4], :article3 => @posts[5]
+          :article1 => @popular_posts[3], :article2 => @popular_posts[4], :article3 => @popular_posts[5]
         } %>
-        <% @posts[6..11].each do |post| %>
+        <% @popular_posts[6..11].each do |post| %>
           <%= render :partial => 'partials/popular_posts_slice_4', :locals => { :article => post } %>
         <% end %>
       </div>
