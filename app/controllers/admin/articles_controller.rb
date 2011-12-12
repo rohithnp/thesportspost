@@ -34,18 +34,27 @@ class Admin::ArticlesController < ApplicationController
     else
       params[:article].delete :subcategory
     end
+    if params[:add_to_recent]
+      recent_articles = PageSection.find_by_id(1)
+      recent_articles.article_ids = recent_articles.article_ids.unshift(@article.id)
+      recent_articles.save
+    end
+    s = Slideshow.first
     if params[:add_to_slideshow] and @article.image?
-      s = Slideshow.first
       s.add_article(@article.id)
       s.save
+    elsif s.article_ids.include? @article.id
+      s.article_ids.delete @article.id
+      s.save
     end
-    params.delete :add_to_slideshow
+    h = Headlines.first
     if params[:add_to_headlines]
-      h = Headlines.first
       h.add_article(@article.id)
       h.save
+    elsif h.article_ids.include? @article.id
+      h.article_ids.delete @article.id
+      h.save
     end
-    params.delete :add_to_headlines
     if @article.update_attributes(params[:article])
       redirect_to :action => :edit, :id => params[:id]
     end
@@ -68,6 +77,22 @@ class Admin::ArticlesController < ApplicationController
       recent_articles = PageSection.find_by_id(1)
       recent_articles.article_ids = recent_articles.article_ids.unshift(@article.id)
       recent_articles.save
+    end
+    s = Slideshow.first
+    if params[:add_to_slideshow] and @article.image?
+      s.add_article(@article.id)
+      s.save
+    elsif s.article_ids.include? @article.id
+      s.article_ids.delete @article.id
+      s.save
+    end
+    h = Headlines.first
+    if params[:add_to_headlines]
+      h.add_article(@article.id)
+      h.save
+    elsif h.article_ids.include? @article.id
+      h.article_ids.delete @article.id
+      h.save
     end
     redirect_to :action => :index
   end
