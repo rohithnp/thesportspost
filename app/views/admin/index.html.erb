@@ -16,8 +16,9 @@
       <% elsif current_user.role?(:writer) %>
         <p>You are a writer</p>
         <%= link_to 'Your Articles', admin_articles_path %><br/>
-        <%= link_to 'New Article', new_admin_article_path %>
       <% end %>
+      <br/>
+      <%= link_to 'Create Article', new_admin_article_path %> - create a new article
     </div>
     <div class="clear"></div>
   </div>
