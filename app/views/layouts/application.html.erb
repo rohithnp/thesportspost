@@ -17,11 +17,7 @@
           <a href="/"><img src="/logo.png" alt="The Sports Post"/></a>
         </div>
         <div class="grid_8 top-banner-ad">
-          <% if Rails.env.production? %>
-            <%= render :partial => 'partials/adsense_under_headlines' %>
-          <% else %>
-            <div style="height: 60px; width: 468px; border: 1px solid black;"></div>
-          <% end %>
+          <%= render :partial => 'partials/adsense_top_right' %>
         </div>
         <div id="userbox">
           <% if user_signed_in? %>
