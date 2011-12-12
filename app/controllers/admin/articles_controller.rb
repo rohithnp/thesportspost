@@ -12,6 +12,7 @@ class Admin::ArticlesController < ApplicationController
   end
   
   def edit
+    @headlines = Headlines.first
     @slideshow = Slideshow.first
     @article = Article.find(params[:id])
     @categories = Category.all.map {|c| [c.name,c.full_name] }
@@ -39,6 +40,12 @@ class Admin::ArticlesController < ApplicationController
       s.save
     end
     params.delete :add_to_slideshow
+    if params[:add_to_headlines]
+      h = Headlines.first
+      h.add_article(@article.id)
+      h.save
+    end
+    params.delete :add_to_headlines
     if @article.update_attributes(params[:article])
       redirect_to :action => :edit, :id => params[:id]
     end

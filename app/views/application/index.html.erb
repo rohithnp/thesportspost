@@ -1,5 +1,7 @@
 <% title "The Sports Post" %>
-<%= render :partial => 'partials/slideshow', :locals => { :slideshow => @slideshow, :headlines => @headlines } %>
+<%= render :partial => 'partials/slideshow', :locals => {
+  :slideshow => @slideshow.articles, :headlines => @headlines.articles
+} %>
 <% if false %>
   <section id="custom-page-section-section">
     <div class="container_16 white-background">

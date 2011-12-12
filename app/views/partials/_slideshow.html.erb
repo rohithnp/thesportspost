@@ -7,7 +7,7 @@
         <% end %>
         <div id="slides">
           <div class="slides_container">
-            <% slideshow.articles.each do |slide| %>
+            <% slideshow.each do |slide| %>
               <div class="slide">
                 <a href="<%= "/articles/#{slide.slug}" %>">
                   <img src="<%= slide.image.url(:big) %>" width="645"/>
@@ -20,7 +20,7 @@
             <% end %>
           </div>
           <ul class="pagination">
-            <% slideshow.articles.each_with_index do |slide,i| %>
+            <% slideshow.each_with_index do |slide,i| %>
               <li <% if i != 4 %>class="padded-mini-image"<% end %>>
                 <a href="#<%= i %>">
                   <div class="current-slide-indicator"></div>

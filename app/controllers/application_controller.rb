@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :dont_accept_crap_query_params
 
   def index
-    @headlines = Article.limit(10)
+    @headlines = Headlines.first
     @slideshow = Slideshow.first
     @page_sections = PageSection.all[0..1]
     @page_section = PageSection.first

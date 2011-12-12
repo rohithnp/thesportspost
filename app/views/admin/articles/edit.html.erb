@@ -62,6 +62,13 @@
               <label>Add to Slideshow</label>
             </td>
           </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="checkbox" name="add_to_headlines" <% if @headlines.article_ids.include? @article.id %>checked<% end %>/>
+              <label>Add to Headlines</label>
+            </td>
+          </tr>
         </table>
         <%= render :partial => 'tinymce' %>
         <br/>
@@ -75,7 +82,7 @@
       </div>
       <h2>Instructions</h2>
       <ul>
-        <li><b>Easy Youtube Videos</b> - Put the youtube video url on it's own line (no trailing whitespace) and save the article. Youtube link must be in the form of <b>http://youtu.be/xxxx</b>. It should be automatically converted into a video once you save.</li>
+        <li><b>Easy Youtube Videos</b> - Put the youtube video url on it's own line (no trailing whitespace) and save the article. Youtube link must be in the form of <b>http://youtu.be/xxxx</b> or <b>http://youtube.com/watch?v=xxxx</b>. It should be automatically converted into a video once you save.</li>
         <li>Shift-click or Ctrl-click articles in the "Related Articles" or "More Articles By Writer" section to select them. They'll then show up as links on the article page.</li>
       </ul>
     </div>
