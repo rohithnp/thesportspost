@@ -1,7 +1,7 @@
 <section id="admin-section">
   <div class="container_16 white-background">
     <div class="grid_16 admin-main">
-      <h2>Edit Article</h2>
+      <h2>Edit Article<% if @article.is_draft %> (Draft)<% end %></h2>
       <%= form_for @article, :url => admin_article_path(@article), :method => 'PUT', :html => {:multipart => true} do |f| %>
         <table>
           <tr>
@@ -67,6 +67,13 @@
             <td>
               <input type="checkbox" name="add_to_headlines" <% if @headlines.article_ids.include? @article.id %>checked<% end %>/>
               <label>Add to Headlines</label>
+            </td>
+          </tr>
+          <tr>
+            <td>Draft</td>
+            <td>
+              <input type="checkbox" name="article[is_draft]" <% if @article.is_draft %>checked<% end %>/>
+              <label><b>Save As Draft?</b></label>
             </td>
           </tr>
         </table>

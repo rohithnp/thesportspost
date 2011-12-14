@@ -8,7 +8,10 @@ class Slideshow < ActiveRecord::Base
   end
 
   def articles
-    article_ids.take(5).map {|id| Article.find_by_id(id) }.delete_if(&:nil?)
+    article_ids.take(5).map {|id|
+      a = Article.find_by_id(id)
+      a and a.is_draft ? nil : a
+    }.delete_if(&:nil?)
   end
 
   private

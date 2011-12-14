@@ -10,12 +10,12 @@ class Article < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :text
 
-  default_scope :order => 'created_at DESC'
-
   has_attached_file :image, :styles => {
     :thumb => 'x100',
     :big => '500x500>'
   }
+
+  scope :is_live, where('is_draft IS NOT true')
 
   def date_published
     created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%l:%M %p %Z, %B %d, %Y")

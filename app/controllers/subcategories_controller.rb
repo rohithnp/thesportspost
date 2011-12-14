@@ -7,8 +7,8 @@ class SubcategoriesController < ApplicationController
     unless @subcategory
       raise ActionController::RoutingError.new('Not Found')
     end
-    @articles = Article.where(:subcategory_id => @subcategory.id).limit(10)
-    @slideshow = Article.where(['subcategory_id = ? AND image_file_name IS NOT NULL', @subcategory.id]).limit(5)
+    @articles = Article.is_live.where(:subcategory_id => @subcategory.id).limit(10)
+    @slideshow = Article.is_live.where(['subcategory_id = ? AND image_file_name IS NOT NULL', @subcategory.id]).limit(5)
     @headlines = @articles[0..5]
   end
 

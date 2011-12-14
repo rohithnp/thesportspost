@@ -9,6 +9,6 @@ class PageSection < ActiveRecord::Base
   end
 
   def articles
-    Article.where(:id => article_ids.map {|a| a.to_i }).order('created_at DESC')
+    Article.is_live.where(:id => article_ids.map {|a| a.to_i }).order('created_at DESC')
   end
 end

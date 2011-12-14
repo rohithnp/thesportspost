@@ -28,6 +28,7 @@ class Admin::ArticlesController < ApplicationController
   
   def update
     @article = Article.find(params[:id])
+    params[:article][:is_draft] = params[:article][:is_draft] == 'on' ? true : false
     params[:article][:category] = Category.find_by_full_name(params[:article][:category])
     if params[:article][:subcategory]
       params[:article][:subcategory] = Subcategory.find_by_name(params[:article][:subcategory])
@@ -69,6 +70,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
   def create
+    params[:article][:is_draft] = params[:article][:is_draft] == 'on' ? true : false
     params[:article][:category] = Category.find_by_full_name(params[:article][:category])
     @article = Article.new(params[:article])
     @article.user_id = current_user.id
