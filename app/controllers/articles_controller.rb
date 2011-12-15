@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   def show
     @article = Article.find_by_slug(params[:id])
-    unless @article and can? :manage, @article
+    unless @article
       # raise ActionController::RoutingError.new('Not Found')
       return redirect_to '/'
     end
