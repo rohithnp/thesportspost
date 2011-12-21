@@ -58,7 +58,7 @@ class Admin::ArticlesController < ApplicationController
       h.save
     end
     if @article.update_attributes(params[:article])
-      redirect_to :action => :edit, :id => params[:id]
+      redirect_to :action => :edit, :id => @article.slug
     end
   end
 
