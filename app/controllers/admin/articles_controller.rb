@@ -36,8 +36,8 @@ class Admin::ArticlesController < ApplicationController
       params[:article].delete :subcategory
     end
     if params[:add_to_recent]
-      recent_articles = PageSection.find_by_id(1)
-      recent_articles.article_ids = recent_articles.article_ids.unshift(@article.id)
+      recent_articles = ArticleSet.recent_articles
+      recent_articles.add_article @article.id
       recent_articles.save
     end
     s = ArticleSet.slideshow
@@ -76,8 +76,8 @@ class Admin::ArticlesController < ApplicationController
     @article.user_id = current_user.id
     @article.save
     if params[:add_to_recent]
-      recent_articles = PageSection.find_by_id(1)
-      recent_articles.article_ids = recent_articles.article_ids.unshift(@article.id)
+      recent_articles = ArticleSet.recent_articles
+      recent_articles.add_article @article.id
       recent_articles.save
     end
     s = Slideshow.first
