@@ -81,7 +81,7 @@ class Admin::ArticlesController < ApplicationController
       recent_articles.add_article @article.id
       recent_articles.save
     end
-    s = Slideshow.first
+    s = ArticleSet.slideshow
     if params[:add_to_slideshow] and @article.image?
       s.add_article(@article.id)
       s.save
