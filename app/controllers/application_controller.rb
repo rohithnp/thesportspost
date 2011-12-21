@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :dont_accept_crap_query_params
 
   def index
-    @headlines = Headlines.first
+    @headlines = ArticleSet.headlines
     @slideshow = ArticleSet.slideshow
     @recent_articles = ArticleSet.recent_articles
     @observation_deck = ArticleSet.observation_deck

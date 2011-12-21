@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221092336) do
+ActiveRecord::Schema.define(:version => 20111221092735) do
 
   create_table "article_sets", :force => true do |t|
     t.string   "slug"
@@ -55,13 +55,6 @@ ActiveRecord::Schema.define(:version => 20111221092336) do
   end
 
   add_index "categories", ["name", "full_name"], :name => "index_categories_on_name_and_full_name", :unique => true
-
-  create_table "headlines", :force => true do |t|
-    t.integer  "category_id"
-    t.text     "article_ids"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "page_sections", :force => true do |t|
     t.string   "name"

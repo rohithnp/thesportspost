@@ -12,7 +12,7 @@ class Admin::ArticlesController < ApplicationController
   end
   
   def edit
-    @headlines = Headlines.first
+    @headlines = ArticleSet.headlines
     @slideshow = ArticleSet.slideshow
     @article = Article.find(params[:id])
     @categories = Category.all.map {|c| [c.name,c.full_name] }
@@ -49,7 +49,7 @@ class Admin::ArticlesController < ApplicationController
       s.article_ids.delete @article.id
       s.save
     end
-    h = Headlines.first
+    h = ArticleSet.headlines
     if params[:add_to_headlines]
       h.add_article(@article.id)
       h.save
@@ -89,7 +89,7 @@ class Admin::ArticlesController < ApplicationController
       s.article_ids.delete @article.id
       s.save
     end
-    h = Headlines.first
+    h = ArticleSet.headlines
     if params[:add_to_headlines]
       h.add_article(@article.id)
       h.save
