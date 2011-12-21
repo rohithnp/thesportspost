@@ -34,17 +34,20 @@
       </div>
       <div class="clear"></div>
     </div>
-    <% if @recent_articles %>
-      <div id="custom-page-sections-container">
-        <%= render :partial => 'partials/post_type_1', :locals => {
-          :title => @recent_articles.full_name,
-          :articles => @recent_articles.articles
-        } %>
-        <div class="grid_5">
-            <div style="margin-top: 15px"><%= render :partial => 'partials/adsense_under_headlines' %></div>
-        </div>
+    <div id="custom-page-sections-container">
+      <%= render :partial => 'partials/post_type_1', :locals => {
+        :title => @recent_articles.full_name,
+        :articles => @recent_articles.articles
+      } %>
+      <div style="height: 10px; width: 10px; float: left"></div>
+      <%= render :partial => 'partials/post_type_1', :locals => {
+        :title => @observation_deck.full_name,
+        :articles => @observation_deck.articles
+      } %>
+      <div class="grid_5">
+        <div style="margin-top: 15px"><%= render :partial => 'partials/adsense_under_headlines' %></div>
       </div>
-    <% end %>
+    </div>
     <div>
       <%= render :partial => 'partials/google_search' %>
     </div>

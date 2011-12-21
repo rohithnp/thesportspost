@@ -23,6 +23,10 @@
             </tr>
           <% end %>
           <tr>
+            <td><%= f.label :article_type %></td>
+            <td><%= f.select :article_type, [['Normal',Article::TYPE_NORMAL], ['Observation Deck',Article::TYPE_BLOG]] %></td>
+          </tr>
+          <tr>
             <td><%= f.label :text %></td>
             <td><%= f.text_area :text, :size => '110x30' %></td>
           </tr>

@@ -35,6 +35,7 @@ class Admin::ArticlesController < ApplicationController
     else
       params[:article].delete :subcategory
     end
+    @article.article_type = params[:article][:article_type].to_i if params[:article][:article_type]
     if params[:add_to_recent]
       recent_articles = ArticleSet.recent_articles
       recent_articles.add_article @article.id

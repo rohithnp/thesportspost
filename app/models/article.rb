@@ -6,6 +6,7 @@ class Article < ActiveRecord::Base
   before_save :strip_title
   before_save :generate_slug
   before_save :auto_generate_youtube_links
+  after_save :add_to_observation_deck
 
   validates_presence_of :title
   validates_presence_of :text
@@ -17,26 +18,15 @@ class Article < ActiveRecord::Base
 
   scope :is_live, where('is_draft IS NOT true')
 
+  TYPE_NORMAL = 0
+  TYPE_BLOG = 1
+
   def date_published
     created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%l:%M %p %Z, %B %d, %Y")
   end
   
   def date_published_short
     created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%m/%d/%Y - %l:%M %p %Z")
-  end
-
-  def auto_generate_youtube_links
-    regexes = [
-      [ %r{<p>http://youtube\.com/watch\?v=[^<]+</p>}, %r{watch\?v=([^&<]+)} ],
-      [ %r{<p>http://youtu\.be/[^<]+</p>}, %r{youtu\.be/([^<]+)} ]
-    ]
-    regexes.each do |r|
-      text.scan(r[0]).each do |link|
-        video_id = link.match(r[1])[1]
-        self.text.gsub!(link, "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/#{video_id}\" frameborder=\"0\" allowfullscreen></iframe>")
-      end
-    end
-    self.text
   end
 
   def related_articles
@@ -73,12 +63,34 @@ class Article < ActiveRecord::Base
     self.serialized_same_writer_article_ids = ActiveSupport::JSON.encode(article_ids)
   end
 
-  protected
-  def strip_title
-    self.title = title.strip
-  end
+  private
+    def strip_title
+      self.title = title.strip
+    end
 
-  def generate_slug
-    self.slug = title.downcase.gsub(/[^\w ]/,'').gsub(/ +/,'-') + "-#{id}"
-  end
+    def generate_slug
+      self.slug = title.downcase.gsub(/[^\w ]/,'').gsub(/ +/,'-') + "-#{id}"
+    end
+
+    def auto_generate_youtube_links
+      regexes = [
+        [ %r{<p>http://youtube\.com/watch\?v=[^<]+</p>}, %r{watch\?v=([^&<]+)} ],
+        [ %r{<p>http://youtu\.be/[^<]+</p>}, %r{youtu\.be/([^<]+)} ]
+      ]
+      regexes.each do |r|
+        text.scan(r[0]).each do |link|
+          video_id = link.match(r[1])[1]
+          self.text.gsub!(link, "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/#{video_id}\" frameborder=\"0\" allowfullscreen></iframe>")
+        end
+      end
+      self.text
+    end
+
+    def add_to_observation_deck
+      if article_type == TYPE_BLOG
+        a = ArticleSet.observation_deck
+        a.add_article id
+        a.save
+      end
+    end
 end

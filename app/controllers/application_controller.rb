@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
     @headlines = Headlines.first
     @slideshow = ArticleSet.slideshow
     @recent_articles = ArticleSet.recent_articles
+    @observation_deck = ArticleSet.observation_deck
     @popular_posts = Article.is_live.order('pageviews DESC').limit(12)
   end
 

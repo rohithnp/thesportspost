@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221073647) do
+ActiveRecord::Schema.define(:version => 20111221083511) do
 
   create_table "article_sets", :force => true do |t|
     t.string   "slug"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20111221073647) do
     t.string   "serialized_same_writer_article_ids"
     t.string   "subtitle"
     t.boolean  "is_draft"
+    t.integer  "article_type"
   end
 
   create_table "categories", :force => true do |t|
