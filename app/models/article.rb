@@ -1,15 +1,17 @@
 class Article < ActiveRecord::Base
+  extend FriendlyId
+
   belongs_to :user
   belongs_to :category
   belongs_to :subcategory
 
-  before_save :strip_title
-  before_save :generate_slug
-  before_save :auto_generate_youtube_links
+  before_save :strip_title, :auto_generate_youtube_links
   after_save :add_to_observation_deck
 
   validates_presence_of :title
   validates_presence_of :text
+
+  friendly_id :title, :use => :slugged
 
   has_attached_file :image, :styles => {
     :thumb => 'x100',
@@ -66,10 +68,6 @@ class Article < ActiveRecord::Base
   private
     def strip_title
       self.title = title.strip
-    end
-
-    def generate_slug
-      self.slug = title.downcase.gsub(/[^\w ]/,'').gsub(/ +/,'-') + "-#{id}"
     end
 
     def auto_generate_youtube_links

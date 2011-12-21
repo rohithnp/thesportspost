@@ -5,6 +5,7 @@ gem 'pg'
 gem 'cancan'
 gem 'devise'
 gem 'paperclip'
+gem 'friendly_id', "~> 4.0.0.rc2"
 gem 'thin'
 
 # Gems used only for assets and not required
