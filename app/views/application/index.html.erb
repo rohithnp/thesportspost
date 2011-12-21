@@ -34,11 +34,11 @@
       </div>
       <div class="clear"></div>
     </div>
-    <% if @page_section %>
+    <% if @recent_articles %>
       <div id="custom-page-sections-container">
         <%= render :partial => 'partials/post_type_1', :locals => {
-          :title => @page_section.name,
-          :articles => @page_section.articles.limit(12)
+          :title => @recent_articles.full_name,
+          :articles => @recent_articles.articles
         } %>
         <div class="grid_5">
             <div style="margin-top: 15px"><%= render :partial => 'partials/adsense_under_headlines' %></div>
@@ -51,13 +51,3 @@
     <div class="clear"></div>
   </div>
 </section>
-<% if false %>
-  <section id="discussion-board-section">
-    <div id="discussion-board-container" class="container_16 white-background">
-      <div class="grid_16">
-        <h3 class="section-title">Discussion Board</h3>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </section>
-<% end %>

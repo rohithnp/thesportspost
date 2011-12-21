@@ -10,8 +10,8 @@ class Headlines < ActiveRecord::Base
   def articles
     article_ids.take(12).map {|id|
       a = Article.find_by_id(id)
-      a and a.is_draft ? nil : a
-    }.delete_if(&:nil?)
+      a.try(:is_draft) ? nil : a
+    }.compact
   end
 
   private

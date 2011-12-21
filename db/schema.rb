@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111214220952) do
+ActiveRecord::Schema.define(:version => 20111221073647) do
+
+  create_table "article_sets", :force => true do |t|
+    t.string   "slug"
+    t.string   "full_name"
+    t.integer  "category_id"
+    t.integer  "subcategory_id"
+    t.integer  "max_articles"
+    t.text     "article_ids"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "articles", :force => true do |t|
     t.string   "title"

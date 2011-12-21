@@ -5,9 +5,8 @@ class ApplicationController < ActionController::Base
 
   def index
     @headlines = Headlines.first
-    @slideshow = Slideshow.first
-    @page_sections = PageSection.all[0..1]
-    @page_section = PageSection.first
+    @slideshow = ArticleSet.slideshow
+    @recent_articles = ArticleSet.recent_articles
     @popular_posts = Article.is_live.order('pageviews DESC').limit(12)
   end
 
