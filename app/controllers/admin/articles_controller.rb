@@ -13,7 +13,7 @@ class Admin::ArticlesController < ApplicationController
   
   def edit
     @headlines = Headlines.first
-    @slideshow = Slideshow.first
+    @slideshow = ArticleSet.slideshow
     @article = Article.find(params[:id])
     @categories = Category.all.map {|c| [c.name,c.full_name] }
     @writer_articles = Article.where(:user_id => @article.user_id)
@@ -40,7 +40,7 @@ class Admin::ArticlesController < ApplicationController
       recent_articles.article_ids = recent_articles.article_ids.unshift(@article.id)
       recent_articles.save
     end
-    s = Slideshow.first
+    s = ArticleSet.slideshow
     if params[:add_to_slideshow] and @article.image?
       s.add_article(@article.id)
       s.save
