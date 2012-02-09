@@ -141,23 +141,26 @@ h2 {
   }
 }
 #upper_content {
-  #recent_articles {
-    float: left;
-    width: $right_width;
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding-left: 12px;
-      li {
-        margin: 10px 0;
-        display: table;
-        img {
-          display: table-cell;
-        }
-        span {
-          padding-left: 12px;
-          display: table-cell;
-          vertical-align: middle;
+  #recent_articles_container {
+    #recent_articles {
+      float: left;
+      width: $right_width;
+      height: 450px;
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding-left: 12px;
+        li {
+          margin: 10px 0;
+          display: table;
+          img {
+            display: table-cell;
+          }
+          span {
+            padding-left: 12px;
+            display: table-cell;
+            vertical-align: middle;
+          }
         }
       }
     }
@@ -169,7 +172,7 @@ h2 {
     width: 410px - $gap_size;
     #top_post_content {
       padding: 12px;
-      min-height: 250px - 24px;
+      min-height: 270px - 24px;
       h3 {
         margin: 7px 0px;
       }
@@ -185,7 +188,7 @@ h2 {
     margin-left: $gap_size;
     color: gray;
     #headlines_content {
-      min-height: 250px;
+      min-height: 270px;
       ul {
         list-style-type: square;
         margin: 0;

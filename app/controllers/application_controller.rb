@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
     @slideshow = ArticleSet.slideshow
     @recent_articles = ArticleSet.recent_articles
     @observation_deck = ArticleSet.observation_deck
-    @popular_posts = Article.is_live.order('pageviews DESC').limit(6)
+    @popular_posts = Article.is_live.order('pageviews DESC').limit(7)
+    @top_post = @popular_posts.shift
     render :layout => 'new'
   end
 
