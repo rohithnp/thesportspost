@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cd /srv/http/thesportspost; git pull; RAILS_ENV=production rake db:migrate; thin restart -O -C config/thin.yml
