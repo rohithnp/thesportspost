@@ -2,20 +2,19 @@
 <html>
   <head>
     <title>The Sports Post</title>
-    <link href='http://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Share:400,700' rel='stylesheet' type='text/css'>
-
-
     <%= stylesheet_link_tag "new" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <div id="search_bar">
       <div class="container">
-        <form id="search_box">
-          <input type="text" placeholder="Search"/>
-          <input type="submit" value="Go"/>
-        </form>
+        <div id="search_box_container">
+          <form id="search_box">
+            <input type="text" placeholder="Search"/>
+            <input type="submit" value="Go"/>
+          </form>
+        </div>
       </div>
       <div style="clear:both"></div>
     </div>
@@ -48,13 +47,13 @@
       <div style="clear:both"></div>
       <div id="navbar">
         <ul>
-          <li><%= link_to "Football", "#" %></li>
-          <li><%= link_to "Basketball", "#" %></li>
-          <li><%= link_to "Baseball", "#" %></li>
-          <li><%= link_to "MMA", "#" %></li>
+          <li><%= link_to "Football", "/categories/football" %></li>
+          <li><%= link_to "Basketball", "/categories/basketball" %></li>
+          <li><%= link_to "Baseball", "/categories/baseball" %></li>
+          <li><%= link_to "MMA", "/categories/mma" %></li>
         </ul>
       </div>
-      <div id="upper_ad_container" class="white_bg">
+      <div id="upper_ad_container" class="white_bg" style="display:none">
         <img src="http://dummyimage.com/728x90/000222/fff"/>
       </div>
       <div id="upper_separator">
@@ -62,11 +61,10 @@
       </div>
       <div id="upper_content">
         <div id="slideshow_container" class="left_content white_bg">
-          <img src="http://dummyimage.com/636x360/000222/fff" class="slideshow_main_image"/>
-          <img src="http://dummyimage.com/159x140/200222/fff" class="slideshow_thumbnail"/>
-          <img src="http://dummyimage.com/159x140/300222/fff" class="slideshow_thumbnail"/>
-          <img src="http://dummyimage.com/159x140/400222/fff" class="slideshow_thumbnail"/>
-          <img src="http://dummyimage.com/159x140/500222/fff" class="slideshow_thumbnail"/>
+          <a href="/articles/<%= @slideshow[0].slug %>"><img src="<%= @slideshow[0].image.url(:big) %>" width="636" height="360" class="slideshow_main_image"/></a>
+          <% @slideshow[1..4].each do |slide| %>
+            <a href="/articles/<%= slide.slug %>"><img src="<%= slide.image.url(:thumb) %>" width="159" height="130" class="slideshow_thumbnail"/></a>
+          <% end %>
         </div>
         <div id="recent_articles_container" class="right_content">
           <h2>Recent Articles</h2>
@@ -98,22 +96,22 @@
           <div id="top_post">
             <h2>Top Post</h2>
             <div id="top_post_content" class="white_bg">
-              <div style="width:300px;height:100px;border:1px solid #000"></div>
-              <h3><a href="#">Fantasy Alert: Benching Aaron Rodgers</a></h3>
-              <p>If you have Aaron Rodgers as your Fantasy QB, as I have, you've been elated up to this point. He has been the most consistent fantasy contributor in a season that may be the greatest ever put together by a QB. You should have also been rooting for the ... </p>
+              <% if @top_post.image? and @top_post.image.url(:thumb) %>
+                <img src="<%= @top_post.image.url(:thumb) %>" width="384" height="120"/>
+              <% else %>
+                <img src="http://dummyimage.com/320x120/000222/fff"/>
+              <% end %>
+              <h3><%= link_to @top_post.title, "/articles/#{@top_post.slug}" %></h3>
+              <p><%= (truncate strip_tags(@top_post.text), :length => 300).html_safe %></p>
             </div>
           </div>
           <div id="headlines">
             <h2>Headlines</h2>
-            <div class="white_bg">
+            <div id="headlines_content" class="white_bg">
               <ul>
-                <li>Headlines 1</li>
-                <li>Headlines 2</li>
-                <li>Headlines 3</li>
-                <li>Headlines 4</li>
-                <li>Headlines 5</li>
-                <li>Headlines 6</li>
-                <li>Headlines 7</li>
+                <% @headlines.each do |headline| %>
+                  <li><%= link_to headline.title, "/articles/#{headline.slug}" %></li>
+                <% end %>
               </ul>
             </div>
           </div>
@@ -128,54 +126,46 @@
           <h2>Popular Posts</h2>
           <div class="white_bg">
             <ul>
-              <li>
-                <img src="http://dummyimage.com/120x80/000222/fff"/>
-                <div>
-                  <h3>Popular Post Title 1</h3>
-                  <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
-                </div>
-              </li>
-              <li>
-                <img src="http://dummyimage.com/120x80/000222/fff"/>
-                <div>
-                  <h3>Popular Post Title 2</h3>
-                  <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
-                </div>
-              </li>
-              <li>
-                <img src="http://dummyimage.com/120x80/000222/fff"/>
-                <div>
-                  <h3>Popular Post Title 3</h3>
-                  <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
-                </div>
-              </li>
-              <li>
-                <img src="http://dummyimage.com/120x80/000222/fff"/>
-                <div>
-                  <h3>Popular Post Title 4</h3>
-                  <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
-                </div>
-              </li>
-              <li>
-                <img src="http://dummyimage.com/120x80/000222/fff"/>
-                <div>
-                  <h3>Popular Post Title 5</h3>
-                  <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
-                </div>
-              </li>
-              <li>
-                <img src="http://dummyimage.com/120x80/000222/fff"/>
-                <div>
-                  <h3>Popular Post Title 6</h3>
-                  <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
-                </div>
-              </li>
+              <% @posts.each do |post| %>
+                <li>
+                  <% if post.image? %>
+                    <img src="<%= post.image.url(:thumb) %>" width="120" height="90"/>
+                  <% else %>
+                    <img src="http://dummyimage.com/120x90/000222/fff"/>
+                  <% end %>
+                  <div>
+                    <h3>
+                      <a href="/articles/<%= post.slug %>"><%= truncate post.title, :length => 30 %></a>
+                    </h3>
+                    <p><%= (truncate strip_tags(post.text), :length => 80).html_safe %></p>
+                  </div>
+                </li>
+              <% end %>
             </ul>
             <div style="clear:both"></div>
           </div>
         </div>
-        <div id="observation_deck_container" class="right_content white_bg">
+        <div id="observation_deck_container" class="right_content">
           <h2>Observation Deck</h2>
+          <div class="white_bg">
+            <ul>
+              <% @page_section.articles[0...3].each do |post| %>
+                <li>
+                  <% if post.image? %>
+                    <img src="<%= post.image.url(:thumb) %>" width="120" height="90"/>
+                  <% else %>
+                    <img src="http://dummyimage.com/120x90/000222/fff"/>
+                  <% end %>
+                  <div>
+                    <h3>
+                      <a href="/articles/<%= post.slug %>"><%= truncate post.title, :length => 30 %></a>
+                    </h3>
+                    <p><%= (truncate strip_tags(post.text), :length => 80).html_safe %></p>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
       <div style="clear:both"></div>
