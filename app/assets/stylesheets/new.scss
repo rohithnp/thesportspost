@@ -59,8 +59,9 @@ h2 {
   padding: 10px;
   width: 100%;
   background-color: rgba(50,50,50,0.7);
-  #search_box {
+  #search_box_container {
     float: right;
+    margin-right: 12px;
   }
 }
 
@@ -168,6 +169,7 @@ h2 {
     width: 410px - $gap_size;
     #top_post_content {
       padding: 12px;
+      min-height: 250px - 24px;
       h3 {
         margin: 7px 0px;
       }
@@ -182,45 +184,52 @@ h2 {
     width: 230px - $gap_size;
     margin-left: $gap_size;
     color: gray;
-    ul {
-      list-style-type: square;
-      margin: 0;
-      padding-left: 35px;
-      li {
-        padding: 5px 0;
+    #headlines_content {
+      min-height: 250px;
+      ul {
+        list-style-type: square;
+        margin: 0;
+        padding: 10px 0 0 35px;
+        li {
+          padding: 5px 10px 5px 0;
+          a {
+            color: #777;
+            &:hover {
+              color: #aaa;
+            }
+          }
+        }
       }
     }
   }
 }
 #lower_content {
-  #popular_posts_container {
-    ul {
-      list-style-type: none;
-      margin: 0px;
-      padding: 12px 0px 12px 12px;
-      li {
+  ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 12px 0px 12px 12px;
+    li {
+      float: left;
+      width: $left_width/2 - 10px;
+      margin-right: 2px;
+      margin-bottom: 10px;
+      img {
         float: left;
-        width: $left_width/2 - 10px;
-        margin-right: 2px;
-        margin-bottom: 10px;
-        img {
-          float: left;
+      }
+      div {
+        float: left;
+        padding-left: 5px;
+        width: 160px;
+        h3 {
+          color: maroon;
+          font-size: 16px;
+          font-weight: bold;
+          margin: 0;
         }
-        div {
-          float: left;
-          padding-left: 5px;
-          width: 160px;
-          h3 {
-            color: maroon;
-            font-size: 16px;
-            font-weight: bold;
-            margin: 0;
-          }
-          p {
-            color: gray;
-            font-size: 12px;
-            margin: 5px 0px 0px;
-          }
+        p {
+          color: gray;
+          font-size: 12px;
+          margin: 5px 0px 0px;
         }
       }
     }

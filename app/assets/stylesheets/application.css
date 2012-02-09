@@ -6,7 +6,8 @@
  *= require 960
  *= require slides.jquery
  *= require_self
- *= require_tree .
+ *= require_tree ./partials
+ *= require_tree ./views
 */
 
 /* Globals */
