@@ -2,6 +2,10 @@
 <html>
   <head>
     <title>The Sports Post</title>
+    <link href='http://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Share:400,700' rel='stylesheet' type='text/css'>
+
+
     <%= stylesheet_link_tag "new" %>
     <%= csrf_meta_tags %>
   </head>
@@ -33,7 +37,7 @@
                   <tr>
                     <td><input type="text"/></td>
                     <td><input type="password"/></td>
-                    <td><input type="submit"/></td>
+                    <td><input type="submit" value="Sign In"/></td>
                   </tr>
                 </tbody>
               </table>
@@ -53,17 +57,20 @@
       <div id="upper_ad_container" class="white_bg">
         <img src="http://dummyimage.com/728x90/000222/fff"/>
       </div>
+      <div id="upper_separator">
+        <div class="downward_wedge"></div>
+      </div>
       <div id="upper_content">
         <div id="slideshow_container" class="left_content white_bg">
-          <img src="http://dummyimage.com/640x460/000222/fff" class="slideshow_main_image"/>
-          <img src="http://dummyimage.com/160x140/200222/fff" class="slideshow_thumbnail"/>
-          <img src="http://dummyimage.com/160x140/300222/fff" class="slideshow_thumbnail"/>
-          <img src="http://dummyimage.com/160x140/400222/fff" class="slideshow_thumbnail"/>
-          <img src="http://dummyimage.com/160x140/500222/fff" class="slideshow_thumbnail"/>
+          <img src="http://dummyimage.com/636x460/000222/fff" class="slideshow_main_image"/>
+          <img src="http://dummyimage.com/159x140/200222/fff" class="slideshow_thumbnail"/>
+          <img src="http://dummyimage.com/159x140/300222/fff" class="slideshow_thumbnail"/>
+          <img src="http://dummyimage.com/159x140/400222/fff" class="slideshow_thumbnail"/>
+          <img src="http://dummyimage.com/159x140/500222/fff" class="slideshow_thumbnail"/>
         </div>
-        <div id="recent_articles_container" class="right_content white_bg">
-          <div id="recent_articles">
-            <h2>Recent Articles</h2>
+        <div id="recent_articles_container" class="right_content">
+          <h2>Recent Articles</h2>
+          <div id="recent_articles" class="white_bg">
             <ul>
               <li>
                 <img src="http://dummyimage.com/100x60/000222/fff"/>
@@ -88,20 +95,24 @@
       <div style="clear:both"></div>
       <div id="middle_content">
         <div id="headlines_container" class="left_content">
-          <div id="top_post" class="white_bg" style="float:left">
+          <div id="top_post">
             <h2>Top Post</h2>
-            <div style="width:300px;height:100px;border:1px solid #000"></div>
-            <h3>Fantasy Alert: Benching Aaron Rodgers</h3>
-            <p>If you have Aaron Rodgers as your Fantasy QB, as I have, you've been elated up to this point. He has been the most consistent fantasy contributor in a season that may be the greatest ever put together by a QB. You should have also been rooting for the ... </p>
+            <div id="top_post_content" class="white_bg">
+              <div style="width:300px;height:100px;border:1px solid #000"></div>
+              <h3><a href="#">Fantasy Alert: Benching Aaron Rodgers</a></h3>
+              <p>If you have Aaron Rodgers as your Fantasy QB, as I have, you've been elated up to this point. He has been the most consistent fantasy contributor in a season that may be the greatest ever put together by a QB. You should have also been rooting for the ... </p>
+            </div>
           </div>
-          <div id="headlines" class="white_bg" style="float:left">
+          <div id="headlines">
             <h2>Headlines</h2>
-            <ul>
-              <li>Headlines 1</li>
-              <li>Headlines 2</li>
-              <li>Headlines 3</li>
-              <li>Headlines 4</li>
-            </ul>
+            <div class="white_bg">
+              <ul>
+                <li>Headlines 1</li>
+                <li>Headlines 2</li>
+                <li>Headlines 3</li>
+                <li>Headlines 4</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div id="middle_ad_container" class="right_content">
@@ -110,58 +121,64 @@
       </div>
       <div style="clear:both"></div>
       <div id="lower_content">
-        <div id="popular_posts_container" class="left_content white_bg">
+        <div id="popular_posts_container" class="left_content">
           <h2>Popular Posts</h2>
-          <ul>
-            <li>
-              <img src="http://dummyimage.com/120x80/000222/fff"/>
-              <div>
-                <h3>Popular Post Title 1</h3>
-                <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
-              </div>
-            </li>
-            <li>
-              <img src="http://dummyimage.com/120x80/000222/fff"/>
-              <div>
-                <h3>Popular Post Title 2</h3>
-                <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
-              </div>
-            </li>
-            <li>
-              <img src="http://dummyimage.com/120x80/000222/fff"/>
-              <div>
-                <h3>Popular Post Title 3</h3>
-                <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
-              </div>
-            </li>
-            <li>
-              <img src="http://dummyimage.com/120x80/000222/fff"/>
-              <div>
-                <h3>Popular Post Title 4</h3>
-                <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
-              </div>
-            </li>
-            <li>
-              <img src="http://dummyimage.com/120x80/000222/fff"/>
-              <div>
-                <h3>Popular Post Title 5</h3>
-                <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
-              </div>
-            </li>
-            <li>
-              <img src="http://dummyimage.com/120x80/000222/fff"/>
-              <div>
-                <h3>Popular Post Title 6</h3>
-                <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
-              </div>
-            </li>
-          </ul>
+          <div class="white_bg">
+            <ul>
+              <li>
+                <img src="http://dummyimage.com/120x80/000222/fff"/>
+                <div>
+                  <h3>Popular Post Title 1</h3>
+                  <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
+                </div>
+              </li>
+              <li>
+                <img src="http://dummyimage.com/120x80/000222/fff"/>
+                <div>
+                  <h3>Popular Post Title 2</h3>
+                  <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
+                </div>
+              </li>
+              <li>
+                <img src="http://dummyimage.com/120x80/000222/fff"/>
+                <div>
+                  <h3>Popular Post Title 3</h3>
+                  <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
+                </div>
+              </li>
+              <li>
+                <img src="http://dummyimage.com/120x80/000222/fff"/>
+                <div>
+                  <h3>Popular Post Title 4</h3>
+                  <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
+                </div>
+              </li>
+              <li>
+                <img src="http://dummyimage.com/120x80/000222/fff"/>
+                <div>
+                  <h3>Popular Post Title 5</h3>
+                  <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
+                </div>
+              </li>
+              <li>
+                <img src="http://dummyimage.com/120x80/000222/fff"/>
+                <div>
+                  <h3>Popular Post Title 6</h3>
+                  <p>This is a popular post text. Lorem ipsum and it's sweet and all that stuff.</p>
+                </div>
+              </li>
+            </ul>
+            <div style="clear:both"></div>
+          </div>
         </div>
         <div id="observation_deck_container" class="right_content white_bg">
           <h2>Observation Deck</h2>
         </div>
       </div>
       <div style="clear:both"></div>
+      <div id="lower_separator">
+        <div class="upward_wedge"></div>
+      </div>
     </div>
   </body>
 </html>

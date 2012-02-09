@@ -2,9 +2,11 @@
  *= require normalize
 */
 
+$gap_size: 4px;
+
 $width: 940px;
-$left_width: 640px;
-$right_width: $width - $left_width;
+$left_width: 640px - $gap_size;
+$right_width: 300px;
 
 
 body {
@@ -12,6 +14,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-color: black;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 input[type=submit] {
   border: 1px solid maroon;
@@ -26,14 +29,25 @@ input[type=submit] {
     background-color: #900000;
   }
 }
+a {
+  color: #700000;
+  text-decoration: none;
+  &:hover {
+    color: #c00000;
+  }
+  &:active {
+    color: #900000;
+  }
+}
 
 // Headline Items
 h2 {
   color: lightgray;
-  background-color: rgba(160,0,0,0.5);
+  background-color: rgba(140,0,0,0.6);
   padding: 10px 0px 3px 10px;
   margin: 0px;
   text-transform: uppercase;
+  font-family: Share, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .container {
@@ -44,18 +58,18 @@ h2 {
 #search_bar {
   padding: 10px;
   width: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(50,50,50,0.7);
   #search_box {
     float: right;
   }
 }
 
 #header {
-  margin: 20px 0 5px;
+  margin: 20px 0 15px;
   height: 125px;
   #logo {
     float: left;
-    margin-left: -20px;
+    margin-left: -30px;
   }
   #sign_in_container {
     float: right;
@@ -65,17 +79,31 @@ h2 {
     #sign_in_box {
       text-align: left;
       position: absolute;
-      bottom: 0px;
-      color: white;
+      right: 0;
+      bottom: 0;
+      th {
+        color: white;
+        font-size: 12px;
+        padding-left: 10px;
+      }
+      td {
+        padding-left: 10px;
+        input {
+          max-width: 150px;
+        }
+      }
     }
   }
 }
 
 #navbar {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(50,50,50,0.7);
   padding: 15px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  font-family: Share, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
   ul {
     padding: 0;
     margin: 0;
@@ -87,6 +115,9 @@ h2 {
       a {
         color: white;
         text-decoration: none;
+        &:hover {
+          color: #ccc;
+        }
       }
     }
   }
@@ -95,15 +126,23 @@ h2 {
 #upper_ad_container {
   height: 90px;
 }
-#upper_content {
-  &:before {
-    content: "";
-    display: block;
-    background-color: maroon;
-    width: $width;
-    height: 15px;
+#upper_separator {
+  background-color: maroon;
+  width: $width;
+  height: 15px;
+  position: relative;
+  .downward_wedge {
+    width: 0;
+    height: 0;
+    border-top: 50px solid maroon;
+    border-right: 50px solid transparent;
+    position: absolute;
   }
+}
+#upper_content {
   #recent_articles {
+    float: left;
+    width: $right_width;
     ul {
       list-style-type: none;
       margin: 0;
@@ -120,18 +159,36 @@ h2 {
           vertical-align: middle;
         }
       }
-
     }
   }
 }
 #middle_content {
   #top_post {
-    width: 410px;
+    float: left;
+    width: 410px - $gap_size;
+    #top_post_content {
+      padding: 12px;
+      h3 {
+        margin: 7px 0px;
+      }
+      p {
+        margin: 0px;
+        font-size: 14px;
+      }
+    }
   }
   #headlines {
-    width: 230px;
+    float: left;
+    width: 230px - $gap_size;
+    margin-left: $gap_size;
+    color: gray;
     ul {
       list-style-type: square;
+      margin: 0;
+      padding-left: 35px;
+      li {
+        padding: 5px 0;
+      }
     }
   }
 }
@@ -139,8 +196,8 @@ h2 {
   #popular_posts_container {
     ul {
       list-style-type: none;
-      margin-left: 0px;
-      padding-left: 12px;
+      margin: 0px;
+      padding: 12px 0px 12px 12px;
       li {
         float: left;
         width: $left_width/2 - 10px;
@@ -166,6 +223,22 @@ h2 {
         }
       }
     }
+  }
+}
+#lower_separator {
+  background-color: maroon;
+  width: $width;
+  height: 15px;
+  margin-bottom: 40px;
+  position: relative;
+  .upward_wedge {
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-right: 50px solid maroon;
+    position: absolute;
+    right: 0;
+    top: -50px;
   }
 }
 
