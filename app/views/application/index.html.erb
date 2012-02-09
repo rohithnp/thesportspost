@@ -36,9 +36,11 @@
         <% end %>
       </div>
     </div>
-    <div id="custom-page-sections-container">
-      <%= render :partial => 'partials/post_type_1', :locals => { :title => @page_section.name, :articles => @page_section.articles } %>
-    </div>
+    <% if @page_section %>
+      <div id="custom-page-sections-container">
+        <%= render :partial => 'partials/post_type_1', :locals => { :title => @page_section.name, :articles => @page_section.articles } %>
+      </div>
+    <% end %>
     <div class="clear"></div>
   </div>
 </section>

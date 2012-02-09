@@ -1,0 +1,71 @@
+/*
+ *= require normalize
+*/
+
+.container {
+  width: 940px;
+  margin: 0 auto;
+}
+
+#search_bar {
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  height: 36px;
+  #search_box {
+    float: right;
+  }
+}
+
+#header {
+  margin: 20px 0 5px;
+  height: 125px;
+  #logo {
+    float: left;
+    margin-left: -20px;
+  }
+  #sign_in_container {
+    float: right;
+    position: relative;
+    width: 500px;
+    height: 125px;
+    #sign_in_box {
+      text-align: left;
+      position: absolute;
+      bottom: 0px;
+    }
+  }
+}
+
+#navbar {
+  background-color: rgba(0,0,0,0.5);
+  padding: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    li {
+      display: inline;
+      margin: 10px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.left_content {
+  float: left;
+  width: 560px;
+}
+.right_content {
+  float: right;
+  width: 380px;
+}
+h2 {
+  color: lightgray;
+  background-color: rgba(160,0,0,0.5);
+}
+#top_content {
+  height: 300px;
+  border-bottom: 1px solid black;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Sports Post</title>
+    <%= stylesheet_link_tag "new" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="search_bar">
+      <div class="container">
+        <form id="search_box">
+          <input type="text" placeholder="Search"/>
+          <input type="submit" value="Go"/>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <div id="header">
+        <img src="/assets/logo.png" id="logo"/>
+        <div id="sign_in_container">
+          <div id="sign_in_box">
+            <form>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input type="text"/></td>
+                    <td><input type="password"/></td>
+                    <td><input type="submit"/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+      <div id="navbar">
+        <ul>
+          <li><%= link_to "Football", "#" %></li>
+          <li><%= link_to "Basketball", "#" %></li>
+          <li><%= link_to "Baseball", "#" %></li>
+          <li><%= link_to "MMA", "#" %></li>
+        </ul>
+      </div>
+      <div id="upper_ad_container">
+        <div style="width: 726px; height: 88px; border: 1px solid black"></div>
+      </div>
+      <div id="upper_content">
+        <div id="slideshow_container" class="left_content">
+
+        </div>
+        <div id="recent_articles_container" class="right_content">
+          <div id="recent_articles">
+            <h2>Recent Articles</h2>
+            <ul>
+              <li>Article 1</li>
+              <li>Article 2</li>
+              <li>Article 3</li>
+              <li>Article 4</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+      <div id="middle_content">
+        <div id="headlines_container" class="left_content">
+          <div id="top_post" style="float:left">
+            <h2>Top Post</h2>
+
+          </div>
+          <div id="headlines" style="float:left">
+            <h2>Headlines</h2>
+            <ul>
+              <li>Headlines 1</li>
+              <li>Headlines 2</li>
+              <li>Headlines 3</li>
+              <li>Headlines 4</li>
+            </ul>
+          </div>
+        </div>
+        <div id="middle_ad_container" class="right_content">
+          <div id="middle_ad" style="width: 348px; height: 298px; border: 1px solid black"></div>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+      <div id="lower_content">
+        <div id="popular_posts_container" class="left_content">
+          <h2>Popular Posts</h2>
+          <ul>
+            <li>Post 1</li>
+            <li>Post 2</li>
+            <li>Post 3</li>
+            <li>Post 4</li>
+            <li>Post 5</li>
+            <li>Post 6</li>
+          </ul>
+        </div>
+        <div id="observation_deck_container" class="right_content">
+          <h2>Observation Deck</h2>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+  </body>
+</html>

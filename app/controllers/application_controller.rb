@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :get_categories
+  layout 'new'
 
   def index
     @headlines = Article.limit(5)
