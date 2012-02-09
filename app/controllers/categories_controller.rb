@@ -6,9 +6,10 @@ class CategoriesController < ApplicationController
     unless @category
       raise ActionController::RoutingError.new('Not Found')
     end
-    @articles = Article.where(:category_id => @category.id).limit(10)
-    @slideshow = Article.where(['category_id = ? AND image_file_name IS NOT NULL', @category.id]).limit(5)
-    @headlines = @articles[0..5]
+    @articles = Article.is_live.where(:category_id => @category.id).order('created_at DESC')
+    @popular_articles = Article.is_live.where(:category_id => @category.id).order('pageviews DESC')
+    @slideshow = Article.is_live.where(['category_id = ? AND image_file_name IS NOT NULL', @category.id]).limit(5)
+    @headlines = @articles[0..10]
   end
 
   def update

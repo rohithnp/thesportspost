@@ -1,3 +1,4 @@
+<% title "#{@subcategory.name} | #{@category.full_name} | The Sports Post" %>
 <section id="category-section">
   <div class="container_16 white-background">
     <div class="grid_16">
@@ -11,7 +12,7 @@
         <h3>More Articles</h3>
         <ul>
           <% @articles.each do |article| %>
-            <li><%= link_to article.title, "/articles/#{article.slug}" %></li>
+            <li><%= link_to article.title, "/articles/#{article.slug}", :class => 'more-articles-link' %></li>
           <% end %>
         </ul>
       </div>

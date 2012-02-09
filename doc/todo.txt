@@ -1,0 +1,4 @@
+12/12
+* Add "Add to Recent Articles" option to "Edit Articles"
+* Use new ArticleSet model for Slideshow, Headlines, RecentArticles, etc.
+

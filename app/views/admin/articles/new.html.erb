@@ -9,8 +9,16 @@
             <td><%= f.text_field :title %></td>
           </tr>
           <tr>
+            <td width="150"><%= f.label :subtitle %></td>
+            <td><%= f.text_field :subtitle %></td>
+          </tr>
+          <tr>
             <td><%= f.label :category %></td>
             <td><%= f.select :category, @categories %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :article_type %></td>
+            <td><%= f.select :article_type, [['Normal',Article::TYPE_NORMAL], ['Observation Deck',Article::TYPE_BLOG]] %></td>
           </tr>
           <tr>
             <td><%= f.label :text %></td>
@@ -19,6 +27,54 @@
           <tr>
             <td><%= f.label 'Thumbnail Image' %></td>
             <td><%= f.file_field :image %></td>
+          </tr>
+          <tr>
+            <td>Related Articles</td>
+            <td>
+              <select multiple="multiple" name="article[related_article_ids][]">
+                <% @article.related_articles.each do |a| %>
+                  <option value="<%= a.id %>"><%= "#{a.created_at} - #{a.category} - #{a.title}" %></option>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>More Articles By Writer</td>
+            <td>
+              <select multiple="multiple" name="article[same_writer_article_ids][]">
+                <% @writer_articles.each do |a| %>
+                  <option value="<%= a.id %>"><%= "#{a.created_at} - #{a.category} - #{a.title}" %></option>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Extras</td>
+            <td>
+              <input type="checkbox" name="add_to_recent"/>
+              <label>Add to Recent Articles Section</label>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="checkbox" name="add_to_slideshow">
+              <label>Add to Slideshow</label>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="checkbox" name="add_to_headlines"/>
+              <label>Add to Headlines</label>
+            </td>
+          </tr>
+          <tr>
+            <td>Draft</td>
+            <td>
+              <input type="checkbox" name="article[is_draft]"/>
+              <label><b>Save As Draft?</b></label>
+            </td>
           </tr>
         </table>
         <%= render :partial => 'tinymce' %>
@@ -30,3 +86,4 @@
   </div>
   <div class="clear"></div>
 </section>
+

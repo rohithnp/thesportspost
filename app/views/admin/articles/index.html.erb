@@ -12,24 +12,26 @@
             </tr>
             <% @articles.each do |article| %>
               <tr>
-                <td><%= link_to article.title, edit_admin_article_path(article) %></td>
+                <td><%= link_to article.title, edit_admin_article_path(article) %><% if article.is_draft %><b> (Draft) </b><% end %></td>
                 <td><%= article.category %></td>
                 <td><%= article.created_at %></td>
               </tr>
             <% end %>
           <% elsif current_user.role?(:admin) || current_user.role?(:editor) %>
             <tr>
-              <th>Title</th>
+              <th width="400">Title</th>
               <th>Category</th>
               <th>Author</th>
+              <th># Views</th>
               <th>Date</th>
             </tr>
             <% @articles.each do |article| %>
               <tr>
-                <td><%= link_to article.title, edit_admin_article_path(article) %></td>
+                <td><%= link_to article.title, edit_admin_article_path(article) %><% if article.is_draft %><b> (Draft) </b><% end %></td>
                 <td><%= article.category %></td>
                 <td><%= article.user %></td>
-                <td><%= article.created_at %></td>
+                <td><%= article.pageviews %></td>
+                <td><%= article.date_published_short %></td>
               </tr>
             <% end %>
           <% end %>

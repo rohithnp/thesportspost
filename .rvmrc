@@ -10,6 +10,11 @@ environment_id="ruby-1.9.3-p0@thesportspost"
 # Uncomment following line if you want options to be set only for given project.
 #
 # PROJECT_JRUBY_OPTS=( --1.9 )
+#
+# The variable PROJECT_JRUBY_OPTS requires the following to be run in shell:
+#
+#    chmod +x ${rvm_path}/hooks/after_use_jruby_opts
+#
 
 #
 # First we attempt to load the desired environment directly from the environment
@@ -31,7 +36,7 @@ else
   if ! rvm --create  "$environment_id"
   then
     echo "Failed to create RVM environment '${environment_id}'."
-    exit 1
+    return 1
   fi
 fi
 
@@ -52,4 +57,19 @@ fi
 #   bundle
 # fi
 
+# if [[ -s Gemfile ]] && ! command -v bundle >/dev/null
+# then
+#   printf "The rubygem 'bundler' is not installed. Installing it now.\n"
+#   gem install bundler
+# fi
+# if [[ -s Gemfile ]] && command -v bundle
+# then
+#   bundle install
+# fi
 
+if [[ $- == *i* ]] # check for interactive shells
+then
+    echo "Using: $(tput setaf 2)$GEM_HOME$(tput sgr0)" # show the user the ruby and gemset they are using in green
+else 
+	echo "Using: $GEM_HOME" # don't use colors in interactive shells
+fi

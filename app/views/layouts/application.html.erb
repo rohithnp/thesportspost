@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The Sports Post</title>
+  <title><%= yield(:title) || "The Sports Post" %></title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <% if false %>
@@ -9,12 +9,15 @@
   <% end %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body <% if params[:controller] == "categories" %>class="body-<%= @category.name.downcase %>"<% end %>>
   <header class="container_16">
     <div id="header">
       <div id="header-container" class="white-background">
-        <div id="logo" class="grid_4">
+        <div id="logo" class="grid_3">
           <a href="/"><img src="/logo.png" alt="The Sports Post"/></a>
+        </div>
+        <div class="grid_8 top-banner-ad">
+          <%= render :partial => 'partials/adsense_top_right' %>
         </div>
         <div id="userbox">
           <% if user_signed_in? %>
@@ -22,13 +25,32 @@
             &nbsp;-&nbsp;
             <% if current_user.role?(:writer) %>
               <%= link_to 'Admin', admin_articles_path %>
+              &nbsp;-&nbsp;
             <% elsif can? :manage, Article %>
-              <%= link_to 'Admin', user_root_path %>
+              <%= link_to 'Admin', '/admin' %>
+              &nbsp;-&nbsp;
             <% end %>
-            &nbsp;-&nbsp;
             <%= link_to 'Sign Out', destroy_user_session_path, :method => 'DELETE' %>
           <% else %>
-            <a href="/users/sign_in">Sign In</a>
+            <div style="display: inline-block">
+              <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+                <div>Member Login - <a href="/users/sign_up">Create Account</a></div>
+                <table>
+                  <tr>
+                    <td><%= f.label :email %></td>
+                    <td><%= f.email_field :email, :size => 15 %></td>
+                  </tr>
+                  <tr>
+                    <td><%= f.label :password %></td>
+                    <td><%= f.password_field :password, :size => 15 %></td>
+                  </tr>
+                </table>
+                <% if false and devise_mapping.rememberable? -%>
+                  <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+                <% end -%>
+                <div><%= f.submit "Sign in" %></div>
+              <% end %>
+            </div>
           <% end %>
         </div>
         <div class="clear"></div>
@@ -39,7 +61,7 @@
         <ul class="categories-list">
           <% @navbar_categories.each_with_index do |category,i| %>
             <span id="category-with-sub-<%= i %>" class="category-with-subcategory">
-              <li id="category-<%= i %>" class="categories"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
+              <li id="category-<%= i %>" class="categories <% if @category and @category.name == category.name %>current-category<% end %>"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
               <% if category.subcategories.length > 0 %>
                 <ul id="category-<%= i%>-subcategories" class="subcategories-list">
                   <% category.subcategories.each do |sc| %>
@@ -69,6 +91,11 @@
           <% end %>
         </ul>
       </div>
+      <div style="float: right; height: 20px; padding-top: 5px; padding-right: 3px">
+        <% if Rails.env.production? %>
+          <%= render :partial => 'partials/google_search' %>
+        <% end %>
+      </div>
       <div class="clear"></div>
     </div>
   </header>
@@ -86,5 +113,6 @@
       </footer>
     </div>
   </div>
+  <%= render :partial => 'partials/google_analytics' %>
 </body>
 </html>

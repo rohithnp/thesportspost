@@ -10,7 +10,9 @@ li.headlines a {
   color: #222;
   text-decoration: none;
 }
-
+.top-banner-ad {
+  padding-top: 47px;
+}
 section#custom-page-section-section {
 }
 
@@ -48,11 +50,6 @@ section#discussion-board-section {
   margin-bottom: 5px;
   background-color: #fefefe;
 }
-.popular-post-title {
-  color: #222222;
-  float: left;
-  width: 200px;
-}
 .popular-post-description {
   padding-top: 5px;
   color: #888888;
@@ -63,7 +60,147 @@ section#discussion-board-section {
 
 /* Sections */
 h3.section-title {
-  background-color: #d9d9d9;
+  background-color: #600000;
   margin: 0px;
   height: 30px;
+}
+
+/* Popular Posts 2 */
+.popular-posts-subcontainer {
+  padding-top: 10px;
+}
+.popular-posts-subcontainer a {
+  text-decoration: none;
+  color: #600000;
+}
+.popular-posts-subcontainer a:hover {
+  text-decoration: none;
+  color: #900000;
+}
+.popular-post-big-image-thumbnail {
+  float: left;
+  width: 290px;
+  height: 210px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  background-color: #fefefe;
+}
+.popular-post-big-description {
+  float: left;
+  color: white;
+  background-color: black;
+  text-shadow: 1px 1px black;
+  font-weight: bold;
+  height: 38px;
+  width: 270px;
+  margin-top: -54px;
+  line-height: 1.25em;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  padding: 5px 10px;
+  overflow: hidden;
+  opacity: 0.8;
+}
+.popular-post-big-description-background {
+  float: left;
+  background-color: black;
+  color: gray;
+  height: 30px;
+  width: 290px;
+  margin-top: -30px;
+}
+.popular-post-medium-image-thumbnail {
+  float: left;
+  width: 165px;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  background-color: #fefefe;
+}
+.popular-post-medium-description {
+  float: left;
+  padding-left: 10px;
+  line-height: 1.2em;
+  height: 95px;
+  width: 165px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.popular-post-medium-wide-image-thumbnail {
+  float: left;
+  width: 290px;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  background-color: #fefefe;
+}
+.popular-post-medium-wide-description {
+  float: left;
+  line-height: 1.2em;
+  height: 95px;
+  width: 290px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+.popular-post-medium-very-wide-description {
+  float: left;
+  padding-left: 15px;
+  line-height: 1.2em;
+  height: 120px;
+  width: 450px;
+  overflow: hidden;
+}
+.popular-post-triplet-1-image-thumbnail {
+  float: left;
+  width: 225px;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  background-color: #fefefe;
+}
+.popular-post-triplet-2-image-thumbnail {
+  float: left;
+  width: 165px;
+  height: 105px;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  background-color: #fefefe;
+}
+.popular-post-triplet-description {
+  margin-bottom: 15px;
+}
+.popular-post-medium-very-wide-title {
+  font-weight: bold;
+}
+.popular-post-medium-very-wide-subtitle {
+  font-size: 0.8em;
+}
+.popular-post-title {
+  font-weight: bold;
+  font-size: 0.9em;
+  line-height: 1em;
+}
+.popular-post-text-sample {
+  margin-top: 5px;
+  font-size: 0.7em;
+  line-height: 1.1em;
+  color: #555;
+}
+.popular-post-larger-text-sample {
+  margin-top: 5px;
+  font-size: 0.8em;
+  line-height: 1.2em;
+  color: #555;
+}
+.divider {
+  margin-top: 3px;
+  border-top: 2px solid #900;
+  padding-top: 3px;
+  height: 8px;
+  opacity: 0.6;
 }

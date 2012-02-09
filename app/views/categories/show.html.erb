@@ -1,3 +1,4 @@
+<% title "#{@category.full_name} | The Sports Post" %>
 <section id="category-section">
   <div class="container_16 white-background">
     <div class="grid_16">
@@ -6,17 +7,39 @@
     <% if @slideshow.length > 1 %>
       <%= render :partial => 'partials/slideshow', :locals => { :slideshow => @slideshow, :headlines => @headlines } %>
     <% end %>
-    <% if @articles.length > 0 %>
-      <div class="grid_16">
-        <h3>More Articles</h3>
-        <ul>
-          <% @articles.each do |article| %>
-            <li><%= link_to article.title, "/articles/#{article.slug}" %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
     <div class="clear"></div>
   </div>
   <div class="clear"></div>
+</section>
+<section id="popular-posts-section"> 
+  <div id="popular-posts-container" class="container_16 white-background">
+    <div id="popular-posts" style="float: left">
+      <div class="grid_11 section-title">
+        <h3 class="section-title"><span class="dark-title-background">Popular Posts</span></h3>
+      </div>
+      <div class="clear"></div>
+      <div class="popular-posts-subcontainer">
+        <% if @popular_articles.length >= 3 %>
+          <%= render :partial => 'partials/popular_posts_slice_3', :locals => {
+            :article1 => @popular_articles[0], :article2 => @popular_articles[1], :article3 => @popular_articles[2]
+          } %>
+        <% end %>
+        <% if @popular_articles.length >= 6 %>
+          <%= render :partial => 'partials/popular_posts_slice_3', :locals => {
+            :article1 => @popular_articles[3], :article2 => @popular_articles[4], :article3 => @popular_articles[5]
+          } %>
+        <% end %>
+        <% if @popular_articles.length >= 9 %>
+          <% @popular_articles[6..@popular_articles.length].each do |article| %>
+            <%= render :partial => 'partials/popular_posts_slice_4', :locals => { :article => article } %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div id="custom-page-sections-container">
+      <%= render :partial => 'partials/post_type_1', :locals => { :title => 'Recent Articles', :articles => @articles } %>
+    </div>
+    <div class="clear"></div>
+  </div>
 </section>

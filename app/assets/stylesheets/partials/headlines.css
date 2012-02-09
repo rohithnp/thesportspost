@@ -1,0 +1,33 @@
+/* Post List Types */
+
+.headlines-header h3 {
+  margin: 0;
+  background-color: #d9d9d9;
+  height: 30px;
+}
+.headlines-header {
+  padding-bottom: 2px;
+}
+.headlines-posts {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #eee;
+}
+ul.headlines-ul {
+  margin: 0;
+  padding: 5px 10px 5px 20px;
+}
+.headlines a {
+  text-decoration: none;
+  color: #000050;
+}
+.headlines a:visited {
+  color: #0000a0;
+}
+.headlines a:hover {
+  text-decoration: underline;
+}
+.headlines-title {
+  font-size: 0.8em;
+}

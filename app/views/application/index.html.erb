@@ -1,4 +1,7 @@
-<%= render :partial => 'partials/slideshow', :locals => { :slideshow => @slideshow, :headlines => @headlines } %>
+<% title "The Sports Post" %>
+<%= render :partial => 'partials/slideshow', :locals => {
+  :slideshow => @slideshow.articles, :headlines => @headlines.articles
+} %>
 <% if false %>
   <section id="custom-page-section-section">
     <div class="container_16 white-background">
@@ -18,39 +21,36 @@
         <h3 class="section-title"><span class="dark-title-background">Popular Posts</span></h3>
       </div>
       <div class="clear"></div>
-      <div class="grid_11 real-popular-posts-container">
-        <% @posts.each_with_index do |article,i| %>
-          <% if i>0 and i%3 == 0 %>
-            <div class="clear"></div>
-          <% end %>
-          <div class="popular-post">
-            <a href="/articles/<%= article.slug %>">
-              <div class="popular-post-image-thumbnail">
-                <% if article.image? %><img src="<%= article.image.url(:big) %>" width="200"/><% end %>
-              </div>
-              <div class="popular-post-title"><%= article.title %></div>
-              <div class="popular-post-description"><%= strip_tags(article.text)[0..100].strip.html_safe %>...</div>
-            </a>
-            <div class="clear"></div>
-          </div>
+      <div class="popular-posts-subcontainer">
+        <%= render :partial => 'partials/popular_posts_slice_3', :locals => {
+          :article1 => @popular_posts[0], :article2 => @popular_posts[1], :article3 => @popular_posts[2]
+        } %>
+        <%= render :partial => 'partials/popular_posts_slice_3', :locals => {
+          :article1 => @popular_posts[3], :article2 => @popular_posts[4], :article3 => @popular_posts[5]
+        } %>
+        <% @popular_posts[6..11].each do |post| %>
+          <%= render :partial => 'partials/popular_posts_slice_4', :locals => { :article => post } %>
         <% end %>
-      </div>
-    </div>
-    <% if @page_section %>
-      <div id="custom-page-sections-container">
-        <%= render :partial => 'partials/post_type_1', :locals => { :title => @page_section.name, :articles => @page_section.articles } %>
-      </div>
-    <% end %>
-    <div class="clear"></div>
-  </div>
-</section>
-<% if false %>
-  <section id="discussion-board-section">
-    <div id="discussion-board-container" class="container_16 white-background">
-      <div class="grid_16">
-        <h3 class="section-title">Discussion Board</h3>
       </div>
       <div class="clear"></div>
     </div>
-  </section>
-<% end %>
+    <div id="custom-page-sections-container">
+      <%= render :partial => 'partials/post_type_1', :locals => {
+        :title => @recent_articles.full_name,
+        :articles => @recent_articles.articles
+      } %>
+      <div style="height: 10px; width: 10px; float: left"></div>
+      <%= render :partial => 'partials/post_type_1', :locals => {
+        :title => @observation_deck.full_name,
+        :articles => @observation_deck.articles
+      } %>
+      <div class="grid_5">
+        <div style="margin-top: 15px"><%= render :partial => 'partials/adsense_under_headlines' %></div>
+      </div>
+    </div>
+    <div>
+      <%= render :partial => 'partials/google_search' %>
+    </div>
+    <div class="clear"></div>
+  </div>
+</section>

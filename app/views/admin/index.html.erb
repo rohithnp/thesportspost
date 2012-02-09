@@ -1,3 +1,4 @@
+<% title "Admin Area | The Sports Post" %>
 <section id="admin-section">
   <div class="container_16 white-background">
     <div class="grid_16 admin-main">
@@ -8,15 +9,15 @@
         <%= link_to 'Manage Articles', admin_articles_path %> - create new articles or change existing ones<br/>
         <%= link_to 'Manage Users', admin_users_path %> - change user permissions<br/>
         <%= link_to 'Manage Categories', admin_categories_path %> - <b>subcategories</b> show up as drop-down options under the <b>categories</b> on the nav bar<br/>
-        <%= link_to 'Manage Page Sections', admin_page_sections_path %> - change custom sections on the front page and their associated articles.<br/>
       <% elsif current_user.role?(:editor) %>
         <p>You are an editor</p>
         <%= link_to 'Manage Articles', admin_articles_path %><br/>
       <% elsif current_user.role?(:writer) %>
         <p>You are a writer</p>
         <%= link_to 'Your Articles', admin_articles_path %><br/>
-        <%= link_to 'New Article', new_admin_article_path %>
       <% end %>
+      <br/>
+      <%= link_to 'Create Article', new_admin_article_path %> - create a new article
     </div>
     <div class="clear"></div>
   </div>

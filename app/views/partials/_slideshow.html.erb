@@ -11,23 +11,38 @@
               <div class="slide">
                 <a href="<%= "/articles/#{slide.slug}" %>">
                   <img src="<%= slide.image.url(:big) %>" width="645"/>
-                  <div class="caption"><%= slide.title %></div>
+                  <div class="caption">
+                    <div class="slideshow-title"><%= slide.title %></div>
+                    <div class="slideshow-subtitle"><%= slide.subtitle %></div>
+                  </div>
                 </a>
               </div>
             <% end %>
           </div>
+          <ul class="pagination">
+            <% slideshow.each_with_index do |slide,i| %>
+              <li <% if i != 4 %>class="padded-mini-image"<% end %>>
+                <a href="#<%= i %>">
+                  <div class="current-slide-indicator"></div>
+                  <img src="<%= slide.image.url(:thumb) %>" width="121"/>
+                </a>
+              </li>
+            <% end %>
+          </ul>
         </div>
       </div>
       <script>
         (function() {
           $("#slideshow").slides({
             preload: true,
+            preloadImage: "/assets/loading.gif",
             play: 5000,
             pause: 2500,
             hoverPause: true,
+            generatePagination: false,
             animationStart: function(current) {
               $(".caption").animate({
-                bottom: -35
+                bottom: -60
               },100);
             },
             animationComplete: function(current) {
@@ -45,7 +60,7 @@
       </script>
     </div>
     <div id="headlines-container">
-      <%= render :partial => 'partials/post_type_1', :locals => { :title => 'Headlines', :articles => headlines } %>
+      <%= render :partial => 'partials/headlines', :locals => { :articles => headlines } %>
     </div>
     <div class="clear"></div>
   </div>

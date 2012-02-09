@@ -12,6 +12,6 @@ class Subcategory < ActiveRecord::Base
  
   protected
   def generate_slug
-    self.slug = name.downcase.gsub(/[^a-z ]/,'').gsub(/ +/,'-')
+    self.slug = name.downcase.gsub(/[^\w ]/,'').gsub(/ +/,'-')
   end
 end
