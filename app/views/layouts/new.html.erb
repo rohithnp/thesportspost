@@ -23,24 +23,28 @@
         <img src="/assets/logo.png" id="logo"/>
         <div id="sign_in_container">
           <div id="sign_in_box">
-            <form>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><input type="text"/></td>
-                    <td><input type="password"/></td>
-                    <td><input type="submit" value="Sign In"/></td>
-                  </tr>
-                </tbody>
-              </table>
-            </form>
+            <% if user_signed_in? %>
+              <span style="color:white">Logged in as: <%= current_user.email %></span>
+            <% else %>
+              <%= form_for resource, :as => resource_name, :url => session_path(resource_name) do |f| %>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Email</th>
+                      <th>Password</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><%= f.email_field :email %></td>
+                      <td><%= f.password_field :password %></td>
+                      <td><%= f.submit "Sign In" %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
