@@ -15,4 +15,3 @@ if [[ -d /srv/http/thesportspost ]]; then
     echo Deploy failed at: `date` >> log/deploy.log
   fi
 fi
-
