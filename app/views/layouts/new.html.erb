@@ -152,7 +152,7 @@
                   <% end %>
                   <div>
                     <h3>
-                      <a href="/articles/<%= post.slug %>"><%= truncate post.title, :length => 30 %></a>
+                      <%= link_to (truncate post.title, :length => 30), "/articles/#{post.slug}" %>
                     </h3>
                     <p><%= (truncate strip_tags(post.text), :length => 80).html_safe %></p>
                   </div>
