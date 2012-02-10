@@ -16,18 +16,7 @@ module ApplicationHelper
   end
 
   def article_text_sample(article, limit=100)
-    cleaned_text = strip_tags(article.text.strip).gsub(/\s+/,' ').gsub(/&nbsp;/,' ').strip.split
-    if cleaned_text
-      text = ""
-      i = 0
-      while text.length<[limit,cleaned_text.length].min
-        text += cleaned_text[i] + " "
-        i += 1
-      end
-      text += "..."
-      text.html_safe
-    else
-      ""
-    end
+    cleaned_text = strip_tags(article.text.strip).gsub(/\s+/,' ').gsub(/&nbsp;/,' ').strip
+    (truncate cleaned_text, :length => limit).html_safe
   end
 end

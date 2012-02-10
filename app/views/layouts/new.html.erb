@@ -154,7 +154,7 @@
                     <h3>
                       <%= link_to (truncate post.title, :length => 30), "/articles/#{post.slug}" %>
                     </h3>
-                    <p><%= (truncate strip_tags(post.text), :length => 80).html_safe %></p>
+                    <p><%= article_text_sample(post, 100) %></p>
                   </div>
                 </li>
               <% end %>
