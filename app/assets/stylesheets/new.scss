@@ -8,6 +8,18 @@ $width: 940px;
 $left_width: 640px - $gap_size;
 $right_width: 300px;
 
+@mixin img_container($width, $height) {
+  .img_container {
+    width: $width;
+    height: $height;
+    overflow: hidden;
+    padding: 0;
+    img {
+      min-width: $width;
+      min-height: $height;
+    }
+  }
+}
 
 body {
   background-image: url(/assets/background.gif);
@@ -212,22 +224,13 @@ h2 {
     margin: 0px;
     padding: 12px 0px 12px 12px;
     li {
+      @include img_container(120px,100px);
       float: left;
       width: $left_width/2 - 10px;
       margin-right: 2px;
       margin-bottom: 10px;
       div {
         float: left;
-      }
-      .img_container {
-        width: 120px;
-        height: 100px;
-        overflow: hidden;
-        padding: 0;
-        img {
-          min-width: 120px;
-          min-height: 100px;
-        }
       }
       .blurb {
         padding-left: 5px;
