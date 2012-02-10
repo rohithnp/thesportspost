@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo Deployed attempted at: `date` >> log/deploy.log
+echo Deploy attempted at: `date` >> log/deploy.log
 if [[ -d /srv/http/thesportspost ]]; then
   cd /srv/http/thesportspost
   if [[ ! -f tmp/deploy.lock ]]; then
@@ -9,7 +9,7 @@ if [[ -d /srv/http/thesportspost ]]; then
     RAILS_ENV=production rake db:migrate
     RAILS_ENV=production rake assets:precompile
     thin restart -O -C config/thin.yml
-    echo Deployed finished at: `date` >> log/deploy.log
+    echo Deploy finished at: `date` >> log/deploy.log
     rm tmp/deploy.lock
   fi
 fi
