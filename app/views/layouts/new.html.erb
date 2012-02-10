@@ -145,11 +145,13 @@
             <ul>
               <% @observation_deck.articles[0..2].each do |post| %>
                 <li>
-                  <% if post.image? %>
-                    <img src="<%= post.image.url(:thumb) %>" width="120" height="90"/>
-                  <% else %>
-                    <img src="http://dummyimage.com/120x90/000222/fff"/>
-                  <% end %>
+                  <div style="width:120px; height:100px; overflow:hidden; padding:0; background-color:lightgray">
+                    <% if post.image? %>
+                      <img src="<%= post.image.url(:thumb) %>" width="120" style="float:left"/>
+                    <% else %>
+                      <img src="http://dummyimage.com/120x100/000222/fff"/>
+                    <% end %>
+                  </div>
                   <div>
                     <h3>
                       <%= link_to (truncate post.title, :length => 30), "/articles/#{post.slug}" %>
