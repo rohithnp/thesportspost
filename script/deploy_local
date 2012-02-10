@@ -11,5 +11,7 @@ if [[ -d /srv/http/thesportspost ]]; then
     thin restart -O -C config/thin.yml
     echo Deploy finished at: `date` >> log/deploy.log
     rm tmp/deploy.lock
+  else
+    echo Deploy failed at: `date` >> log/deploy.log
   fi
 fi
