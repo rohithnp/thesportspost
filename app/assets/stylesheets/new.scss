@@ -183,6 +183,7 @@ h2 {
     float: left;
     width: 410px - $gap_size;
     #top_post_content {
+      @include img_container(384px, 120px);
       padding: 12px;
       min-height: 270px - 24px;
       h3 {

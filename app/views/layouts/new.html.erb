@@ -90,11 +90,13 @@
           <div id="top_post">
             <h2>Top Post</h2>
             <div id="top_post_content" class="white_bg">
-              <% if @top_post.image? and @top_post.image.url(:thumb) %>
-                <img src="<%= @top_post.image.url(:thumb) %>" width="384" height="120"/>
-              <% else %>
-                <img src="http://dummyimage.com/320x120/000222/fff"/>
-              <% end %>
+              <div class="img_container">
+                <% if @top_post.image? and @top_post.image.url(:big) %>
+                  <img src="<%= @top_post.image.url(:big) %>"/>
+                <% else %>
+                  <img src="http://dummyimage.com/384x120/fff"/>
+                <% end %>
+              </div>
               <h3><%= link_to @top_post.title, "/articles/#{@top_post.slug}" %></h3>
               <p><%= (truncate strip_tags(@top_post.text), :length => 300).html_safe %></p>
             </div>
