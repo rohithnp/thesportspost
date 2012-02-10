@@ -122,12 +122,14 @@
             <ul>
               <% @popular_posts.each do |post| %>
                 <li>
-                  <% if post.image? %>
-                    <img src="<%= post.image.url(:thumb) %>" width="120" height="90"/>
-                  <% else %>
-                    <img src="http://dummyimage.com/120x90/000222/fff"/>
-                  <% end %>
-                  <div>
+                  <div class="img_container">
+                    <% if post.image? %>
+                      <img src="<%= post.image.url(:thumb) %>"/>
+                    <% else %>
+                      <img src="http://dummyimage.com/120x100/000222/fff"/>
+                    <% end %>
+                  </div>
+                  <div class="blurb">
                     <h3>
                       <%= link_to (truncate post.title, :length => 30), "/articles/#{post.slug}" %>
                     </h3>
@@ -145,14 +147,14 @@
             <ul>
               <% @observation_deck.articles[0..2].each do |post| %>
                 <li>
-                  <div style="width:120px; height:100px; overflow:hidden; padding:0; background-color:lightgray">
+                  <div class="img_container">
                     <% if post.image? %>
-                      <img src="<%= post.image.url(:thumb) %>" width="120" style="float:left"/>
+                      <img src="<%= post.image.url(:thumb) %>"/>
                     <% else %>
                       <img src="http://dummyimage.com/120x100/000222/fff"/>
                     <% end %>
                   </div>
-                  <div>
+                  <div class="blurb">
                     <h3>
                       <%= link_to (truncate post.title, :length => 30), "/articles/#{post.slug}" %>
                     </h3>
