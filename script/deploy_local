@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo Deploy attempted at: `date` >> log/deploy.log
 if [[ -d /srv/http/thesportspost ]]; then
   cd /srv/http/thesportspost
+  echo Deploy attempted at: `date` >> log/deploy.log
   if [[ ! -f tmp/deploy.lock ]]; then
     touch tmp/deploy.lock
     git pull
