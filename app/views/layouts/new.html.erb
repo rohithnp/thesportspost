@@ -3,7 +3,11 @@
   <head>
     <title>The Sports Post</title>
     <link href='http://fonts.googleapis.com/css?family=Share:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Kelly+Slab' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag "new" %>
+        <%= stylesheet_link_tag "application" %>
+
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -20,7 +24,8 @@
     </div>
     <div class="container">
       <div id="header">
-        <img src="/assets/logo.png" id="logo"/>
+        <img src="/assets/logo.png" id="logo" style="display:none"/>
+        <h4>the sports post</h4>
         <div id="sign_in_container">
           <div id="sign_in_box">
             <% if user_signed_in? %>
@@ -57,19 +62,74 @@
           <li><%= link_to "MMA", "/categories/mma" %></li>
         </ul>
       </div>
-      <div id="upper_ad_container" class="white_bg" style="display:none">
-        <img src="http://dummyimage.com/728x90/000222/fff"/>
+      <div id="upper_ad_container" class="white_bg" style="display: none">
+          <img src="http://dummyimage.com/728x90/000222/fff"/>
       </div>
       <div id="upper_separator">
         <div class="downward_wedge"></div>
       </div>
       <div id="upper_content">
-        <div id="slideshow_container" class="left_content white_bg">
-          <a href="/articles/<%= @slideshow.articles[0].slug %>"><img src="<%= @slideshow.articles[0].image.url(:big) %>" width="636" height="360" class="slideshow_main_image"/></a>
-          <% @slideshow.articles[1..4].each do |slide| %>
-            <a href="/articles/<%= slide.slug %>"><img src="<%= slide.image.url(:thumb) %>" width="159" height="130" class="slideshow_thumbnail"/></a>
-          <% end %>
+          <div id="slideshow_container" class="left_content white_bg">
+            <div id="slideshow">
+              <% if false %>
+                <div><img src="<%= Article.first.image.url(:thumb) %>"/></div>
+              <% end %>
+              <div id="slides">
+                <div class="slides_container">
+                  <% @slideshow.articles.each do |slide| %>
+                    <div class="slide">
+                      <a href="<%= "/articles/#{slide.slug}" %>">
+                        <img src="<%= slide.image.url(:big) %>" width="636"/>
+                        <div class="caption">
+                          <div class="slideshow-title"><%= slide.title %></div>
+                          <div class="slideshow-subtitle"><%= slide.subtitle %></div>
+                        </div>
+                      </a>
+                    </div>
+                  <% end %>
+                </div>
+                <ul class="pagination">
+                  <% @slideshow.articles.each_with_index do |slide,i| %>
+                    <li <% if i <= 5 %>class="padded-mini-image"<% end %>>
+                      <a href="#<%= i %>">
+                        <div class="current-slide-indicator"></div>
+                        <img src="<%= slide.image.url(:thumb) %>" width="121"/>
+                      </a>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+        <script>
+        (function() {
+          $("#slideshow").slides({
+            preload: true,
+            preloadImage: "/assets/loading.gif",
+            play: 5000,
+            pause: 2500,
+            hoverPause: true,
+            generatePagination: false,
+            animationStart: function(current) {
+              $(".caption").animate({
+                bottom: -60
+              },100);
+            },
+            animationComplete: function(current) {
+              $(".caption").animate({
+                bottom: 0
+              },200);
+            },
+            slidesLoaded: function() {
+              $(".caption").animate({
+                bottom: 0
+              },200);
+            }
+          });
+        })();
+        </script>
+
         </div>
+
         <div id="recent_articles_container" class="right_content">
           <h2>Recent Articles</h2>
           <div id="recent_articles" class="white_bg">
@@ -102,10 +162,10 @@
             </div>
           </div>
           <div id="headlines">
-            <h2>Headlines</h2>
+            <h2 id="headline_header">Headlines</h2>
             <div id="headlines_content" class="white_bg">
               <ul>
-                <% @headlines.articles[0..3].each do |headline| %>
+                <% @headlines.articles[0..7].each do |headline| %>
                   <li><%= link_to headline.title, "/articles/#{headline.slug}" %></li>
                 <% end %>
               </ul>
@@ -122,7 +182,7 @@
           <h2>Popular Posts</h2>
           <div class="white_bg">
             <ul>
-              <% @popular_posts.each do |post| %>
+              <% @popular_posts[0..5].each do |post| %>
                 <li>
                   <div class="img_container">
                     <% if post.image? %>
@@ -147,10 +207,11 @@
           <h2>Observation Deck</h2>
           <div class="white_bg">
             <ul>
-              <% @observation_deck.articles[0..2].each do |post| %>
+              <% @popular_posts[1..3].each do |post| %>
                 <li>
                   <div class="img_container">
                     <% if post.image? %>
+                      <img src="http://dummyimage.com/120x100/000222/000"/>
                       <img src="<%= post.image.url(:thumb) %>"/>
                     <% else %>
                       <img src="http://dummyimage.com/120x100/000222/000"/>
@@ -170,9 +231,24 @@
         </div>
       </div>
       <div style="clear:both"></div>
+     <div id="lower_content">
+        <div id="popular_posts_container" class="left_content">
+        <h2>More</h2>
+          <div class="white_bg">
+            <div class="popular-posts-subcontainer">
+              <% @popular_posts[6..8].each do |post| %>
+                <%= render :partial => 'partials/popular_posts_slice_4', :locals => { :article => post } %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div id="lower-right-ad" class="right_content">
+          <img src="http://dummyimage.com/300x400/000222/fff"/>
+        </div>
+            <div style="clear:both"></div>
+
       <div id="lower_separator">
         <div class="upward_wedge"></div>
       </div>
-    </div>
   </body>
 </html>

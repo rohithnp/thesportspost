@@ -1,9 +1,9 @@
 .slides_container {
-  width: 645px;
+  width: 636px;
   height: 343px;
 }
 .slide {
-  width: 645px;
+  width: 636px;
   height: 343px;
 }
 .slide a {
@@ -45,14 +45,22 @@ ul.pagination {
   margin: 0;
   height: 80px;
   overflow: hidden;
+  margin-bottom: 10px;
+
 }
 .pagination .padded-mini-image {
-  padding-right: 10px;
+  padding-right: 5px;
+  padding-top: 30px;
+}
+
+.pagination .padded-mini-image-last {
+  padding-top: 30px;
 }
 .pagination li .current-slide-indicator {
   width: 121px;
   border-top: 3px solid white;
   border-bottom: 1px solid white;
+
 }
 .pagination li.current .current-slide-indicator {
   width: 121px;
