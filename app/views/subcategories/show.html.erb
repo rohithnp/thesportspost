@@ -1,23 +1,39 @@
 <% title "#{@subcategory.name} | #{@category.full_name} | The Sports Post" %>
-<section id="category-section">
-  <div class="container_16 white-background">
-    <div class="grid_16">
-      <h2 class="category-full-name"><%= @category.full_name %> - <%= @subcategory.name %></h2>
-    </div>
-    <% if @slideshow.length > 1 %>
-      <%= render :partial => 'partials/slideshow', :locals => { :slideshow => @slideshow, :headlines => @headlines } %>
-    <% end %>
-    <% if @articles.length > 0 %>
-      <div class="grid_16">
-        <h3>More Articles</h3>
-        <ul>
-          <% @articles.each do |article| %>
-            <li><%= link_to article.title, "/articles/#{article.slug}", :class => 'more-articles-link' %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <div class="clear"></div>
+
+
+<div id="upper_content">
+  <% if @slideshow.length > 1 %>
+  <%= render :partial => 'partials/slideshow', :locals => {
+    :slideshow => @slideshow, :headlines => @headlines
+  } %>
+  <div id="middle_ad_container" class="right_content">
+    <img src="http://dummyimage.com/300x450/000222/fff"/>
   </div>
-  <div class="clear"></div>
-</section>
+  <% end %>
+</div>
+
+<div class="clear"></div>
+<div id="middle_content">
+
+  <div id="headlines" class="left_content">
+    <h2>Headlines</h2>
+    <div id="headlines_content_subcategory" class="white_bg">
+      <ul>
+         <% @headlines.each do |headline| %>
+          <li>
+            <span>
+              <%= link_to (truncate headline.title, :length => 50), "/articles/#{headline.slug}" %>
+            </span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+</div>
+<div class="clear"></div>
+
+
+
+
+

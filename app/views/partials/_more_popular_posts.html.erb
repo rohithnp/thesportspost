@@ -1,0 +1,10 @@
+<div id="popular_posts_container" class="left_content">
+	<h2>More Content</h2>
+	<div class="white_bg">
+		<div class="popular-posts-subcontainer">
+		  <% popular_posts.each do |post| %>
+		    <%= render :partial => 'partials/popular_posts_slice_4', :locals => { :article => post } %>
+		  <% end %>
+		</div>
+	</div>
+</div>

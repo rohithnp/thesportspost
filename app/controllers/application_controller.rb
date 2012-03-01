@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
     @observation_deck = ArticleSet.observation_deck
     @popular_posts = Article.is_live.order('pageviews DESC').limit(11)
     @top_post = @popular_posts.shift
-    render :layout => 'new'
   end
 
   protected

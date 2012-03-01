@@ -1,69 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= yield(:title) || "The Sports Post" %></title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <% if false %>
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-  <% end %>
-  <%= csrf_meta_tags %>
-</head>
-<body <% if params[:controller] == "categories" %>class="body-<%= @category.name.downcase %>"<% end %>>
-  <header class="container_16">
-    <div id="header">
-      <div id="header-container" class="white-background">
-        <div id="logo" class="grid_3">
-          <a href="/"><img src="/logo.png" alt="The Sports Post"/></a>
+  <head>
+    <title>The Sports Post</title>
+    <link href='http://fonts.googleapis.com/css?family=Share:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Kelly+Slab' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag "new" %>
+        <%= stylesheet_link_tag "application" %>
+
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="search_bar">
+      <div class="container">
+        <div id="search_box_container">
+          <form id="search_box" action="/search">
+            <input type="text" placeholder="Search" name="q"/>
+            <input type="submit" value="Go"/>
+          </form>
         </div>
-        <div class="grid_8 top-banner-ad">
-          <%= render :partial => 'partials/adsense_top_right' %>
-        </div>
-        <div id="userbox">
-          <% if user_signed_in? %>
-            <%= current_user.email %>
-            &nbsp;-&nbsp;
-            <% if current_user.role?(:writer) %>
-              <%= link_to 'Admin', admin_articles_path %>
-              &nbsp;-&nbsp;
-            <% elsif can? :manage, Article %>
-              <%= link_to 'Admin', '/admin' %>
-              &nbsp;-&nbsp;
-            <% end %>
-            <%= link_to 'Sign Out', destroy_user_session_path, :method => 'DELETE' %>
-          <% else %>
-            <div style="display: inline-block">
-              <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-                <div>Member Login - <a href="/users/sign_up">Create Account</a></div>
-                <table>
-                  <tr>
-                    <td><%= f.label :email %></td>
-                    <td><%= f.email_field :email, :size => 15 %></td>
-                  </tr>
-                  <tr>
-                    <td><%= f.label :password %></td>
-                    <td><%= f.password_field :password, :size => 15 %></td>
-                  </tr>
-                </table>
-                <% if false and devise_mapping.rememberable? -%>
-                  <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-                <% end -%>
-                <div><%= f.submit "Sign in" %></div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-        <div class="clear"></div>
       </div>
+      <div style="clear:both"></div>
     </div>
-    <div id="header-categories-container">
-      <div id="header-categories" class="grid_12">
-        <ul class="categories-list">
+    <div class="container">
+      <div id="header">
+        <img src="/assets/logo.png" id="logo" style="display:none"/>
+        <h4><%= link_to "the sports post", "/" %></h4>
+        <div id="sign_in_container">
+          <div id="sign_in_box">
+            <% if user_signed_in? %>
+              <span style="color:white">Logged in as: <%= current_user.email %></span>
+            <% else %>
+              <%= form_for resource, :as => resource_name, :url => session_path(resource_name) do |f| %>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Email</th>
+                      <th>Password</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><%= f.email_field :email %></td>
+                      <td><%= f.password_field :password %></td>
+                      <td><%= f.submit "Sign In" %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+      <div id="navbar">
+        <ul>
           <% @navbar_categories.each_with_index do |category,i| %>
-            <span id="category-with-sub-<%= i %>" class="category-with-subcategory">
-              <li id="category-<%= i %>" class="categories <% if @category and @category.name == category.name %>current-category<% end %>"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
-              <% if category.subcategories.length > 0 %>
-                <ul id="category-<%= i%>-subcategories" class="subcategories-list">
+          <span id="category-with-sub-<%= i %>">
+          <li id="category-<%= i %>"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
+          <% if category.subcategories.length > 0 %>
+           <ul id="category-<%= i%>-subcategories" class="subcategories-list">
                   <% category.subcategories.each do |sc| %>
                     <li class="subcategory">
                       <%= link_to sc.name, "/categories/#{category.name}/subcategories/#{sc.slug}" %>
@@ -75,7 +72,7 @@
                     var $c = $("#category-<%= i %>");
                     var $cws = $("#category-with-sub-<%= i %>");
                     var $sc = $("#category-<%= i %>-subcategories");
-                    $sc.css({ left: $c[0].offsetLeft-8 });
+                    $sc.css({ left: $c[0].offsetLeft});
                     $cws.hover(
                       function() {
                         $sc.css({ display: 'block' });
@@ -87,32 +84,30 @@
                   })();
                 </script>
               <% end %>
-            </span>
+              </span>
           <% end %>
         </ul>
       </div>
-      <div style="float: right; height: 20px; padding-top: 5px; padding-right: 3px">
-        <% if Rails.env.production? %>
-          <%= render :partial => 'partials/google_search' %>
-        <% end %>
+      <div id="upper_ad_container" class="white_bg">
+          <img src="http://dummyimage.com/940x120/000000/fff.png"/>
       </div>
-      <div class="clear"></div>
-    </div>
-  </header>
-  <div id="container">
-    <section id="main">
-      <%= yield %>
-    </section>
-    <div class="container_16">
-      <footer>
-        <div class="grid_12">
-          <div>Copyright &copy; 2011 http://thesportspost.com</div>
+      <div id="upper_separator">
+        <div class="downward_wedge"></div>
+      </div>
+      <div id="container">
+        <section id="main">
+          <%= yield %>
+        </section>
+        <div style="clear:both"></div>
+        <div id="lower_separator">
+          <div class="upward_wedge"></div>
         </div>
+        <footer>
+          <div class="left white_bg">
+            <div>Copyright &copy; 2011 http://thesportspost.com</div>
+          </div>
         <div class="clear"></div>
-      </div>
       </footer>
     </div>
-  </div>
-  <%= render :partial => 'partials/google_analytics' %>
-</body>
+  </body>
 </html>

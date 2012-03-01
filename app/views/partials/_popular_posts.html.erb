@@ -1,0 +1,25 @@
+<div id="popular_posts_container" class="left_content">
+  <h2>Popular Posts</h2>
+  <div class="white_bg">
+    <ul>
+      <% popular_posts[0..5].each do |post| %>
+        <li>
+          <div class="img_container">
+            <% if post.image? %>
+              <img src="<%= post.image.url(:thumb) %>"/>
+            <% else %>
+              <img src="http://dummyimage.com/120x100/000222/fff"/>
+            <% end %>
+          </div>
+          <div class="blurb">
+            <h3>
+              <%= link_to (truncate post.title, :length => 30), "/articles/#{post.slug}" %>
+            </h3>
+            <p><%= article_text_sample(post, 80) %></p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div style="clear:both"></div>
+  </div>
+</div>

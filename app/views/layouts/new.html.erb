@@ -56,10 +56,36 @@
       <div style="clear:both"></div>
       <div id="navbar">
         <ul>
-          <li><%= link_to "Football", "/categories/football" %></li>
-          <li><%= link_to "Basketball", "/categories/basketball" %></li>
-          <li><%= link_to "Baseball", "/categories/baseball" %></li>
-          <li><%= link_to "MMA", "/categories/mma" %></li>
+          <% @navbar_categories.each_with_index do |category,i| %>
+          <span id="category-with-sub-<%= i %>">
+          <li id="category-<%= i %>"><%= link_to category.full_name, "categories/#{category.name}" %></li>
+          <% if category.subcategories.length > 0 %>
+           <ul id="category-<%= i%>-subcategories" class="subcategories-list">
+                  <% category.subcategories.each do |sc| %>
+                    <li class="subcategory">
+                      <%= link_to sc.name, "/categories/#{category.name}/subcategories/#{sc.slug}" %>
+                    </li>
+                  <% end %>
+                </ul>
+                <script>
+                  (function() {
+                    var $c = $("#category-<%= i %>");
+                    var $cws = $("#category-with-sub-<%= i %>");
+                    var $sc = $("#category-<%= i %>-subcategories");
+                    $sc.css({ left: $c[0].offsetLeft-25});
+                    $cws.hover(
+                      function() {
+                        $sc.css({ display: 'block' });
+                      },
+                      function() {
+                        $sc.css({ display: 'none' });
+                      }
+                    );
+                  })();
+                </script>
+              <% end %>
+              </span>
+          <% end %>
         </ul>
       </div>
       <div id="upper_ad_container" class="white_bg" style="display: none">
@@ -79,7 +105,7 @@
                   <% @slideshow.articles.each do |slide| %>
                     <div class="slide">
                       <a href="<%= "/articles/#{slide.slug}" %>">
-                        <img src="<%= slide.image.url(:big) %>" width="636"/>
+                        <img src="<%= slide.image.url(:big) %>" width="500"/>
                         <div class="caption">
                           <div class="slideshow-title"><%= slide.title %></div>
                           <div class="slideshow-subtitle"><%= slide.subtitle %></div>
@@ -93,7 +119,7 @@
                     <li <% if i <= 5 %>class="padded-mini-image"<% end %>>
                       <a href="#<%= i %>">
                         <div class="current-slide-indicator"></div>
-                        <img src="<%= slide.image.url(:thumb) %>" width="121"/>
+                        <img src="<%= slide.image.url(:thumb) %>" width="100"/>
                       </a>
                     </li>
                   <% end %>
@@ -166,7 +192,8 @@
             <div id="headlines_content" class="white_bg">
               <ul>
                 <% @headlines.articles[0..7].each do |headline| %>
-                  <li><%= link_to headline.title, "/articles/#{headline.slug}" %></li>
+                  <li><%= link_to (truncate headline.title, :length => 30), "/articles/#{headline.slug}" %>
+                  </li>
                 <% end %>
               </ul>
             </div>

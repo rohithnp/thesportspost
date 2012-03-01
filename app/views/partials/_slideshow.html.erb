@@ -1,67 +1,62 @@
-<section id="slideshow-headlines-section">
-  <div id="slideshow-and-headlines-container" class="container_16 white-background">
-    <div id="slideshow-container" class="grid_11">
-      <div id="slideshow">
-        <% if false %>
-          <div><img src="<%= Article.first.image.url(:thumb) %>"/></div>
-        <% end %>
-        <div id="slides">
-          <div class="slides_container">
-            <% slideshow.each do |slide| %>
-              <div class="slide">
-                <a href="<%= "/articles/#{slide.slug}" %>">
-                  <img src="<%= slide.image.url(:big) %>" width="645"/>
-                  <div class="caption">
-                    <div class="slideshow-title"><%= slide.title %></div>
-                    <div class="slideshow-subtitle"><%= slide.subtitle %></div>
-                  </div>
-                </a>
+<div id="slideshow_container" class="left_content">
+<% if @subcategory %>
+  <h2 id="subcategory_header"><%= @category.full_name %> - <%= @subcategory.name %></h2>
+<% end %>
+  <div id="slideshow" class="white_bg">
+    <% if false %>
+      <div><img src="<%= Article.first.image.url(:thumb) %>"/></div>
+    <% end %>
+    <div id="slides">
+      <div class="slides_container">
+        <% slideshow.each do |slide| %>
+          <div class="slide">
+            <a href="<%= "/articles/#{slide.slug}" %>">
+              <img src="<%= slide.image.url(:big) %>" width="636"/>
+              <div class="caption">
+                <div class="slideshow-title"><%= slide.title %></div>
+                <div class="slideshow-subtitle"><%= slide.subtitle %></div>
               </div>
-            <% end %>
+            </a>
           </div>
-          <ul class="pagination">
-            <% slideshow.each_with_index do |slide,i| %>
-              <li <% if i != 4 %>class="padded-mini-image"<% end %>>
-                <a href="#<%= i %>">
-                  <div class="current-slide-indicator"></div>
-                  <img src="<%= slide.image.url(:thumb) %>" width="121"/>
-                </a>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+        <% end %>
       </div>
-      <script>
-        (function() {
-          $("#slideshow").slides({
-            preload: true,
-            preloadImage: "/assets/loading.gif",
-            play: 5000,
-            pause: 2500,
-            hoverPause: true,
-            generatePagination: false,
-            animationStart: function(current) {
-              $(".caption").animate({
-                bottom: -60
-              },100);
-            },
-            animationComplete: function(current) {
-              $(".caption").animate({
-                bottom: 0
-              },200);
-            },
-            slidesLoaded: function() {
-              $(".caption").animate({
-                bottom: 0
-              },200);
-            }
-          });
-        })();
-      </script>
+      <ul class="pagination">
+        <% slideshow.each_with_index do |slide,i| %>
+          <li <% if i <= 5 %>class="padded-mini-image"<% end %>>
+            <a href="#<%= i %>">
+              <div class="current-slide-indicator"></div>
+              <img src="<%= slide.image.url(:thumb) %>" width="121"/>
+            </a>
+          </li>
+        <% end %>
+      </ul>
     </div>
-    <div id="headlines-container">
-      <%= render :partial => 'partials/headlines', :locals => { :articles => headlines } %>
-    </div>
-    <div class="clear"></div>
   </div>
-</section>
+  <script>
+  (function() {
+    $("#slideshow").slides({
+      preload: true,
+      preloadImage: "/assets/loading.gif",
+      play: 5000,
+      pause: 2500,
+      hoverPause: true,
+      generatePagination: false,
+      animationStart: function(current) {
+        $(".caption").animate({
+          bottom: -60
+        },100);
+      },
+      animationComplete: function(current) {
+        $(".caption").animate({
+          bottom: 0
+        },200);
+      },
+      slidesLoaded: function() {
+        $(".caption").animate({
+          bottom: 0
+        },200);
+      }
+    });
+  })();
+  </script>
+</div>

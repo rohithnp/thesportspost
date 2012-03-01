@@ -1,56 +1,61 @@
 <% title "The Sports Post" %>
-<%= render :partial => 'partials/slideshow', :locals => {
-  :slideshow => @slideshow.articles, :headlines => @headlines.articles
-} %>
-<% if false %>
-  <section id="custom-page-section-section">
-    <div class="container_16 white-background">
-      <div id="custom-page-section-1">
-        <% @page_sections.each do |section| %>
-          <%= render :partial => 'partials/post_type_1', :locals => { :title => section.name, :articles => section.articles } %>
+<div id="upper_content">
+  <%= render :partial => 'partials/slideshow', :locals => {
+    :slideshow => @slideshow.articles, :headlines => @headlines
+  } %>
+
+  <div id="headlines" class="right_content">
+    <h2>Headlines</h2>
+    <div id="headlines_content" class="white_bg">
+      <ul>
+         <% @headlines.articles.each do |headline| %>
+          <li>
+            <span>
+              <%= link_to (truncate headline.title, :length => 50), "/articles/#{headline.slug}" %>
+            </span>
+          </li>
         <% end %>
-      </div>
+      </ul>
     </div>
-    <div class="clear"></div>
-  </section>
-<% end %>
-<section id="popular-posts-section">
-  <div id="popular-posts-container" class="container_16 white-background">
-    <div id="popular-posts" style="float: left">
-      <div class="grid_11 section-title">
-        <h3 class="section-title"><span class="dark-title-background">Popular Posts</span></h3>
-      </div>
-      <div class="clear"></div>
-      <div class="popular-posts-subcontainer">
-        <%= render :partial => 'partials/popular_posts_slice_3', :locals => {
-          :article1 => @popular_posts[0], :article2 => @popular_posts[1], :article3 => @popular_posts[2]
-        } %>
-        <%= render :partial => 'partials/popular_posts_slice_3', :locals => {
-          :article1 => @popular_posts[3], :article2 => @popular_posts[4], :article3 => @popular_posts[5]
-        } %>
-        <% @popular_posts[6..11].each do |post| %>
-          <%= render :partial => 'partials/popular_posts_slice_4', :locals => { :article => post } %>
-        <% end %>
-      </div>
-      <div class="clear"></div>
-    </div>
-    <div id="custom-page-sections-container">
-      <%= render :partial => 'partials/post_type_1', :locals => {
-        :title => @recent_articles.full_name,
-        :articles => @recent_articles.articles
-      } %>
-      <div style="height: 10px; width: 10px; float: left"></div>
-      <%= render :partial => 'partials/post_type_1', :locals => {
-        :title => @observation_deck.full_name,
-        :articles => @observation_deck.articles
-      } %>
-      <div class="grid_5">
-        <div style="margin-top: 15px"><%= render :partial => 'partials/adsense_under_headlines' %></div>
-      </div>
-    </div>
-    <div>
-      <%= render :partial => 'partials/google_search' %>
-    </div>
-    <div class="clear"></div>
   </div>
-</section>
+</div>
+<div class="clear"></div>
+<div id="middle_content">
+  <div id="headlines_container" class="left_content">
+
+   <%= render :partial => 'partials/top_post', :locals =>{
+      :top_post => @top_post
+      } %>
+    <%= render :partial => 'partials/recent_articles', :locals =>{
+      :recent_articles => @recent_articles.articles[0..2]
+    } %>
+  </div>
+  <div id="middle_ad_container" class="right_content">
+    <img src="http://dummyimage.com/300x250/000222/fff"/>
+  </div>
+  
+</div>
+<div class="clear"></div>
+
+<div id="lower_content">
+  <%= render :partial => 'partials/popular_posts', :locals =>{
+      :popular_posts => @popular_posts
+      } %>
+
+
+  <%= render :partial => 'partials/observation_deck', :locals =>{
+    :observation_deck => @observation_deck
+  } %>
+
+</div>
+<div class ="clear"></div>
+
+<div id="lower_content">
+  <%= render :partial => 'partials/more_popular_posts', :locals =>{
+    :popular_posts => @popular_posts[6..8]
+  } %>
+  <div id="lower-right-ad" class="right_content">
+    <img src="http://dummyimage.com/300x400/000222/fff"/>
+  </div>
+</div>
+<div class ="clear"></div>
