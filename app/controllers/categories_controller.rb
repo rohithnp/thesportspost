@@ -8,8 +8,11 @@ class CategoriesController < ApplicationController
     end
     @articles = Article.is_live.where(:category_id => @category.id).order('created_at DESC')
     @popular_articles = Article.is_live.where(:category_id => @category.id).order('pageviews DESC')
+    @top_post = @popular_articles.shift
     @slideshow = Article.is_live.where(['category_id = ? AND image_file_name IS NOT NULL', @category.id]).limit(5)
     @headlines = @articles[0..10]
+    @observation_deck = @articles[0..4]
+
   end
 
   def update

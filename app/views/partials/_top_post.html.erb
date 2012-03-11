@@ -1,6 +1,6 @@
-<div id="top_post">
+<div class="fivecol" id="top_post">
   <h2>Top Post</h2>
-  <div id="top_post_content" class="white_bg">
+  <div id="top_post_content">
     <div class="img_container">
       <% if @top_post.image? and @top_post.image.url(:big) %>
         <img src="<%= @top_post.image.url(:big) %>"/>

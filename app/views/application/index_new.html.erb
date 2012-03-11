@@ -1,0 +1,61 @@
+<% title "The Sports Post" %>
+<div id="upper_content">
+  <%= render :partial => 'partials/slideshow', :locals => {
+    :slideshow => @slideshow.articles, :headlines => @headlines
+  } %>
+
+  <div id="headlines" class="right_content">
+    <h2>Headlines</h2>
+    <div id="headlines_content" class="white_bg">
+      <ul>
+         <% @headlines.articles.each do |headline| %>
+          <li>
+            <span>
+              <%= link_to (truncate headline.title, :length => 50), "/articles/#{headline.slug}" %>
+            </span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="middle_content">
+  <div id="headlines_container" class="left_content">
+
+   <%= render :partial => 'partials/top_post', :locals =>{
+      :top_post => @top_post
+      } %>
+    <%= render :partial => 'partials/recent_articles', :locals =>{
+      :recent_articles => @recent_articles.articles[0..2]
+    } %>
+  </div>
+  <div id="middle_ad_container" class="right_content">
+    <img src="http://dummyimage.com/300x250/000222/fff"/>
+  </div>
+  
+</div>
+<div class="clear"></div>
+
+<div id="lower_content">
+  <%= render :partial => 'partials/popular_posts', :locals =>{
+      :popular_posts => @popular_posts
+      } %>
+
+
+  <%= render :partial => 'partials/observation_deck', :locals =>{
+    :observation_deck => @observation_deck
+  } %>
+
+</div>
+<div class ="clear"></div>
+
+<div id="lower_content">
+  <%= render :partial => 'partials/more_popular_posts', :locals =>{
+    :popular_posts => @popular_posts[6..8]
+  } %>
+  <div id="lower-right-ad" class="right_content">
+    <img src="http://dummyimage.com/300x400/000222/fff"/>
+  </div>
+</div>
+<div class ="clear"></div>

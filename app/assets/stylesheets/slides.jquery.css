@@ -35,7 +35,7 @@
   overflow: hidden;
 }
 ul.pagination {
-  margin: 10px 0 0 0;
+  margin: 5px 0 0 0;
   padding: 0;
 }
 .pagination li {
@@ -45,16 +45,16 @@ ul.pagination {
   margin: 0;
   height: 80px;
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
 
 }
 .pagination .padded-mini-image {
   padding-right: 5px;
-  padding-top: 30px;
+  padding-top: 0px;
 }
 
 .pagination .padded-mini-image-last {
-  padding-top: 30px;
+  padding-top: 0px;
 }
 .pagination li .current-slide-indicator {
   width: 121px;

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Sports Post</title>
+    <link href='http://fonts.googleapis.com/css?family=Share:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Kelly+Slab' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag "new" %>
+        <%= stylesheet_link_tag "application" %>
+
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="search_bar">
+      <div class="container">
+        <div id="search_box_container">
+          <form id="search_box" action="/search">
+            <input type="text" placeholder="Search" name="q"/>
+            <input type="submit" value="Go"/>
+          </form>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+    <div class="container">
+      <div id="header">
+        <img src="/assets/logo.png" id="logo" style="display:none"/>
+        <h4><%= link_to "the sports post", "/" %></h4>
+        <div id="sign_in_container">
+          <div id="sign_in_box">
+            <% if user_signed_in? %>
+              <span style="color:white">Logged in as: <%= current_user.email %></span>
+            <% else %>
+              <%= form_for resource, :as => resource_name, :url => session_path(resource_name) do |f| %>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Email</th>
+                      <th>Password</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><%= f.email_field :email %></td>
+                      <td><%= f.password_field :password %></td>
+                      <td><%= f.submit "Sign In" %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+      <div id="navbar">
+        <ul>
+          <% @navbar_categories.each_with_index do |category,i| %>
+          <span id="category-with-sub-<%= i %>">
+          <li id="category-<%= i %>"><%= link_to category.full_name, "/categories/#{category.name}" %></li>
+          <% if category.subcategories.length > 0 %>
+           <ul id="category-<%= i%>-subcategories" class="subcategories-list">
+                  <% category.subcategories.each do |sc| %>
+                    <li class="subcategory">
+                      <%= link_to sc.name, "/categories/#{category.name}/subcategories/#{sc.slug}" %>
+                    </li>
+                  <% end %>
+                </ul>
+                <script>
+                  (function() {
+                    var $c = $("#category-<%= i %>");
+                    var $cws = $("#category-with-sub-<%= i %>");
+                    var $sc = $("#category-<%= i %>-subcategories");
+                    $sc.css({ left: $c[0].offsetLeft});
+                    $cws.hover(
+                      function() {
+                        $sc.css({ display: 'block' });
+                      },
+                      function() {
+                        $sc.css({ display: 'none' });
+                      }
+                    );
+                  })();
+                </script>
+              <% end %>
+              </span>
+          <% end %>
+        </ul>
+      </div>
+      <div id="upper_ad_container" class="white_bg">
+          <img src="http://dummyimage.com/940x120/000000/fff.png"/>
+      </div>
+      <div id="upper_separator">
+        <div class="downward_wedge"></div>
+      </div>
+      <div id="container">
+        <section id="main">
+          <%= yield %>
+        </section>
+        <div style="clear:both"></div>
+        <div id="lower_separator">
+          <div class="upward_wedge"></div>
+        </div>
+        <footer>
+          <div class="left white_bg">
+            <div>Copyright &copy; 2011 http://thesportspost.com</div>
+          </div>
+        <div class="clear"></div>
+      </footer>
+    </div>
+  </body>
+</html>

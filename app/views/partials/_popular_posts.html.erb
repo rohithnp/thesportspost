@@ -1,8 +1,7 @@
-<div id="popular_posts_container" class="left_content">
+<div id="popular_posts_container" class="twelcecol">
   <h2>Popular Posts</h2>
-  <div class="white_bg">
     <ul>
-      <% popular_posts[0..5].each do |post| %>
+      <% popular_posts[0..11].each do |post| %>
         <li>
           <div class="img_container">
             <% if post.image? %>
@@ -21,5 +20,4 @@
       <% end %>
     </ul>
     <div style="clear:both"></div>
-  </div>
 </div>

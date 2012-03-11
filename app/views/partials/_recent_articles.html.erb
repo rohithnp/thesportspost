@@ -1,11 +1,11 @@
-<div id="recent_articles_container" class="right_content">
+<div id="recent_articles_container" >
   <h2 id="headline_header">Recent Articles</h2>
   <div id="recent_articles" class="white_bg">
     <ul>
       <% recent_articles.each do |article| %>
         <li>
           <img src="<%= article.image.url(:thumb) %>" width="100" height="60"/>
-          <span><%= link_to article.title, "/articles/#{article.slug}" %></span>
+          <span><%= link_to (truncate article.title, :length =>250), "/articles/#{article.slug}" %></span>
         </li>
       <% end %>
     </ul>

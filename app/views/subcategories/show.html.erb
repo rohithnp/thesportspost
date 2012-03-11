@@ -1,21 +1,19 @@
 <% title "#{@subcategory.name} | #{@category.full_name} | The Sports Post" %>
 
-
-<div id="upper_content">
+<div class="row white_bg" id="upper_content">
   <% if @slideshow.length > 1 %>
   <%= render :partial => 'partials/slideshow', :locals => {
     :slideshow => @slideshow, :headlines => @headlines
   } %>
-  <div id="middle_ad_container" class="right_content">
-    <img src="http://dummyimage.com/300x450/000222/fff"/>
+  <div id="middle_ad_container" class="onepush fourcol last">
+    <img style="margin-top: 50px;"src="http://dummyimage.com/336x280/000222/fff"/>
   </div>
   <% end %>
 </div>
 
-<div class="clear"></div>
-<div id="middle_content">
+<div class="row" id="middle_content">
 
-  <div id="headlines" class="left_content">
+  <div id="headlines" class="sevencol">
     <h2>Headlines</h2>
     <div id="headlines_content_subcategory" class="white_bg">
       <ul>

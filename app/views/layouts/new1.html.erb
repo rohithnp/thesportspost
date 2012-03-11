@@ -30,14 +30,6 @@
               <div id="sign_in_box">
                 <% if user_signed_in? %>
                   <span style="color:white">Logged in as: <%= current_user.email %></span>
-                  <% if current_user.role?(:writer) %>
-                  <%= link_to 'Admin', admin_articles_path %>
-                  &nbsp;-&nbsp;
-                  <% elsif can? :manage, Article %>
-                  <%= link_to 'Admin', '/admin' %>
-                  &nbsp;-&nbsp;
-                  <% end %>
-                <%= link_to 'Sign Out', destroy_user_session_path, :method => 'DELETE' %>
                 <% else %>
                   <%= form_for resource, :as => resource_name, :url => session_path(resource_name) do |f| %>
                     <table>
@@ -90,12 +82,7 @@
                     var $c = $("#category-<%= i %>");
                     var $cws = $("#category-with-sub-<%= i %>");
                     var $sc = $("#category-<%= i %>-subcategories");
-                    var $left = 171+<%= i %>*115;
-                    <% if i == 3 %>
-                      $left = $left + 18;
-                    <% end %>
-                          
-                    $sc.css({ left: $left+'px'});
+                    $sc.css({ left: $c[0].offsetLeft});
                     $cws.hover(
                       function() {
                         $sc.css({ display: 'block' });
