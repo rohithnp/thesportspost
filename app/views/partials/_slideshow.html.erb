@@ -11,7 +11,7 @@
         <% slideshow.each do |slide| %>
           <div class="slide">
             <a href="<%= "/articles/#{slide.slug}" %>">
-              <img src="<%= slide.image.url(:big) %>" width="636"/>
+              <img src="<%= slide.image.url(:big) %>" />
               <div class="caption">
                 <div class="slideshow-title"><%= slide.title %></div>
                 <div class="slideshow-subtitle"><%= slide.subtitle %></div>

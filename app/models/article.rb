@@ -13,10 +13,19 @@ class Article < ActiveRecord::Base
 
   friendly_id :title, :use => :slugged
 
-  has_attached_file :image, :styles => {
+  has_attached_file :image, 
+    :styles => {
     :thumb => 'x100',
-    :big => '500x500>'
-  }
+    :big => '500x500>',
+    },
+    :storage => :s3,
+    :s3_credentials => {
+      :access_key_id => "AKIAJEL6CZLKNYXSOD6A",
+      :secret_access_key => "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" 
+    },
+    :path => "/system/:attachment/:id/:style/:filename",   
+    :bucket => "thesportspost"
+  
 
   scope :is_live, where('is_draft IS NOT true')
 
