@@ -1,8 +1,40 @@
 <div id="slideshow_container" class="sevencol">
+	<div class="ribbon"></div>
+	<div id="slider" class="nivoSlider">
+		<!--
+		<img src="images/toystory.jpg" alt="" />
+		<a href="http://dev7studios.com"><img src="images/up.jpg" alt="" title="This is an example of a caption" /></a>-->
+		<% slideshow.each_with_index do |slide,i| %>
+		<img src="<%= slide.image.url(:big) %>" rel="<%=slide.image.url(:thumb)%>" title="#caption_<%= i %>" />
+		<% end %>
+
+	</div>
+	<% slideshow.each_with_index do |slide,i| %>
+	<div id="caption_<%= i %>" class="nivo-html-caption">
+		<div class="slideshow-title"><%= slide.title %></div>
+		<div class="slideshow-subtitle"><%= slide.subtitle %></div>
+	</div>
+	<% end %>
+
+
+</div>
+<script type="text/javascript">
+$(window).load(function() {
+	$('#slider').nivoSlider({
+		effect: 'random',
+		controlNavThumbs: true, // Use thumbnails for Control Nav
+		controlNavThumbsFromRel: true,// Use image rel for thumbs
+		prevText: '', // Prev directionNav text
+		nextText: '' // Next directionNav text
+	});
+});
+</script>
+
+<!--
 <% if @subcategory %>
   <h2 id="subcategory_header"><%= @category.full_name %> - <%= @subcategory.name %></h2>
 <% end %>
-  <div id="slideshow" class="white_bg">
+
     <% if false %>
       <div><img src="<%= Article.first.image.url(:thumb) %>"/></div>
     <% end %>
@@ -60,3 +92,4 @@
   })();
   </script>
 </div>
+-->

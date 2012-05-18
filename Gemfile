@@ -9,6 +9,7 @@ gem 'friendly_id', "~> 4.0.0.rc2"
 gem 'thin'
 gem 'heroku'
 gem 'aws-s3', :require => 'aws/s3'
+gem 'aws-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -7,4 +7,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require tinymce-jquery
+//= require jquery.nivo.slider.pack
 //= require_tree .

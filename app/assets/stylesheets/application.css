@@ -9,6 +9,7 @@
  *= require normalize
  *= require 960
  *= require slides.jquery
+ *= require nivo-slider
  *= require_self
  *= require_tree ./partials
  *= require_tree ./views
@@ -180,7 +181,7 @@ li.categories {
     padding-bottom: 10px;
     background-color: #600000;
     border-bottom: 2px solid #222
-    }
+}
 
 li.subcategory {
     padding-bottom: 5px
