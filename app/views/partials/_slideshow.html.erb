@@ -5,7 +5,8 @@
 		<img src="images/toystory.jpg" alt="" />
 		<a href="http://dev7studios.com"><img src="images/up.jpg" alt="" title="This is an example of a caption" /></a>-->
 		<% slideshow.each_with_index do |slide,i| %>
-		<img src="<%= slide.image.url(:big) %>" rel="<%=slide.image.url(:thumb)%>" title="#caption_<%= i %>" />
+		<!--<img src="<%= slide.image.url(:big) %>" rel="<%=slide.image.url(:thumb)%>" title="#caption_<%= i %>" /> -->
+      <img src="http://dummyimage.com/646x320/000000/fff.png" rel="<%=slide.image.url(:thumb)%>" title="#caption_<%= i %>"/>
 		<% end %>
 
 	</div>
@@ -21,6 +22,8 @@
 <script type="text/javascript">
 $(window).load(function() {
 	$('#slider').nivoSlider({
+    animSpeed: 100,
+    pauseTime: 3000,
 		effect: 'random',
 		controlNavThumbs: true, // Use thumbnails for Control Nav
 		controlNavThumbsFromRel: true,// Use image rel for thumbs

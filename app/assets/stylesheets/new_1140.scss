@@ -365,16 +365,17 @@ span {
   margin: 0px;
   padding: 12px 0px 12px 12px;
   li  {
-   @include img_container(120px,100px);
+   @include img_container(100px,100px);
    float: left;
   width: $left_width/2 -10px;
   margin-right: 0px;
   margin-bottom: 10px;
+  padding-top: 10px;
   div  {
    float: left;
 }
 .blurb {
-  padding-left: 2px;
+  padding-left: 12px;
   width: 160px;
   h3  {
    color: white;
@@ -383,12 +384,12 @@ span {
   margin: 0;
 }
 p {
-  color: white;
+  color: black;
   font-size: 12px;
   margin: 5px 0px 0px;
 }
 a {
-  color: red;
+  color: #700000;
   text-decoration: none;
   &:hover  {
    color:  white;

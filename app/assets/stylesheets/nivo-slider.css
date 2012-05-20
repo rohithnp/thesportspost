@@ -12,9 +12,9 @@
  
 #slider {
     position:relative;
-    width::800px; /* Change this to your images width */
-    height:220px; /* Change this to your images height */
+    height:320px;
     background:url(images/loading.gif) no-repeat 50% 50%;
+    border: 1px solid pink;
 }
 .nivoSlider img {
     position:absolute;
@@ -37,10 +37,11 @@
 }
 .nivo-control{
 	float:left;
+	padding-right:1em;
 }
 #slider .nivo-controlNav {
 	position:absolute;
-	bottom:-60px; /* Put the nav below the slider */
+	bottom:-70px; /* Put the nav below the slider */
 	width:100%;
 }
 #slider .nivo-controlNav img {
@@ -89,11 +90,11 @@
 	color:#fff;
 	opacity:0.6; /* Overridden by captionOpacity setting */
 	width:100%;
-	padding:1em;
+
 	z-index:8;
 }
 .nivo-caption p {
-	padding:5px;
+	padding:1em;
 	margin:0;
 }
 .nivo-caption a {
