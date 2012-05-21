@@ -1,5 +1,8 @@
 /*
-
+ *= require 1140
+ *= require ie
+ *= require styles
+ *= require normalize
  */
 $gap_size:  4px;
    $width:  940px;
@@ -362,17 +365,16 @@ span {
   margin: 0px;
   padding: 12px 0px 12px 12px;
   li  {
-   @include img_container(100px,100px);
+   @include img_container(120px,100px);
    float: left;
   width: $left_width/2 -10px;
   margin-right: 0px;
   margin-bottom: 10px;
-  padding-top: 10px;
   div  {
    float: left;
 }
 .blurb {
-  padding-left: 12px;
+  padding-left: 2px;
   width: 160px;
   h3  {
    color: white;
@@ -381,12 +383,12 @@ span {
   margin: 0;
 }
 p {
-  color: black;
+  color: white;
   font-size: 12px;
   margin: 5px 0px 0px;
 }
 a {
-  color: #700000;
+  color: red;
   text-decoration: none;
   &:hover  {
    color:  white;
