@@ -7,12 +7,12 @@
             <% if post.image? %>
               <img src="<%= post.image.url(:thumb) %>"/>
             <% else %>
-              <img src="http://dummyimage.com/120x100/000222/fff"/>
+              <img src="http://dummyimage.com/100x100/000222/fff"/>
             <% end %>
           </div>
           <div class="blurb">
             <h3>
-              <%= link_to (truncate post.title, :length => 30), "/articles/#{post.slug}" %>
+              <%= link_to (truncate post.title, :length => 20), "/articles/#{post.slug}" %>
             </h3>
             <p><%= article_text_sample(post, 80) %></p>
           </div>

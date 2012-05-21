@@ -365,10 +365,10 @@ span {
    list-style-type: none;
   margin: 0px;
   padding: 12px 0px 12px 12px;
+  float: left;
   li  {
    @include img_container(100px,100px);
    float: left;
-  width: $left_width/2 -10px;
   margin-right: 0px;
   margin-bottom: 10px;
   padding-top: 10px;
